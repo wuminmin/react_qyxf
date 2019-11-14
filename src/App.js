@@ -1,11 +1,8 @@
 import React from 'react';
-import axios from 'axios'
 import 'weui';
 import 'react-weui/build/packages/react-weui.css';
 import Page from './page';
-import Zmage from 'react-zmage'
 import Carousel from 'nuka-carousel';
-import MyCarousel from './MyCarousel'
 import {
   ButtonArea, Button, CellsTitle, CellsTips, CellBody, CellFooter, Form, FormCell, Radio,
   Tab, NavBarItem, Article, ActionSheet, Cells, Cell, Preview, PreviewHeader, PreviewFooter, PreviewBody, PreviewItem, PreviewButton
@@ -32,7 +29,7 @@ class ShouYe extends React.Component {
       <div>
         <Page className="input" >
         <Carousel>
-                  <img src="https://wx.wuminmin.top/wxyl/image?id=17" />
+                  <img src="https://wx.wuminmin.top/wxyl/image?id=17" alt="" />
                   <img src="https://wx.wuminmin.top/wxyl/image?id=18" />
                   <img src="https://wx.wuminmin.top/wxyl/image?id=19" />
                    <img src="https://wx.wuminmin.top/wxyl/image?id=20" />
