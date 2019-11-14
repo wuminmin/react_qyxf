@@ -3,7 +3,27 @@ import React from 'react'
 import BraftEditor from 'braft-editor'
 import axios from 'axios';
 import {
-  Button
+  ButtonArea,
+  Button,
+  CellsTitle,
+  CellsTips,
+  Cell,
+  CellHeader,
+  CellBody,
+  CellFooter,
+  Form,
+  FormCell,
+  Icon,
+  Input,
+  Label,
+  TextArea,
+  Switch,
+  Radio,
+  Checkbox,
+  Select,
+  VCode,
+  Agreement,
+  Toptips
 } from 'react-weui';
 
 export default class BasicDemo extends React.Component {
@@ -11,7 +31,9 @@ export default class BasicDemo extends React.Component {
   state = {
     editorState: BraftEditor.createEditorState('<p>Hello <b>World!</b></p>'), // 设置编辑器初始内容
     outputHTML: '<p></p>',
-    myHTML:'',
+    myHTML: '',
+    tittle: '',
+    type:'',
   }
 
   componentDidMount() {
@@ -37,42 +59,53 @@ export default class BasicDemo extends React.Component {
     })
   }
 
+  handleChangeBanShiRiQi = (e) => {
+    this.setState({ type: e.target.value });
+  }
+
+  handleChangeBanShiRiQi2 = (e) => {
+    this.setState({ tittle: e.target.value });
+  }
+
   render() {
 
-    const { editorState, outputHTML ,myHTML} = this.state
+    const { editorState, outputHTML, myHTML } = this.state
 
     return (
       <div>
+         <label>模块名称:</label>
+        <input type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi} />
+        <label>新闻标题:</label>
+        <input type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi2} />
         <div className="editor-wrapper">
           <BraftEditor
             value={editorState}
             onChange={this.handleChange}
           />
         </div>
-        <h5>输出内容</h5>
-        <div className="output-content">{outputHTML}</div>
+        <h5>预览文章</h5>
+        <div dangerouslySetInnerHTML={{ __html: myHTML }} />
         <Button
           onClick={e => {
             let self = this
-            axios.post('https://wx.wuminmin.top/qyrd/rd_updata', {
-              firstName: self.state.outputHTML,
-              lastName: 'Flintstone'
-            })
+            axios.post('https://wx.wuminmin.top/qyrd/rd_updata',
+              {
+                article: self.state.outputHTML,
+                tittle: self.state.tittle,
+                type: self.state.type,
+              })
               .then(function (response) {
                 console.log(response);
                 self.setState({
-                  myHTML: response.data.firstName
-              });
+                  myHTML: response.data.article
+                });
 
               })
               .catch(function (error) {
                 console.log(error);
               });
           }
-          }>
-          OK
-                        </Button>
-                        <div dangerouslySetInnerHTML = {{ __html: myHTML }} />
+          }>上传文章</Button>
       </div>
     )
 
