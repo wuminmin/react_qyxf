@@ -1,5 +1,7 @@
 import React from 'react';
+import Qs from 'qs'
 import 'weui';
+import axios from 'axios'
 import 'react-weui/build/packages/react-weui.css';
 import Page from './page';
 import Carousel from 'nuka-carousel';
@@ -16,7 +18,53 @@ class ShouYe extends React.Component {
     this.state = {
       width: props.width || -1,
       height: props.height || -1,
+      首页模块: '人大新闻',
+      首页新闻标题: '',
+      首页新闻内容:'',
     }
+  }
+
+  componentDidMount() {
+    console.log(this.props)
+    const search = this.props.location.search;
+    const params = new URLSearchParams(search);
+    console.log(params)
+    let self = this;
+
+    let data = {
+        "type": this.state.首页模块
+    }
+    axios({
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'post',
+      url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai',
+      data: Qs.stringify(data)
+  }).then(function (response) {
+    console.log(response)
+    self.setState({
+      首页新闻标题: response.data[0]['tittle'],
+      首页新闻内容:response.data[0]['article']
+    });
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+    // axios.post('https://wx.wuminmin.top/qyrd/rd_xia_zai', {
+    //   type: self.state.首页模块,
+    // })
+    //   .then(function (response) {
+    //     console.log(response)
+    //     self.setState({
+    //       首页新闻标题: response.data[0]['tittle'],
+    //       首页新闻内容:response.data[0]['article']
+    //     });
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
   }
 
   render() {
@@ -28,16 +76,16 @@ class ShouYe extends React.Component {
     return (
       <div>
         <Page className="input" >
-        <Carousel>
-                  <img src="https://wx.wuminmin.top/wxyl/image?id=17" alt="" />
-                  <img src="https://wx.wuminmin.top/wxyl/image?id=18" />
-                  <img src="https://wx.wuminmin.top/wxyl/image?id=19" />
-                   <img src="https://wx.wuminmin.top/wxyl/image?id=20" />
-                   <img src="https://wx.wuminmin.top/wxyl/image?id=21" />
-                   <img src="https://wx.wuminmin.top/wxyl/image?id=22" />
-                   <img src="https://wx.wuminmin.top/wxyl/image?id=23" />
-                   <img src="https://wx.wuminmin.top/wxyl/image?id=24" />
-                </Carousel>
+          <Carousel>
+            <img src="https://wx.wuminmin.top/wxyl/image?id=17" alt="" />
+            <img src="https://wx.wuminmin.top/wxyl/image?id=18" />
+            <img src="https://wx.wuminmin.top/wxyl/image?id=19" />
+            <img src="https://wx.wuminmin.top/wxyl/image?id=20" />
+            <img src="https://wx.wuminmin.top/wxyl/image?id=21" />
+            <img src="https://wx.wuminmin.top/wxyl/image?id=22" />
+            <img src="https://wx.wuminmin.top/wxyl/image?id=23" />
+            <img src="https://wx.wuminmin.top/wxyl/image?id=24" />
+          </Carousel>
           <CellsTitle>
             <Tab type="navbar">
               <NavBarItem label="首  页" type="red">
@@ -88,9 +136,8 @@ class ShouYe extends React.Component {
             </Tab>
           </CellsTitle>
           <CellsTitle>
-            <h1>县人大常委会开展政府性投资项目建设情况调研</h1>
-            <h4>10月12日，县人大常委会组织开展全县政府性投资项目建设情况专题调研。县人大常委会主任杨晓兵，副主任潘盛，县政府副县长祝和平及部分县人大常委会财经工委委员参加调研。县发改委及相关乡镇负责同志陪同。</h4>
-
+            <h1>{this.state.首页新闻标题}</h1>
+            <div dangerouslySetInnerHTML={{ __html: this.state.首页新闻内容 }} />
           </CellsTitle>
           <CellsTitle>
             <ButtonArea direction="horizontal">
@@ -789,10 +836,10 @@ class ShouYe extends React.Component {
           </CellsTitle>
 
           <CellsTitle>
-          <Carousel>
-                  <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
-                  <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
-                </Carousel>
+            <Carousel>
+              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
+              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+            </Carousel>
           </CellsTitle>
         </Page>
       </div>
