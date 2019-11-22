@@ -10,8 +10,69 @@ import {
   Tab, NavBarItem, Article, ActionSheet, Cells, Cell, Preview, PreviewHeader, PreviewFooter, PreviewBody, PreviewItem, PreviewButton
 } from 'react-weui';
 
-class ShouYe extends React.Component {
+class MyCell extends React.Component {
+  render() {
+    return (
+      <Cell href="javascript:;" access>
+        <CellBody>
+          {this.props.item.tittle}
+        </CellBody>
+        <CellFooter>
+          {this.props.item.time}
+        </CellFooter>
+      </Cell>
+    )
 
+  }
+}
+
+class MyCells extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      新闻列表: [],
+    }
+  }
+
+  componentDidMount() {
+    let self = this;
+    let data = {
+      "type": this.props.my_type
+    }
+    axios({
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'post',
+      url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_list',
+      data: Qs.stringify(data)
+    }).then(function (response) {
+      console.log(response)
+      self.setState({
+        新闻列表: response.data
+      });
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  render() {
+    return (
+      <Cells>
+        {
+          this.state.新闻列表.map((item, index) => {
+            return (
+              <MyCell item={item} key={index}  ></MyCell>
+            )
+          })
+        }
+      </Cells>
+    )
+  }
+}
+
+class ShouYe extends React.Component {
 
   constructor(props) {
     super(props);
@@ -20,7 +81,7 @@ class ShouYe extends React.Component {
       height: props.height || -1,
       首页模块: '人大新闻',
       首页新闻标题: '',
-      首页新闻内容:'',
+      首页新闻内容: '',
     }
   }
 
@@ -32,46 +93,28 @@ class ShouYe extends React.Component {
     let self = this;
 
     let data = {
-        "type": this.state.首页模块
+      "type": this.state.首页模块
     }
     axios({
       headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'post',
       url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai',
       data: Qs.stringify(data)
-  }).then(function (response) {
-    console.log(response)
-    self.setState({
-      首页新闻标题: response.data[0]['tittle'],
-      首页新闻内容:response.data[0]['article']
-    });
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-
-    // axios.post('https://wx.wuminmin.top/qyrd/rd_xia_zai', {
-    //   type: self.state.首页模块,
-    // })
-    //   .then(function (response) {
-    //     console.log(response)
-    //     self.setState({
-    //       首页新闻标题: response.data[0]['tittle'],
-    //       首页新闻内容:response.data[0]['article']
-    //     });
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+    }).then(function (response) {
+      console.log(response)
+      self.setState({
+        首页新闻标题: response.data.tittle,
+        首页新闻内容: response.data.article
+      });
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   render() {
-    const style = {
-      width: this.state.width * 9 / 24,
-      // height:this.state.height,
-    };
 
     return (
       <div>
@@ -153,124 +196,10 @@ class ShouYe extends React.Component {
 
                 <Tab type="navbar">
                   <NavBarItem label="人大要闻">
-                    <Cells>
-                      <Cell href="javascript:;" access>
-                        <CellBody>
-                          市人大常委会党组举行 主题教育专题党课报告会
-                </CellBody>
-                        <CellFooter>
-                          2019-11-04
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                    </Cells>
+                  <MyCells  user={[{ 'tittle': 'tittle', 'time': 'time' }]} my_type={'人大要闻'}></MyCells>
                   </NavBarItem>
                   <NavBarItem label="通知公告">
-                    <Cells>
-                      <Cell href="javascript:;" access>
-                        <CellBody>
-                          市人大常委会党组举行 主题教育专题党课报告会
-                </CellBody>
-                        <CellFooter>
-                          2019-11-04
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                    </Cells>
+                  <MyCells  user={[{ 'tittle': 'tittle', 'time': 'time' }]} my_type={'通知公告'} ></MyCells>
                   </NavBarItem>
 
                 </Tab>
@@ -286,64 +215,8 @@ class ShouYe extends React.Component {
               <Button type="warn" disabled>
                 <Tab type="navbar">
                   <NavBarItem label="监督工作">
-                    <Cells>
-                      <Cell href="javascript:;" access>
-                        <CellBody>
-                          市人大常委会党组举行 主题教育专题党课报告会
-                </CellBody>
-                        <CellFooter>
-                          2019-11-04
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                      <Cell access>
-                        <CellBody>
-                          市四届人大常委会第十五次会议召开
-                </CellBody>
-                        <CellFooter>
-                          2019-11-01
-                </CellFooter>
-                      </Cell>
-                    </Cells>
+                    <MyCells user={[{ 'tittle': 'tittle', 'time': 'time' }]} my_type={'监督工作'} ></MyCells>
+
                   </NavBarItem>
                   <NavBarItem label="人事任免">
                     <Cells>
