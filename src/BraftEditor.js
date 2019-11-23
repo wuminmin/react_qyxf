@@ -37,7 +37,7 @@ export default class BasicDemo extends React.Component {
 
   setEditorContentAsync = () => {
     this.isLivinig && this.setState({
-      editorState: BraftEditor.createEditorState('<p>你好，<b>世界!</b><p>')
+      editorState: BraftEditor.createEditorState('')
     })
   }
 
@@ -76,26 +76,6 @@ export default class BasicDemo extends React.Component {
         <Button
           onClick={e => {
             let self = this;
-
-            // axios.post('https://wx.wuminmin.top/qyrd/rd_updata',
-            //   {
-            //     article: self.state.outputHTML,
-            //     tittle: self.state.tittle,
-            //     type: self.state.type,
-            //     now: moment().format('YYYY-MM-DD HH:mm:ss'),
-            //   })
-            //   .then(function (response) {
-            //     console.log(response);
-            //     self.setState({
-            //       myHTML: response.data.article
-            //     });
-
-            //   })
-            //   .catch(function (error) {
-            //     console.log(error);
-            //   });
-
-
             let data = {
               "article": self.state.outputHTML,
               "tittle": self.state.tittle,
