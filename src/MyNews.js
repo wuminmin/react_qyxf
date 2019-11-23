@@ -1,6 +1,8 @@
 import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button } from 'antd';
 import Carousel from 'nuka-carousel';
 import React from 'react'
+import Qs from 'qs'
+import axios from 'axios'
 import 'antd/dist/antd.css';
 import './index.css';
 const { SubMenu } = Menu;
@@ -153,21 +155,99 @@ const menu7 = (
     </Menu>
 );
 
+class MyMenu extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            菜单列表: [
+                {
+                    '月份': '2019年12月',
+                    '新闻标题列表': [{ '标题': '测试' }, { '标题': '测试2' }, { '标题': '测试3' }]
+                },
+                {
+                    '月份': '2019年11月',
+                    '新闻标题列表': [{ '标题': 'aaaaaa' }, { '标题': 'bbbbbbb' }, { '标题': 'ccccccc' }]
+                },
+                {
+                    '月份': '2019年10月',
+                    '新闻标题列表': [{ '标题': '4444444' }, { '标题': '55555555' }, { '标题': '66666666' }]
+                }
+            ],
+            栏目名称: '人大要闻',
+        }
+    }
+    handleClick = e => {
+        console.log('click ', e.key);
+        let self = this;
+        let data = {
+            "tittle": e.key
+        }
+        axios({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'post',
+            url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_by_tittle',
+            data: Qs.stringify(data)
+        }).then(function (response) {
+            console.log(response)
+            self.setState({
+                首页新闻标题: response.data.tittle,
+                首页新闻内容: response.data.article
+            });
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
 
+    render() {
+        return (
+            <div>
+                <label>{this.state.栏目名称}</label>
+                <Menu
+                    onClick={this.handleClick}
+                    style={{ width: 256 }}
+                    defaultSelectedKeys={['1']}
+                    defaultOpenKeys={['sub1']}
+                    mode="inline"
+                >
+                    {
+                        this.state.菜单列表.map((item) => {
+                            return (
+                                <SubMenu item={item} key={item.月份} title={
+                                    <span>
+                                        <Icon type="setting" />
+                                        <span>{item.月份}</span>
+                                    </span>
+                                } >
+                                    {
+                                        item.新闻标题列表.map((item2) => {
+                                            return (
+                                                <Menu.Item key={item2.标题}>{item2.标题}</Menu.Item>
+                                            )
+                                        })
+                                    }
+                                </SubMenu>
+                            )
+                        })
+                    }
+                </Menu>
+            </div>
+        )
+    }
+}
 
 export default class MyNews extends React.Component {
     state = {
         collapsed: false,
+        myHTML: '',
     };
 
     onCollapse = collapsed => {
         console.log(collapsed);
         this.setState({ collapsed });
     };
-
-    handleClick = e => {
-        console.log('click ', e);
-      };
 
     render() {
         return (
@@ -182,80 +262,57 @@ export default class MyNews extends React.Component {
                     <img src="https://wx.wuminmin.top/wxyl/image?id=23" />
                     <img src="https://wx.wuminmin.top/wxyl/image?id=24" />
                 </Carousel>
-                <div>
-                    <Row>
-                        <Col span={3}>
+                <Row>
+                    <Col span={3}>
 
-                        </Col>
-                        <Col span={3}>
-                            <Dropdown overlay={menu} placement="bottomCenter">
-                                <Button>首页</Button>
-                            </Dropdown>
-                        </Col>
-                        <Col span={3}>
-                            <Dropdown overlay={menu2} placement="bottomCenter">
-                                <Button>人大概括</Button>
-                            </Dropdown>
-                        </Col>
-                        <Col span={3}>
-                            <Dropdown overlay={menu3} placement="bottomCenter">
-                                <Button>新闻中心</Button>
-                            </Dropdown>
-                        </Col>
-                        <Col span={3}>
-                            <Dropdown overlay={menu4} placement="bottomCenter">
-                                <Button>依法履职</Button>
-                            </Dropdown>
-                        </Col>
-                        <Col span={3}>
-                            <Dropdown overlay={menu5} placement="bottomCenter">
-                                <Button>代表工作</Button>
-                            </Dropdown>
-                        </Col>
-                        <Col span={3}>
-                            <Dropdown overlay={menu6} placement="bottomCenter">
-                                <Button>一府两院</Button>
-                            </Dropdown>
-                        </Col>
-                        <Col span={3}>
-                            <Dropdown overlay={menu7} placement="bottomCenter">
-                                <Button>乡镇人大</Button>
-                            </Dropdown>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col span={4}>
-                            <Menu
-                                onClick={this.handleClick}
-                                style={{ width: 256 }}
-                                defaultSelectedKeys={['1']}
-                                defaultOpenKeys={['sub1']}
-                                mode="inline"
-                            >
-                                <SubMenu
-                                    key="sub4"
-                                    title={
-                                        <span>
-                                            <Icon type="setting" />
-                                            <span>2019年11月</span>
-                                        </span>
-                                    }
-                                >
-                                    <Menu.Item key="9">Option 9</Menu.Item>
-                                    <Menu.Item key="10">Option 10</Menu.Item>
-                                    <Menu.Item key="11">Option 11</Menu.Item>
-                                    <Menu.Item key="12">Option 12</Menu.Item>
-                                </SubMenu>
-                            </Menu>
-                        </Col>
-                        <Col span={20}>
-                            <div></div>
-                        </Col>
+                    </Col>
+                    <Col span={3}>
+                        <Dropdown overlay={menu} placement="bottomCenter">
+                            <Button>首页</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}>
+                        <Dropdown overlay={menu2} placement="bottomCenter">
+                            <Button>人大概括</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}>
+                        <Dropdown overlay={menu3} placement="bottomCenter">
+                            <Button>新闻中心</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}>
+                        <Dropdown overlay={menu4} placement="bottomCenter">
+                            <Button>依法履职</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}>
+                        <Dropdown overlay={menu5} placement="bottomCenter">
+                            <Button>代表工作</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}>
+                        <Dropdown overlay={menu6} placement="bottomCenter">
+                            <Button>府委两院</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}>
+                        <Dropdown overlay={menu7} placement="bottomCenter">
+                            <Button>乡镇人大</Button>
+                        </Dropdown>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={4}>
+                        <MyMenu></MyMenu>
+                    </Col>
+                    <Col span={20}>
+                        <div dangerouslySetInnerHTML={{ __html: this.state.myHTML }} />
+                    </Col>
 
-                    </Row>
-        
-                </div>
-              
+                </Row>
+
+
             </div>
         );
     }
