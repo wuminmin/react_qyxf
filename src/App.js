@@ -3,9 +3,74 @@ import Qs from 'qs'
 import axios from 'axios'
 import 'react-weui/build/packages/react-weui.css';
 import MyHeader from './MyHeader';
-import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List } from 'antd';
 import Carousel from 'nuka-carousel';
 
+class MyTabs extends React.Component {
+  handleClick = e => {
+    console.log(e)
+  }
+
+  render() {
+
+    const tabs_list_data = [
+      {
+        'table_key': '1',
+        'table_name': '人大要闻',
+        'list_data':
+          [{ 'key': '人大要闻11111', 'key2': 'aaaaa' }, { 'key': '人大要闻222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
+      },
+      {
+        'table_key': '2',
+        'table_name': '通知公告',
+        'list_data':
+          [{ 'key': '通知公告11111', 'key2': 'aaaaa' }, { 'key': '通知公告222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
+      },
+      {
+        'table_key': '3',
+        'table_name': '领导讲话',
+        'list_data':
+          [{ 'key': '领导讲话11111', 'key2': 'aaaaa' }, { 'key': '领导讲话222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
+      },
+      {
+        'table_key': '4',
+        'table_name': '工作动态',
+        'list_data':
+          [{ 'key': '工作动态11111', 'key2': 'aaaaa' }, { 'key': '工作动态222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
+      }
+    ]
+
+    const { TabPane } = Tabs;
+
+    const data = [{ 'key': '11111', 'key2': 'aaaaa' }, { 'key': '222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
+
+    function callback(key) {
+      console.log(key);
+    }
+
+    return (
+      <Tabs defaultActiveKey="1" onChange={callback}>
+        {tabs_list_data.map((myitem) => {
+          return (
+            <TabPane tab={myitem.table_name} key={myitem.table_key}>
+              <List
+                bordered
+                dataSource={myitem.list_data}
+                renderItem={item => (
+                  <List.Item  >
+                    <a href={item.key2}> {item.key}</a>
+                    
+                  </List.Item>
+                )}
+              />
+            </TabPane>
+          )
+        })}
+
+      </Tabs>
+    )
+  }
+}
 
 export default class App extends React.Component {
 
@@ -19,8 +84,6 @@ export default class App extends React.Component {
       首页新闻内容: '',
     }
   }
-
-
 
   componentDidMount() {
     console.log(this.props)
@@ -52,11 +115,7 @@ export default class App extends React.Component {
 
   render() {
 
-    const { TabPane } = Tabs;
 
-    function callback(key) {
-      console.log(key);
-    }
 
     return (
       <div>
@@ -72,15 +131,7 @@ export default class App extends React.Component {
           </Col>
           <Col span={2}></Col>
           <Col span={10}>
-            <Tabs defaultActiveKey="1" onChange={callback}>
-              <TabPane tab="Tab 1" key="1">
-                Content of Tab Pane 1
-              </TabPane>
-              <TabPane tab="Tab 2" key="2">
-                Content of Tab Pane 2
-              </TabPane>
-         
-            </Tabs>
+            <MyTabs></MyTabs>
           </Col>
           <Col span={1}></Col>
 
