@@ -3,77 +3,11 @@ import Qs from 'qs'
 import axios from 'axios'
 import 'react-weui/build/packages/react-weui.css';
 import MyHeader from './MyHeader';
-import {
-  ButtonArea, CellsTitle, CellsTips, CellBody, CellFooter, Form, FormCell, Radio,
-  Tab, NavBarItem, Article, ActionSheet, Cells, Cell, Preview, PreviewHeader, PreviewFooter, PreviewBody, PreviewItem, PreviewButton
-} from 'react-weui';
-import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs } from 'antd';
+import Carousel from 'nuka-carousel';
 
-class MyCell extends React.Component {
-  render() {
-    return (
-      <Cell href="javascript:;" access>
-        <CellBody>
-          <a href={'mynews'} >{this.props.item.tittle}</a>
-          
-        </CellBody>
-        <CellFooter>
-          <a href={'mynews'} >{this.props.item.time}</a>
-         
-        </CellFooter>
-      </Cell>
-    )
 
-  }
-}
-
-class MyCells extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      新闻列表: [],
-    }
-  }
-
-  componentDidMount() {
-    let self = this;
-    let data = {
-      "type": this.props.my_type
-    }
-    axios({
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      method: 'post',
-      url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_list',
-      data: Qs.stringify(data)
-    }).then(function (response) {
-      console.log(response)
-      self.setState({
-        新闻列表: response.data
-      });
-    })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-  render() {
-    return (
-      <Cells>
-        {
-          this.state.新闻列表.map((item, index) => {
-            return (
-              <MyCell item={item} key={index}  ></MyCell>
-            )
-          })
-        }
-      </Cells>
-    )
-  }
-}
-
-class ShouYe extends React.Component {
+export default class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -86,13 +20,14 @@ class ShouYe extends React.Component {
     }
   }
 
+
+
   componentDidMount() {
     console.log(this.props)
     const search = this.props.location.search;
     const params = new URLSearchParams(search);
     console.log(params)
     let self = this;
-
     let data = {
       "type": this.state.首页模块
     }
@@ -117,12 +52,40 @@ class ShouYe extends React.Component {
 
   render() {
 
+    const { TabPane } = Tabs;
+
+    function callback(key) {
+      console.log(key);
+    }
+
     return (
       <div>
-               <MyHeader></MyHeader>
+        <MyHeader></MyHeader>
+        <br></br>
+        <Row>
+          <Col span={1}></Col>
+          <Col span={10}>
+            <Carousel>
+              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
+              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+            </Carousel>
+          </Col>
+          <Col span={2}></Col>
+          <Col span={10}>
+            <Tabs defaultActiveKey="1" onChange={callback}>
+              <TabPane tab="Tab 1" key="1">
+                Content of Tab Pane 1
+              </TabPane>
+              <TabPane tab="Tab 2" key="2">
+                Content of Tab Pane 2
+              </TabPane>
+         
+            </Tabs>
+          </Col>
+          <Col span={1}></Col>
 
-            </div>
+        </Row>
+      </div>
     )
   }
 }
-export default ShouYe
