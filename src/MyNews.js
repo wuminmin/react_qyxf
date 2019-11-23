@@ -159,22 +159,9 @@ class MyMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            菜单列表: [
-                {
-                    '月份': '2019年12月',
-                    '新闻标题列表': [{ '标题': '测试' }, { '标题': '测试2' }, { '标题': '测试3' }]
-                },
-                {
-                    '月份': '2019年11月',
-                    '新闻标题列表': [{ '标题': '县人大常委会召开党组会议暨县十五届人大常委会第二十八主任会议' }, { '标题': 'bbbbbbb' }, { '标题': 'ccccccc' }]
-                },
-                {
-                    '月份': '2019年10月',
-                    '新闻标题列表': [{ '标题': '4444444' }, { '标题': '55555555' }, { '标题': '66666666' }]
-                }
-            ],
+            菜单列表: [],
             lan_mu: this.props.lan_mu,
-            ban_kuai:this.props.ban_kuai,
+            ban_kuai: this.props.ban_kuai,
             myHTML_tittle: '',
             myHTML_article: '',
             myHTML_time: '',
@@ -210,6 +197,9 @@ class MyMenu extends React.Component {
         let data = {
             "tittle": e.key
         }
+        self.setState({
+            myHTML_tittle: e.key
+        });
         axios({
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -219,15 +209,25 @@ class MyMenu extends React.Component {
             data: Qs.stringify(data)
         }).then(function (response) {
             console.log(response)
-            // self.setState({
-            //     myHTML_time: response.data.now,
-            //     myHTML_tittle: response.data.tittle,
-            //     myHTML_article: response.data.article
-            // });
             self.setState({
-                myHTML_time: 'response.data.now',
-                myHTML_tittle: 'response.data.tittle',
                 myHTML_article: response.data
+            });
+
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+        axios({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'post',
+            url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_time_by_tittle',
+            data: Qs.stringify(data)
+        }).then(function (response) {
+            console.log(response)
+            self.setState({
+                myHTML_time: response.data
             });
         })
             .catch(function (error) {
@@ -243,9 +243,9 @@ class MyMenu extends React.Component {
                         style={{
                             border: '1px solid rgb(235, 237, 240)',
                         }}
-                        onBack={() => { window.location = '/'} }
+                        onBack={() => { window.location = '/' }}
                         title={this.state.ban_kuai}
-                        subTitle= {this.state.lan_mu}
+                        subTitle={this.state.lan_mu}
                     />,
                     <Menu
                         onClick={this.handleClick}
@@ -292,16 +292,16 @@ export default class MyNews extends React.Component {
     state = {
         collapsed: false,
         myHTML: '',
-        ban_kuai:'',
-        lan_mu:'',
+        ban_kuai: '',
+        lan_mu: '',
     };
 
     componentDidMount() {
         console.log(this.props)
         const search = this.props.location.search;
         const params = new URLSearchParams(search);
-        console.log( params.get('ban_kuai') )
-        console.log( params.get('lan_mu') )
+        console.log(params.get('ban_kuai'))
+        console.log(params.get('lan_mu'))
         this.setState({
             ban_kuai: params.get('ban_kuai'),
             lan_mu: params.get('lan_mu'),
@@ -331,7 +331,6 @@ export default class MyNews extends React.Component {
                 </Carousel>
                 <Row>
                     <Col span={3}>
-
                     </Col>
                     <Col span={3}>
                         <Dropdown overlay={menu} placement="bottomCenter">
@@ -369,7 +368,7 @@ export default class MyNews extends React.Component {
                         </Dropdown>
                     </Col>
                 </Row>
-                <MyMenu ban_kuai={ params.get('ban_kuai')} lan_mu={  params.get('lan_mu') }></MyMenu>
+                <MyMenu ban_kuai={params.get('ban_kuai')} lan_mu={params.get('lan_mu')}></MyMenu>
 
             </div>
         );
