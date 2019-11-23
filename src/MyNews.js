@@ -61,22 +61,22 @@ const menu3 = (
 const menu4 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=立法工作">
                 立法工作
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=决定决议">
                 决定决议
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=任职任免">
                 任职任免
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=监督工作">
                 监督工作
         </a>
         </Menu.Item>
@@ -85,22 +85,22 @@ const menu4 = (
 const menu5 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表信息">
                 代表信息
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表风采">
                 代表风采
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表信箱">
                 代表信箱
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=议案建议">
                 议案建议
         </a>
         </Menu.Item>
@@ -109,22 +109,22 @@ const menu5 = (
 const menu6 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="http://www.ahqy.gov.cn/">
                 人民政府
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="http://www.jjw.gov.cn/">
                 监察委员会
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="http://czqyfy.chinacourt.gov.cn/index.shtml">
                 人民法院
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="http://www.ahqingyang.jcy.gov.cn/">
                 人民检察院
         </a>
         </Menu.Item>
