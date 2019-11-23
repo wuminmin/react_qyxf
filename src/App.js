@@ -15,10 +15,12 @@ class MyCell extends React.Component {
     return (
       <Cell href="javascript:;" access>
         <CellBody>
-          {this.props.item.tittle}
+          <a href={'mynews'} >{this.props.item.tittle}</a>
+          
         </CellBody>
         <CellFooter>
-          {this.props.item.time}
+          <a href={'mynews'} >{this.props.item.time}</a>
+         
         </CellFooter>
       </Cell>
     )
@@ -178,6 +180,7 @@ class ShouYe extends React.Component {
 
             </Tab>
           </CellsTitle>
+          
           <CellsTitle>
             <h1>{this.state.首页新闻标题}</h1>
             <div dangerouslySetInnerHTML={{ __html: this.state.首页新闻内容 }} />
