@@ -1,4 +1,4 @@
-import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
 import Carousel from 'nuka-carousel';
 import React from 'react'
 import Qs from 'qs'
@@ -18,17 +18,17 @@ const menu = (
 const menu2 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=人大概括">
                 人大概括
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=机构设置">
                 机构设置
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=制度建设">
                 制度建设
         </a>
         </Menu.Item>
@@ -37,22 +37,22 @@ const menu2 = (
 const menu3 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=人大要闻">
                 人大要闻
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=通知公告">
                 通知公告
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=领导讲话">
                 领导讲话
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=工作动态">
                 工作动态
         </a>
         </Menu.Item>
@@ -166,16 +166,44 @@ class MyMenu extends React.Component {
                 },
                 {
                     '月份': '2019年11月',
-                    '新闻标题列表': [{ '标题': 'aaaaaa' }, { '标题': 'bbbbbbb' }, { '标题': 'ccccccc' }]
+                    '新闻标题列表': [{ '标题': '县人大常委会召开党组会议暨县十五届人大常委会第二十八主任会议' }, { '标题': 'bbbbbbb' }, { '标题': 'ccccccc' }]
                 },
                 {
                     '月份': '2019年10月',
                     '新闻标题列表': [{ '标题': '4444444' }, { '标题': '55555555' }, { '标题': '66666666' }]
                 }
             ],
-            栏目名称: '人大要闻',
+            lan_mu: this.props.lan_mu,
+            ban_kuai:this.props.ban_kuai,
+            myHTML_tittle: '',
+            myHTML_article: '',
+            myHTML_time: '',
         }
     }
+
+    componentDidMount() {
+        let self = this;
+        let data = {
+            "type": this.props.lan_mu
+        }
+        axios({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'post',
+            url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_by_lan_mu',
+            data: Qs.stringify(data)
+        }).then(function (response) {
+            console.log(response)
+            self.setState({
+                菜单列表: response.data
+            });
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     handleClick = e => {
         console.log('click ', e.key);
         let self = this;
@@ -191,9 +219,15 @@ class MyMenu extends React.Component {
             data: Qs.stringify(data)
         }).then(function (response) {
             console.log(response)
+            // self.setState({
+            //     myHTML_time: response.data.now,
+            //     myHTML_tittle: response.data.tittle,
+            //     myHTML_article: response.data.article
+            // });
             self.setState({
-                首页新闻标题: response.data.tittle,
-                首页新闻内容: response.data.article
+                myHTML_time: 'response.data.now',
+                myHTML_tittle: 'response.data.tittle',
+                myHTML_article: response.data
             });
         })
             .catch(function (error) {
@@ -203,37 +237,53 @@ class MyMenu extends React.Component {
 
     render() {
         return (
-            <div>
-                <label>{this.state.栏目名称}</label>
-                <Menu
-                    onClick={this.handleClick}
-                    style={{ width: 256 }}
-                    defaultSelectedKeys={['1']}
-                    defaultOpenKeys={['sub1']}
-                    mode="inline"
-                >
-                    {
-                        this.state.菜单列表.map((item) => {
-                            return (
-                                <SubMenu item={item} key={item.月份} title={
-                                    <span>
-                                        <Icon type="setting" />
-                                        <span>{item.月份}</span>
-                                    </span>
-                                } >
-                                    {
-                                        item.新闻标题列表.map((item2) => {
-                                            return (
-                                                <Menu.Item key={item2.标题}>{item2.标题}</Menu.Item>
-                                            )
-                                        })
-                                    }
-                                </SubMenu>
-                            )
-                        })
-                    }
-                </Menu>
-            </div>
+            <Row>
+                <Col span={4}>
+                    <PageHeader
+                        style={{
+                            border: '1px solid rgb(235, 237, 240)',
+                        }}
+                        onBack={() => { window.location = '/'} }
+                        title={this.state.ban_kuai}
+                        subTitle= {this.state.lan_mu}
+                    />,
+                    <Menu
+                        onClick={this.handleClick}
+                        style={{ width: 256 }}
+                        defaultSelectedKeys={['1']}
+                        defaultOpenKeys={['sub1']}
+                        mode="inline"
+                    >
+                        {
+                            this.state.菜单列表.map((item) => {
+                                return (
+                                    <SubMenu item={item} key={item.月份} title={
+                                        <span>
+                                            <Icon type="setting" />
+                                            <span>{item.月份}</span>
+                                        </span>
+                                    } >
+                                        {
+                                            item.新闻标题列表.map((item2) => {
+                                                return (
+                                                    <Menu.Item key={item2.标题}>{item2.标题}</Menu.Item>
+                                                )
+                                            })
+                                        }
+                                    </SubMenu>
+                                )
+                            })
+                        }
+                    </Menu>
+                </Col>
+                <Col span={2}></Col>
+                <Col span={18}>
+                    <h1 align={'center'}>{this.state.myHTML_tittle}</h1>
+                    <h4 align={'center'}>{this.state.myHTML_time}</h4>
+                    <div dangerouslySetInnerHTML={{ __html: this.state.myHTML_article }} />
+                </Col>
+            </Row>
+
         )
     }
 }
@@ -242,7 +292,21 @@ export default class MyNews extends React.Component {
     state = {
         collapsed: false,
         myHTML: '',
+        ban_kuai:'',
+        lan_mu:'',
     };
+
+    componentDidMount() {
+        console.log(this.props)
+        const search = this.props.location.search;
+        const params = new URLSearchParams(search);
+        console.log( params.get('ban_kuai') )
+        console.log( params.get('lan_mu') )
+        this.setState({
+            ban_kuai: params.get('ban_kuai'),
+            lan_mu: params.get('lan_mu'),
+        });
+    }
 
     onCollapse = collapsed => {
         console.log(collapsed);
@@ -250,6 +314,9 @@ export default class MyNews extends React.Component {
     };
 
     render() {
+        const search = this.props.location.search;
+        const params = new URLSearchParams(search);
+
         return (
             <div>
                 <Carousel>
@@ -302,16 +369,7 @@ export default class MyNews extends React.Component {
                         </Dropdown>
                     </Col>
                 </Row>
-                <Row>
-                    <Col span={4}>
-                        <MyMenu></MyMenu>
-                    </Col>
-                    <Col span={20}>
-                        <div dangerouslySetInnerHTML={{ __html: this.state.myHTML }} />
-                    </Col>
-
-                </Row>
-
+                <MyMenu ban_kuai={ params.get('ban_kuai')} lan_mu={  params.get('lan_mu') }></MyMenu>
 
             </div>
         );

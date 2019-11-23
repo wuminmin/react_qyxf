@@ -1,29 +1,11 @@
 import 'braft-editor/dist/index.css'
 import React from 'react'
 import BraftEditor from 'braft-editor'
-import axios from 'axios';
+import axios from 'axios'
+import Qs from 'qs'
+import moment from 'moment'
 import {
-  ButtonArea,
-  Button,
-  CellsTitle,
-  CellsTips,
-  Cell,
-  CellHeader,
-  CellBody,
-  CellFooter,
-  Form,
-  FormCell,
-  Icon,
-  Input,
-  Label,
-  TextArea,
-  Switch,
-  Radio,
-  Checkbox,
-  Select,
-  VCode,
-  Agreement,
-  Toptips
+  Button
 } from 'react-weui';
 
 export default class BasicDemo extends React.Component {
@@ -33,7 +15,7 @@ export default class BasicDemo extends React.Component {
     outputHTML: '<p></p>',
     myHTML: '',
     tittle: '',
-    type:'',
+    type: '',
   }
 
   componentDidMount() {
@@ -73,7 +55,7 @@ export default class BasicDemo extends React.Component {
 
     return (
       <div>
-         <label>模块名称:</label>
+        <label>模块名称:</label>
         <input type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi} />
         <label>新闻标题:</label>
         <input type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi2} />
@@ -83,24 +65,56 @@ export default class BasicDemo extends React.Component {
             onChange={this.handleChange}
           />
         </div>
+        <Button
+          onClick={e => {
+            this.setState({
+              myHTML: this.state.outputHTML
+            });
+          }}>预览文章</Button>
         <h5>预览文章</h5>
         <div dangerouslySetInnerHTML={{ __html: myHTML }} />
         <Button
           onClick={e => {
-            let self = this
-            axios.post('https://wx.wuminmin.top/qyrd/rd_updata',
-              {
-                article: self.state.outputHTML,
-                tittle: self.state.tittle,
-                type: self.state.type,
-              })
-              .then(function (response) {
-                console.log(response);
-                self.setState({
-                  myHTML: response.data.article
-                });
+            let self = this;
 
-              })
+            // axios.post('https://wx.wuminmin.top/qyrd/rd_updata',
+            //   {
+            //     article: self.state.outputHTML,
+            //     tittle: self.state.tittle,
+            //     type: self.state.type,
+            //     now: moment().format('YYYY-MM-DD HH:mm:ss'),
+            //   })
+            //   .then(function (response) {
+            //     console.log(response);
+            //     self.setState({
+            //       myHTML: response.data.article
+            //     });
+
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error);
+            //   });
+
+
+            let data = {
+              "article": self.state.outputHTML,
+              "tittle": self.state.tittle,
+              "type": self.state.type,
+              "now": moment().format('YYYY-MM-DD HH:mm:ss')
+            }
+            axios({
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              method: 'post',
+              url: 'https://wx.wuminmin.top/qyrd/rd_updata',
+              data: Qs.stringify(data)
+            }).then(function (response) {
+              console.log(response)
+              self.setState({
+                myHTML: response.data
+              });
+            })
               .catch(function (error) {
                 console.log(error);
               });
