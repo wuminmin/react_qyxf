@@ -1,4 +1,4 @@
-import { Carousel,Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
+import { Carousel, Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
 // import Carousel from 'nuka-carousel';
 import React from 'react'
 import Qs from 'qs'
@@ -176,16 +176,16 @@ export default class MyHeader extends React.Component {
         return (
             <div>
                 <Row>
-                <Carousel autoplay >
-                    <img src="https://wx.wuminmin.top/wxyl/image?id=17" alt="" />
-                    <img src="https://wx.wuminmin.top/wxyl/image?id=18" />
-                    <img src="https://wx.wuminmin.top/wxyl/image?id=19" />
-                    <img src="https://wx.wuminmin.top/wxyl/image?id=20" />
-                    <img src="https://wx.wuminmin.top/wxyl/image?id=21" />
-                    <img src="https://wx.wuminmin.top/wxyl/image?id=22" />
-                    <img src="https://wx.wuminmin.top/wxyl/image?id=23" />
-                    <img src="https://wx.wuminmin.top/wxyl/image?id=24" />
-                </Carousel>
+                    <Carousel autoplay >
+                        <img src="https://wx.wuminmin.top/wxyl/image?id=17" alt="" />
+                        <img src="https://wx.wuminmin.top/wxyl/image?id=18" />
+                        <img src="https://wx.wuminmin.top/wxyl/image?id=19" />
+                        <img src="https://wx.wuminmin.top/wxyl/image?id=20" />
+                        <img src="https://wx.wuminmin.top/wxyl/image?id=21" />
+                        <img src="https://wx.wuminmin.top/wxyl/image?id=22" />
+                        <img src="https://wx.wuminmin.top/wxyl/image?id=23" />
+                        <img src="https://wx.wuminmin.top/wxyl/image?id=24" />
+                    </Carousel>
                 </Row>
                 <br></br>
                 <Row>
@@ -227,7 +227,7 @@ export default class MyHeader extends React.Component {
                         </Dropdown>
                     </Col>
                 </Row>
-
+                <br></br>
             </div>
         );
     }
