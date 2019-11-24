@@ -8,42 +8,71 @@ import { Carousel, Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, T
 import MyFooter from './MyFooter';
 
 class MyTabs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tabs_list_data: [],
+      ban_kuai: this.props.ban_kuai,
+    }
+  }
+
   handleClick = e => {
     console.log(e)
   }
 
+  componentDidMount() {
+    let self = this;
+    let data = {
+      "ban_kuai": this.props.ban_kuai
+    }
+    axios({
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'post',
+      url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_tabs_by_ban_kuai',
+      data: Qs.stringify(data)
+    }).then(function (response) {
+      console.log(response)
+      self.setState({
+        tabs_list_data: response.data
+      });
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
 
-    const tabs_list_data = [
-      {
-        'table_key': '1',
-        'table_name': '人大要闻',
-        'list_data':
-          [{ 'key': '人大要闻11111', 'key2': 'aaaaa', 'url': '/mynews?ban_kuai=人大要闻&lan_mu=人大概括&tittle=人大要闻11111' }, { 'key': '人大要闻222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
-      },
-      {
-        'table_key': '2',
-        'table_name': '通知公告',
-        'list_data':
-          [{ 'key': '通知公告11111', 'key2': 'aaaaa' }, { 'key': '通知公告222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
-      },
-      {
-        'table_key': '3',
-        'table_name': '领导讲话',
-        'list_data':
-          [{ 'key': '领导讲话11111', 'key2': 'aaaaa' }, { 'key': '领导讲话222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
-      },
-      {
-        'table_key': '4',
-        'table_name': '工作动态',
-        'list_data':
-          [{ 'key': '工作动态11111', 'key2': 'aaaaa' }, { 'key': '工作动态222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
-      }
-    ]
+    // const tabs_list_data = [
+    //   {
+    //     'table_key': '1',
+    //     'table_name': '人大要闻',
+    //     'list_data':
+    //       [{ 'key': '人大要闻11111', 'key2': 'aaaaa', 'url': '/mynews?ban_kuai=人大要闻&lan_mu=人大概况&tittle=人大要闻11111' }, { 'key': '人大要闻222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
+    //   },
+    //   {
+    //     'table_key': '2',
+    //     'table_name': '通知公告',
+    //     'list_data':
+    //       [{ 'key': '通知公告11111', 'key2': 'aaaaa' }, { 'key': '通知公告222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
+    //   },
+    //   {
+    //     'table_key': '3',
+    //     'table_name': '领导讲话',
+    //     'list_data':
+    //       [{ 'key': '领导讲话11111', 'key2': 'aaaaa' }, { 'key': '领导讲话222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
+    //   },
+    //   {
+    //     'table_key': '4',
+    //     'table_name': '工作动态',
+    //     'list_data':
+    //       [{ 'key': '工作动态11111', 'key2': 'aaaaa' }, { 'key': '工作动态222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
+    //   }
+    // ]
 
     const { TabPane } = Tabs;
-
-    const data = [{ 'key': '11111', 'key2': 'aaaaa' }, { 'key': '222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
 
     function callback(key) {
       console.log(key);
@@ -53,7 +82,7 @@ class MyTabs extends React.Component {
       <div>
         <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
         <Tabs defaultActiveKey="1" onChange={callback}>
-          {tabs_list_data.map((myitem) => {
+          {this.state.tabs_list_data.map((myitem) => {
             return (
               <TabPane tab={myitem.table_name} key={myitem.table_key}>
                 <List
@@ -61,8 +90,7 @@ class MyTabs extends React.Component {
                   dataSource={myitem.list_data}
                   renderItem={item => (
                     <List.Item  >
-                      <a href={item.key2}> {item.key}</a>
-
+                      <a href={item.url} align={'right'}> {item.key} --- {item.key2}</a>
                     </List.Item>
                   )}
                 />
@@ -86,7 +114,7 @@ export default class App extends React.Component {
       首页模块: '人大新闻',
       首页新闻标题: '',
       首页新闻内容: '',
-      ban_kuai1: '人大概括',
+      ban_kuai1: '人大概况',
       ban_kuai2: '新闻中心',
       ban_kuai3: '依法履职',
       ban_kuai4: '代表工作',
@@ -122,9 +150,6 @@ export default class App extends React.Component {
   }
 
   render() {
-
-
-
     return (
       <div>
         <MyHeader></MyHeader>
@@ -149,7 +174,7 @@ export default class App extends React.Component {
           <Col span={2}></Col>
           <Col span={20}>
             <img src="https://wx.wuminmin.top/wxyl/image?id=15"
-             style={{width:'100%',height:'auto'}}
+              style={{ width: '100%', height: 'auto' }}
             />
           </Col>
           <Col span={2}></Col>
@@ -171,7 +196,7 @@ export default class App extends React.Component {
           <Col span={2}></Col>
           <Col span={20}>
             <img src="https://wx.wuminmin.top/qyrd/image?id=修身福地灵秀青阳"
-            style={{width:'100%',height:'auto'}}
+              style={{ width: '100%', height: 'auto' }}
             />
           </Col>
           <Col span={2}></Col>

@@ -18,17 +18,17 @@ const menu = (
 const menu2 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=人大概括&tittle=默认">
-                人大概括
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=人大概况&tittle=默认">
+                人大概况
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=机构设置&tittle=默认">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=机构设置&tittle=默认">
                 机构设置
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=制度建设&tittle=默认">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=制度建设&tittle=默认">
                 制度建设
         </a>
         </Menu.Item>
@@ -198,7 +198,7 @@ export default class MyHeader extends React.Component {
                     </Col>
                     <Col span={3}>
                         <Dropdown overlay={menu2} placement="bottomCenter">
-                            <Button>人大概括</Button>
+                            <Button>人大概况</Button>
                         </Dropdown>
                     </Col>
                     <Col span={3}>

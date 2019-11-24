@@ -4,9 +4,7 @@ import BraftEditor from 'braft-editor'
 import axios from 'axios'
 import Qs from 'qs'
 import moment from 'moment'
-import {
-  Button
-} from 'react-weui';
+import { Button } from 'antd';
 
 export default class BasicDemo extends React.Component {
 
@@ -66,14 +64,17 @@ export default class BasicDemo extends React.Component {
           />
         </div>
         <Button
+          type="primary"
           onClick={e => {
             this.setState({
               myHTML: this.state.outputHTML
             });
           }}>预览文章</Button>
+
         <h5>预览文章</h5>
         <div dangerouslySetInnerHTML={{ __html: myHTML }} />
         <Button
+          type="primary"
           onClick={e => {
             let self = this;
             let data = {
