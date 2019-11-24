@@ -6,155 +6,8 @@ import axios from 'axios'
 import 'antd/dist/antd.css';
 import './index.css';
 import MyHeader from './MyHeader'
+import MyFooter from './MyFooter'
 const { SubMenu } = Menu;
-const menu = (
-    <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
-                首页
-        </a>
-        </Menu.Item>
-    </Menu>
-);
-const menu2 = (
-    <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=人大概括">
-                人大概括
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=机构设置">
-                机构设置
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=制度建设">
-                制度建设
-        </a>
-        </Menu.Item>
-    </Menu>
-);
-const menu3 = (
-    <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=人大要闻">
-                人大要闻
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=通知公告">
-                通知公告
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=领导讲话">
-                领导讲话
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=工作动态">
-                工作动态
-        </a>
-        </Menu.Item>
-    </Menu>
-);
-const menu4 = (
-    <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=立法工作">
-                立法工作
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=决定决议">
-                决定决议
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=任职任免">
-                任职任免
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=监督工作">
-                监督工作
-        </a>
-        </Menu.Item>
-    </Menu>
-);
-const menu5 = (
-    <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表信息">
-                代表信息
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表风采">
-                代表风采
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表信箱">
-                代表信箱
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=议案建议">
-                议案建议
-        </a>
-        </Menu.Item>
-    </Menu>
-);
-const menu6 = (
-    <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.ahqy.gov.cn/">
-                人民政府
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.jjw.gov.cn/">
-                监察委员会
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://czqyfy.chinacourt.gov.cn/index.shtml">
-                人民法院
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.ahqingyang.jcy.gov.cn/">
-                人民检察院
-        </a>
-        </Menu.Item>
-    </Menu>
-);
-const menu7 = (
-    <Menu>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
-                蓉城镇
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
-                庙前镇
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
-                杜村乡
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
-                新河镇
-        </a>
-        </Menu.Item>
-    </Menu>
-);
 
 class MyMenu extends React.Component {
     constructor(props) {
@@ -163,6 +16,7 @@ class MyMenu extends React.Component {
             菜单列表: [],
             lan_mu: this.props.lan_mu,
             ban_kuai: this.props.ban_kuai,
+            my_tittle: this.props.my_tittle,
             myHTML_tittle: '',
             myHTML_article: '',
             myHTML_time: '',
@@ -190,17 +44,57 @@ class MyMenu extends React.Component {
             .catch(function (error) {
                 console.log(error);
             });
+
+        let data2 = {
+            "ban_kuai":this.props.ban_kuai,
+            "lan_mu":this.props.lan_mu,
+            "tittle": this.props.my_tittle
+        }
+        axios({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'post',
+            url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_by_tittle',
+            data: Qs.stringify(data2)
+        }).then(function (response) {
+            console.log(response)
+            self.setState({
+                myHTML_article: response.data
+            });
+
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        axios({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'post',
+            url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_time_by_tittle',
+            data: Qs.stringify(data2)
+        }).then(function (response) {
+            console.log(response)
+            self.setState({
+                myHTML_tittle: response.data['tittle'],
+                myHTML_time: response.data['my_time']
+            });
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     handleClick = e => {
         console.log('click ', e.key);
         let self = this;
         let data = {
+            "ban_kuai":this.props.ban_kuai,
+            "lan_mu":this.props.lan_mu,
             "tittle": e.key
         }
-        self.setState({
-            myHTML_tittle: e.key
-        });
         axios({
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -228,7 +122,8 @@ class MyMenu extends React.Component {
         }).then(function (response) {
             console.log(response)
             self.setState({
-                myHTML_time: response.data
+                myHTML_tittle:response.data['tittle'],
+                myHTML_time: response.data['my_time']
             });
         })
             .catch(function (error) {
@@ -295,6 +190,7 @@ export default class MyNews extends React.Component {
         myHTML: '',
         ban_kuai: '',
         lan_mu: '',
+        my_tittle: '',
     };
 
     componentDidMount() {
@@ -306,6 +202,7 @@ export default class MyNews extends React.Component {
         this.setState({
             ban_kuai: params.get('ban_kuai'),
             lan_mu: params.get('lan_mu'),
+            my_tittle: params.get('tittle'),
         });
     }
 
@@ -321,8 +218,8 @@ export default class MyNews extends React.Component {
         return (
             <div>
                 <MyHeader></MyHeader>
-                <MyMenu ban_kuai={params.get('ban_kuai')} lan_mu={params.get('lan_mu')}></MyMenu>
-
+                <MyMenu ban_kuai={params.get('ban_kuai')} lan_mu={params.get('lan_mu')} my_tittle={params.get('tittle')}></MyMenu>
+ <MyFooter></MyFooter>
             </div>
         );
     }

@@ -3,8 +3,9 @@ import Qs from 'qs'
 import axios from 'axios'
 import 'react-weui/build/packages/react-weui.css';
 import MyHeader from './MyHeader';
-import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List } from 'antd';
-import Carousel from 'nuka-carousel';
+import { Carousel, Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List } from 'antd';
+// import Carousel from 'nuka-carousel';
+import MyFooter from './MyFooter';
 
 class MyTabs extends React.Component {
   handleClick = e => {
@@ -18,7 +19,7 @@ class MyTabs extends React.Component {
         'table_key': '1',
         'table_name': '人大要闻',
         'list_data':
-          [{ 'key': '人大要闻11111', 'key2': 'aaaaa' }, { 'key': '人大要闻222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
+          [{ 'key': '人大要闻11111', 'key2': 'aaaaa', 'url': '/mynews?ban_kuai=人大要闻&lan_mu=人大概括&tittle=人大要闻11111' }, { 'key': '人大要闻222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
       },
       {
         'table_key': '2',
@@ -49,25 +50,28 @@ class MyTabs extends React.Component {
     }
 
     return (
-      <Tabs defaultActiveKey="1" onChange={callback}>
-        {tabs_list_data.map((myitem) => {
-          return (
-            <TabPane tab={myitem.table_name} key={myitem.table_key}>
-              <List
-                bordered
-                dataSource={myitem.list_data}
-                renderItem={item => (
-                  <List.Item  >
-                    <a href={item.key2}> {item.key}</a>
-                    
-                  </List.Item>
-                )}
-              />
-            </TabPane>
-          )
-        })}
+      <div>
+        <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
+        <Tabs defaultActiveKey="1" onChange={callback}>
+          {tabs_list_data.map((myitem) => {
+            return (
+              <TabPane tab={myitem.table_name} key={myitem.table_key}>
+                <List
+                  bordered
+                  dataSource={myitem.list_data}
+                  renderItem={item => (
+                    <List.Item  >
+                      <a href={item.key2}> {item.key}</a>
 
-      </Tabs>
+                    </List.Item>
+                  )}
+                />
+              </TabPane>
+            )
+          })}
+
+        </Tabs>
+      </div>
     )
   }
 }
@@ -82,6 +86,10 @@ export default class App extends React.Component {
       首页模块: '人大新闻',
       首页新闻标题: '',
       首页新闻内容: '',
+      ban_kuai1: '人大概括',
+      ban_kuai2: '新闻中心',
+      ban_kuai3: '依法履职',
+      ban_kuai4: '代表工作',
     }
   }
 
@@ -122,20 +130,104 @@ export default class App extends React.Component {
         <MyHeader></MyHeader>
         <br></br>
         <Row>
-          <Col span={1}></Col>
-          <Col span={10}>
-            <Carousel>
+          <Col span={2}></Col>
+          <Col span={9}>
+            <Carousel autoplay>
               <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
               <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
             </Carousel>
           </Col>
           <Col span={2}></Col>
-          <Col span={10}>
-            <MyTabs></MyTabs>
+          <Col span={9}>
+            <MyTabs ban_kuai={this.state.ban_kuai2}></MyTabs>
           </Col>
-          <Col span={1}></Col>
+          <Col span={2}></Col>
 
         </Row>
+        <br></br>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={20}>
+            <img src="https://wx.wuminmin.top/wxyl/image?id=15"
+             style={{width:'100%',height:'auto'}}
+            />
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+        <br></br>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={9}>
+            <MyTabs ban_kuai={this.state.ban_kuai1}></MyTabs>
+          </Col>
+          <Col span={2}></Col>
+          <Col span={9}>
+            <MyTabs ban_kuai={this.state.ban_kuai3}></MyTabs>
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+        <br></br>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={20}>
+            <img src="https://wx.wuminmin.top/qyrd/image?id=修身福地灵秀青阳"
+            style={{width:'100%',height:'auto'}}
+            />
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+        <br></br>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={20}>
+            <MyTabs ban_kuai={this.state.ban_kuai4}></MyTabs>
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+        <br></br>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={20}>
+            <Tag color="#2db7f5">{'图片新闻'}</Tag>
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={4}>
+            <Carousel autoplay>
+              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
+              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+            </Carousel>
+          </Col>
+          <Col span={4}>
+            <Carousel autoplay>
+              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
+              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+            </Carousel>
+          </Col>
+          <Col span={4}>
+            <Carousel autoplay>
+              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
+              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+            </Carousel>
+          </Col>
+          <Col span={4}>
+            <Carousel autoplay>
+              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
+              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+            </Carousel>
+          </Col>
+          <Col span={4}>
+            <Carousel autoplay>
+              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
+              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+            </Carousel>
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+        <br></br>
+        <MyFooter></MyFooter>
       </div>
     )
   }

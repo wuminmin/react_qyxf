@@ -1,5 +1,5 @@
-import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
-import Carousel from 'nuka-carousel';
+import { Carousel,Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
+// import Carousel from 'nuka-carousel';
 import React from 'react'
 import Qs from 'qs'
 import axios from 'axios'
@@ -18,17 +18,17 @@ const menu = (
 const menu2 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=人大概括">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=人大概括&tittle=默认">
                 人大概括
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=机构设置">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=机构设置&tittle=默认">
                 机构设置
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=制度建设">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概括&lan_mu=制度建设&tittle=默认">
                 制度建设
         </a>
         </Menu.Item>
@@ -37,22 +37,22 @@ const menu2 = (
 const menu3 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=人大要闻">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=默认">
                 人大要闻
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=通知公告">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=通知公告&tittle=默认">
                 通知公告
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=领导讲话">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=领导讲话&tittle=默认">
                 领导讲话
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=工作动态">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=工作动态&tittle=默认">
                 工作动态
         </a>
         </Menu.Item>
@@ -61,22 +61,22 @@ const menu3 = (
 const menu4 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=立法工作">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=立法工作&tittle=默认">
                 立法工作
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=决定决议">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=决定决议&tittle=默认">
                 决定决议
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=任职任免">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=任职任免&tittle=默认">
                 任职任免
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=监督工作">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=监督工作&tittle=默认">
                 监督工作
         </a>
         </Menu.Item>
@@ -85,22 +85,22 @@ const menu4 = (
 const menu5 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表信息">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表信息&tittle=默认">
                 代表信息
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表风采">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表风采&tittle=默认">
                 代表风采
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表信箱">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表信箱&tittle=默认">
                 代表信箱
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=议案建议">
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=议案建议&tittle=默认">
                 议案建议
         </a>
         </Menu.Item>
@@ -175,7 +175,8 @@ export default class MyHeader extends React.Component {
     render() {
         return (
             <div>
-                <Carousel>
+                <Row>
+                <Carousel autoplay >
                     <img src="https://wx.wuminmin.top/wxyl/image?id=17" alt="" />
                     <img src="https://wx.wuminmin.top/wxyl/image?id=18" />
                     <img src="https://wx.wuminmin.top/wxyl/image?id=19" />
@@ -185,6 +186,8 @@ export default class MyHeader extends React.Component {
                     <img src="https://wx.wuminmin.top/wxyl/image?id=23" />
                     <img src="https://wx.wuminmin.top/wxyl/image?id=24" />
                 </Carousel>
+                </Row>
+                <br></br>
                 <Row>
                     <Col span={3}>
                     </Col>
