@@ -47,11 +47,6 @@ const menu3 = (
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=领导讲话&tittle=默认">
-                领导讲话
-        </a>
-        </Menu.Item>
-        <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=新闻中心&lan_mu=工作动态&tittle=默认">
                 工作动态
         </a>

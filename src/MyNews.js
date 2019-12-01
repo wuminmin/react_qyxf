@@ -1,5 +1,5 @@
 import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
-import Carousel from 'nuka-carousel';
+// import Carousel from 'nuka-carousel';
 import React from 'react'
 import Qs from 'qs'
 import axios from 'axios'
@@ -46,8 +46,8 @@ class MyMenu extends React.Component {
             });
 
         let data2 = {
-            "ban_kuai":this.props.ban_kuai,
-            "lan_mu":this.props.lan_mu,
+            "ban_kuai": this.props.ban_kuai,
+            "lan_mu": this.props.lan_mu,
             "tittle": this.props.my_tittle
         }
         axios({
@@ -91,8 +91,8 @@ class MyMenu extends React.Component {
         console.log('click ', e.key);
         let self = this;
         let data = {
-            "ban_kuai":this.props.ban_kuai,
-            "lan_mu":this.props.lan_mu,
+            "ban_kuai": this.props.ban_kuai,
+            "lan_mu": this.props.lan_mu,
             "tittle": e.key
         }
         axios({
@@ -122,7 +122,7 @@ class MyMenu extends React.Component {
         }).then(function (response) {
             console.log(response)
             self.setState({
-                myHTML_tittle:response.data['tittle'],
+                myHTML_tittle: response.data['tittle'],
                 myHTML_time: response.data['my_time']
             });
         })
@@ -218,8 +218,17 @@ export default class MyNews extends React.Component {
         return (
             <div>
                 <MyHeader></MyHeader>
+                {/* <Row>
+                    <Col span={2}></Col>
+                    <Col span={20}>
+                    </Col>
+                    <Col span={2}></Col>
+                </Row> */}
                 <MyMenu ban_kuai={params.get('ban_kuai')} lan_mu={params.get('lan_mu')} my_tittle={params.get('tittle')}></MyMenu>
- <MyFooter></MyFooter>
+
+                <MyFooter></MyFooter>
+
+
             </div>
         );
     }

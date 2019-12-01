@@ -1,3 +1,12 @@
+这里就先公布一下最优方案吧：先安装cross-env插件，然后通过修改package.json中的命令行，传递进来新的PORT环境变量。本方案最完美，其余方案都是补充的逗逼方案。
+全局安装cross-env：
+npm install cross-env -g
+修改package.json:
+"scripts": {
+    "start": "cross-env PORT=5000 react-scripts start",
+    //...
+}
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

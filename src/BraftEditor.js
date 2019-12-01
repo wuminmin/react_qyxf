@@ -4,7 +4,7 @@ import BraftEditor from 'braft-editor'
 import axios from 'axios'
 import Qs from 'qs'
 import moment from 'moment'
-import { Button } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
 
 export default class BasicDemo extends React.Component {
 
@@ -53,54 +53,61 @@ export default class BasicDemo extends React.Component {
 
     return (
       <div>
-        <label>模块名称:</label>
-        <input type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi} />
-        <label>新闻标题:</label>
-        <input type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi2} />
-        <div className="editor-wrapper">
-          <BraftEditor
-            value={editorState}
-            onChange={this.handleChange}
-          />
-        </div>
-        <Button
-          type="primary"
-          onClick={e => {
-            this.setState({
-              myHTML: this.state.outputHTML
-            });
-          }}>预览文章</Button>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={20}>
+            <label>模块名称:</label>
+            <input type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi} />
+            <label>新闻标题:</label>
+            <input type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi2} />
+            <div className="editor-wrapper">
+              <BraftEditor
+                value={editorState}
+                onChange={this.handleChange}
+              />
+            </div>
+            <Button
+              type="primary"
+              onClick={e => {
+                this.setState({
+                  myHTML: this.state.outputHTML
+                });
+              }}>预览文章</Button>
 
-        <h5>预览文章</h5>
-        <div dangerouslySetInnerHTML={{ __html: myHTML }} />
-        <Button
-          type="primary"
-          onClick={e => {
-            let self = this;
-            let data = {
-              "article": self.state.outputHTML,
-              "tittle": self.state.tittle,
-              "type": self.state.type,
-              "now": moment().format('YYYY-MM-DD HH:mm:ss')
-            }
-            axios({
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-              },
-              method: 'post',
-              url: 'https://wx.wuminmin.top/qyrd/rd_updata',
-              data: Qs.stringify(data)
-            }).then(function (response) {
-              console.log(response)
-              self.setState({
-                myHTML: response.data
-              });
-            })
-              .catch(function (error) {
-                console.log(error);
-              });
-          }
-          }>上传文章</Button>
+            <h5>预览文章</h5>
+            <div dangerouslySetInnerHTML={{ __html: myHTML }} />
+            <Button
+              type="primary"
+              onClick={e => {
+                let self = this;
+                let data = {
+                  "article": self.state.outputHTML,
+                  "tittle": self.state.tittle,
+                  "type": self.state.type,
+                  "now": moment().format('YYYY-MM-DD HH:mm:ss')
+                }
+                axios({
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                  },
+                  method: 'post',
+                  url: 'https://wx.wuminmin.top/qyrd/rd_updata',
+                  data: Qs.stringify(data)
+                }).then(function (response) {
+                  console.log(response)
+                  self.setState({
+                    myHTML: response.data
+                  });
+                })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
+              }
+              }>上传文章</Button>
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+
       </div>
     )
 
