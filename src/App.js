@@ -6,6 +6,7 @@ import MyHeader from './MyHeader';
 import { Carousel, Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List } from 'antd';
 // import Carousel from 'nuka-carousel';
 import MyFooter from './MyFooter';
+import AppGlobal from './AppGlobal';
 
 class MyTabs extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class MyTabs extends React.Component {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'post',
-      url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_tabs_by_ban_kuai',
+      url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai,
       data: Qs.stringify(data)
     }).then(function (response) {
       console.log(response)
@@ -44,33 +45,6 @@ class MyTabs extends React.Component {
   }
 
   render() {
-
-    // const tabs_list_data = [
-    //   {
-    //     'table_key': '1',
-    //     'table_name': '人大要闻',
-    //     'list_data':
-    //       [{ 'key': '人大要闻11111', 'key2': 'aaaaa', 'url': '/mynews?ban_kuai=人大要闻&lan_mu=人大概况&tittle=人大要闻11111' }, { 'key': '人大要闻222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
-    //   },
-    //   {
-    //     'table_key': '2',
-    //     'table_name': '通知公告',
-    //     'list_data':
-    //       [{ 'key': '通知公告11111', 'key2': 'aaaaa' }, { 'key': '通知公告222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
-    //   },
-    //   {
-    //     'table_key': '3',
-    //     'table_name': '领导讲话',
-    //     'list_data':
-    //       [{ 'key': '领导讲话11111', 'key2': 'aaaaa' }, { 'key': '领导讲话222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
-    //   },
-    //   {
-    //     'table_key': '4',
-    //     'table_name': '工作动态',
-    //     'list_data':
-    //       [{ 'key': '工作动态11111', 'key2': 'aaaaa' }, { 'key': '工作动态222222', 'key2': 'bbbbbbb' }, { 'key': '3333333', 'key2': 'cccccccc' }]
-    //   }
-    // ]
 
     const { TabPane } = Tabs;
 
@@ -118,6 +92,7 @@ export default class App extends React.Component {
       ban_kuai2: '新闻中心',
       ban_kuai3: '依法履职',
       ban_kuai4: '代表工作',
+      ban_kuai5:'会议之窗',
     }
   }
 
@@ -135,7 +110,7 @@ export default class App extends React.Component {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'post',
-      url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai',
+      url: AppGlobal.url.rd_xia_zai,
       data: Qs.stringify(data)
     }).then(function (response) {
       console.log(response)
@@ -157,8 +132,11 @@ export default class App extends React.Component {
           <Col span={2}></Col>
           <Col span={9}>
             <Carousel autoplay>
-              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
-              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+              <img src= {AppGlobal.url.首页工程案例1} />
+              <img src= {AppGlobal.url.首页工程案例2} />
+              <img src= {AppGlobal.url.首页工程案例3} />
+              <img src= {AppGlobal.url.首页工程案例4} />
+              <img src= {AppGlobal.url.首页工程案例5} />
             </Carousel>
           </Col>
           <Col span={2}></Col>
@@ -172,7 +150,7 @@ export default class App extends React.Component {
         <Row>
           <Col span={2}></Col>
           <Col span={20}>
-            <img src="https://wx.wuminmin.top/wxyl/image?id=15"
+            <img src= {AppGlobal.url.首页中间横幅图片1}
               style={{ width: '100%', height: 'auto' }}
             />
           </Col>
@@ -194,7 +172,7 @@ export default class App extends React.Component {
         <Row>
           <Col span={2}></Col>
           <Col span={20}>
-            <img src="https://wx.wuminmin.top/qyrd/image?id=修身福地灵秀青阳"
+            <img src= {AppGlobal.url.首页中间横幅图片2}
               style={{ width: '100%', height: 'auto' }}
             />
           </Col>
@@ -203,8 +181,22 @@ export default class App extends React.Component {
         <br></br>
         <Row>
           <Col span={2}></Col>
-          <Col span={20}>
+          <Col span={9}>
             <MyTabs ban_kuai={this.state.ban_kuai4}></MyTabs>
+          </Col>
+          <Col span={2}></Col>
+          <Col span={9}>
+            <MyTabs ban_kuai={this.state.ban_kuai5}></MyTabs>
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+        <br></br>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={20}>
+            <img src= {AppGlobal.url.首页中间横幅图片3}
+              style={{ width: '100%', height: 'auto' }}
+            />
           </Col>
           <Col span={2}></Col>
         </Row>

@@ -5,10 +5,12 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
 import BasicDemo from './BraftEditor'
 import MyNews from './MyNews'
+import MyImg from './MyImg'
 const routing = (
   <Router>
     <div>
       <Route exact path="/" component={App} />
+      <Route exact path="/myimg" component={MyImg} />
       <Route exact path="/wen_zhang" component={BasicDemo} />
       <Route exact path="/mynews" component={MyNews} />
     </div>

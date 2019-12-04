@@ -56,11 +56,6 @@ const menu3 = (
 const menu4 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=立法工作&tittle=默认">
-                立法工作
-        </a>
-        </Menu.Item>
-        <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=决定决议&tittle=默认">
                 决定决议
         </a>
@@ -150,6 +145,36 @@ const menu7 = (
     </Menu>
 );
 
+const menu8 = (
+    <Menu>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="/">
+            人民代表大会会议
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="/">
+            常委会会议
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="/">
+            主任会议
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="/">
+            代表联系群众
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="/">
+            代表信箱
+        </a>
+        </Menu.Item>
+    </Menu>
+);
+
 
 export default class MyHeader extends React.Component {
     state = {
@@ -185,8 +210,6 @@ export default class MyHeader extends React.Component {
                 <br></br>
                 <Row>
                     <Col span={3}>
-                    </Col>
-                    <Col span={3}>
                         <Dropdown overlay={menu} placement="bottomCenter">
                             <Button>首页</Button>
                         </Dropdown>
@@ -212,8 +235,13 @@ export default class MyHeader extends React.Component {
                         </Dropdown>
                     </Col>
                     <Col span={3}>
+                        <Dropdown overlay={menu8} placement="bottomCenter">
+                            <Button>会议之窗</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}>
                         <Dropdown overlay={menu6} placement="bottomCenter">
-                            <Button>府委两院</Button>
+                            <Button>一府一委两院</Button>
                         </Dropdown>
                     </Col>
                     <Col span={3}>
