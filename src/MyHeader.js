@@ -5,6 +5,7 @@ import Qs from 'qs'
 import axios from 'axios'
 import 'antd/dist/antd.css';
 import './index.css';
+import AppGlobal from './AppGlobal';
 const { SubMenu } = Menu;
 const menu = (
     <Menu>
@@ -149,27 +150,27 @@ const menu8 = (
     <Menu>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="/">
-            人民代表大会会议
+                人民代表大会会议
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="/">
-            常委会会议
+                常委会会议
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="/">
-            主任会议
+                主任会议
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="/">
-            代表联系群众
+                代表联系群众
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="/">
-            代表信箱
+                代表信箱
         </a>
         </Menu.Item>
     </Menu>
@@ -193,18 +194,35 @@ export default class MyHeader extends React.Component {
     };
 
     render() {
+
+        var background = { backgroundSize: 'cover', width: '100%' };
+        var textStyle = {
+            position: 'absolute',
+            top: '30%',
+            left: '20%',
+            color: 'red',
+            fontSize: '100px',
+
+
+        };
+
+        const divStyle = {
+            backgroundImage: 'url(' + "https://wx.wuminmin.top/wxyl/image?id=17" + ')',
+            backgroundrepeat: 'no-repeat',
+            backgroundattachment: 'fixed',
+            backgroundsize: 'cover',
+
+        };
+
         return (
             <div>
                 <Row>
                     <Carousel autoplay >
-                        <img src="https://wx.wuminmin.top/wxyl/image?id=17" alt="" />
-                        <img src="https://wx.wuminmin.top/wxyl/image?id=18" />
-                        <img src="https://wx.wuminmin.top/wxyl/image?id=19" />
-                        <img src="https://wx.wuminmin.top/wxyl/image?id=20" />
-                        <img src="https://wx.wuminmin.top/wxyl/image?id=21" />
-                        <img src="https://wx.wuminmin.top/wxyl/image?id=22" />
-                        <img src="https://wx.wuminmin.top/wxyl/image?id=23" />
-                        <img src="https://wx.wuminmin.top/wxyl/image?id=24" />
+                        <img src={AppGlobal.url.首页滚动图片1} alt="青阳人大"/>
+                        <img src={AppGlobal.url.首页滚动图片2} alt="青阳人大"/>
+                        <img src={AppGlobal.url.首页滚动图片3} alt="青阳人大"/>
+                        <img src={AppGlobal.url.首页滚动图片4} alt="青阳人大"/>
+                        <img src={AppGlobal.url.首页滚动图片5} alt="青阳人大"/>
                     </Carousel>
                 </Row>
                 <br></br>
