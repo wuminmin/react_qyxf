@@ -20,18 +20,23 @@ const menu = (
 const menu2 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=人大概况&tittle=默认">
-                人大概况
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=人大简介&tittle=默认">
+                人大简介
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=机构设置&tittle=默认">
-                机构设置
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=组织机构&tittle=默认">
+                组织机构
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=制度建设&tittle=默认">
-                制度建设
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=组成人员&tittle=默认">
+                组成人员
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=委室职责&tittle=默认">
+                委室职责
         </a>
         </Menu.Item>
     </Menu>
@@ -96,6 +101,11 @@ const menu5 = (
                 议案建议
         </a>
         </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=法律法规&tittle=默认">
+                法律法规
+        </a>
+        </Menu.Item>
     </Menu>
 );
 const menu6 = (
@@ -130,18 +140,18 @@ const menu7 = (
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.木镇镇}>
-                木镇镇
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.朱备镇}>
+            朱备镇
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.庙前镇}>
-                庙前镇
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.杨田镇}>
+            杨田镇
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.陵阳镇}>
-                陵阳镇
+            陵阳镇
         </a>
         </Menu.Item>
         <Menu.Item>
@@ -150,33 +160,28 @@ const menu7 = (
         </a>
         </Menu.Item>
         <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.木镇镇}>
+            木镇镇
+        </a>
+        </Menu.Item>
+        <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.丁桥镇}>
-                丁桥镇
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.朱备镇}>
-                朱备镇
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.杨田镇}>
-                杨田镇
+            丁桥镇
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.乔木乡}>
-                乔木乡
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.杨田镇}>
-                杨田镇
+            乔木乡
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.酉华镇}>
-                酉华镇
+            酉华镇
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.庙前镇}>
+            庙前镇
         </a>
         </Menu.Item>
         <Menu.Item>
@@ -207,11 +212,6 @@ const menu8 = (
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.代表联系群众}>
                 代表联系群众
-        </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.代表信箱}>
-                代表信箱
         </a>
         </Menu.Item>
     </Menu>
@@ -301,13 +301,18 @@ export default class MyHeader extends React.Component {
                         </Dropdown>
                     </Col>
                     <Col span={3}>
+                        <Dropdown overlay={menu3} placement="bottomCenter">
+                            <Button>新闻中心</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}>
                         <Dropdown overlay={menu2} placement="bottomCenter">
                             <Button>人大概况</Button>
                         </Dropdown>
                     </Col>
                     <Col span={3}>
-                        <Dropdown overlay={menu3} placement="bottomCenter">
-                            <Button>新闻中心</Button>
+                        <Dropdown overlay={menu8} placement="bottomCenter">
+                            <Button>会议之窗</Button>
                         </Dropdown>
                     </Col>
                     <Col span={3}>
@@ -318,11 +323,6 @@ export default class MyHeader extends React.Component {
                     <Col span={3}>
                         <Dropdown overlay={menu5} placement="bottomCenter">
                             <Button>代表工作</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}>
-                        <Dropdown overlay={menu8} placement="bottomCenter">
-                            <Button>会议之窗</Button>
                         </Dropdown>
                     </Col>
                     <Col span={3}>
