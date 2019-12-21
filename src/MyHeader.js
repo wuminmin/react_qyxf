@@ -1,12 +1,13 @@
-import { Carousel, Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
+import { Carousel, Input, Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
 // import Carousel from 'nuka-carousel';
 import React from 'react'
+import moment from 'moment';
 import Qs from 'qs'
 import axios from 'axios'
 import 'antd/dist/antd.css';
 import './index.css';
 import AppGlobal from './AppGlobal';
-const { SubMenu } = Menu;
+const { Search } = Input;
 const menu = (
     <Menu>
         <Menu.Item>
@@ -183,9 +184,27 @@ export default class MyHeader extends React.Component {
         myHTML: '',
         ban_kuai: '',
         lan_mu: '',
+        tian_qi: '',
     };
 
     componentDidMount() {
+        let self = this;
+
+        axios({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'post',
+            url: AppGlobal.url.tian_qi_xia_zai,
+        }).then(function (response) {
+            console.log(response)
+            self.setState({
+                tian_qi: response.data.cityInfo.city + '；湿度：' + response.data.data.shidu + '；空气质量：' + response.data.data.quality + '；平均温度：' + response.data.data.wendu
+            });
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     onCollapse = collapsed => {
@@ -194,7 +213,6 @@ export default class MyHeader extends React.Component {
     };
 
     render() {
-
         var background = { backgroundSize: 'cover', width: '100%' };
         var textStyle = {
             position: 'absolute',
@@ -202,8 +220,6 @@ export default class MyHeader extends React.Component {
             left: '20%',
             color: 'red',
             fontSize: '100px',
-
-
         };
 
         const divStyle = {
@@ -211,21 +227,33 @@ export default class MyHeader extends React.Component {
             backgroundrepeat: 'no-repeat',
             backgroundattachment: 'fixed',
             backgroundsize: 'cover',
-
         };
 
         return (
             <div>
                 <Row>
                     <Carousel autoplay >
-                        <img src={AppGlobal.url.首页滚动图片1} alt="青阳人大"/>
-                        <img src={AppGlobal.url.首页滚动图片2} alt="青阳人大"/>
-                        <img src={AppGlobal.url.首页滚动图片3} alt="青阳人大"/>
-                        <img src={AppGlobal.url.首页滚动图片4} alt="青阳人大"/>
-                        <img src={AppGlobal.url.首页滚动图片5} alt="青阳人大"/>
+                        <img src={AppGlobal.url.首页滚动图片1} alt="青阳人大" />
+                        <img src={AppGlobal.url.首页滚动图片2} alt="青阳人大" />
+                        <img src={AppGlobal.url.首页滚动图片3} alt="青阳人大" />
+                        <img src={AppGlobal.url.首页滚动图片4} alt="青阳人大" />
+                        <img src={AppGlobal.url.首页滚动图片5} alt="青阳人大" />
                     </Carousel>
                 </Row>
                 <br></br>
+                <Row>
+                    <Col span={8}>
+                        <p style={{ color: 'blue' }}>{moment().format('YYYY年MM月DD日 hh时mm分钟ss秒')} </p>
+                    </Col>
+                    <Col span={8}>
+                        <p style={{ color: 'blue' }}>{this.state.tian_qi} </p>
+
+                    </Col>
+                    <Col span={8}>
+                        <Search placeholder="热门文章" onSearch={value => console.log(value)} enterButton />
+                    </Col>
+
+                </Row>
                 <Row>
                     <Col span={3}>
                         <Dropdown overlay={menu} placement="bottomCenter">
@@ -268,6 +296,7 @@ export default class MyHeader extends React.Component {
                         </Dropdown>
                     </Col>
                 </Row>
+
                 <br></br>
             </div>
         );

@@ -8,6 +8,77 @@ import { Carousel, Card, Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, But
 import MyFooter from './MyFooter';
 import AppGlobal from './AppGlobal';
 
+class MyTabsSmall extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tabs_list_data: [],
+      ban_kuai: this.props.ban_kuai,
+    }
+  }
+
+  handleClick = e => {
+    console.log(e)
+  }
+
+  componentDidMount() {
+    let self = this;
+    let data = {
+      "ban_kuai": this.props.ban_kuai
+    }
+    axios({
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'post',
+      url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai,
+      data: Qs.stringify(data)
+    }).then(function (response) {
+      console.log(response)
+      self.setState({
+        tabs_list_data: response.data
+      });
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  render() {
+
+    const { TabPane } = Tabs;
+
+    function callback(key) {
+      console.log(key);
+    }
+
+    return (
+      <div>
+        <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
+        <Tabs defaultActiveKey="1" onChange={callback}>
+          {this.state.tabs_list_data.map((myitem) => {
+            return (
+              <TabPane tab={myitem.table_name} key={myitem.table_key}>
+                <List
+                  bordered
+                  dataSource={myitem.list_data}
+                  renderItem={item => (
+                    <List.Item  >
+                      <a href={item.url} align={'right'}> {item.key} --- {item.key2}</a>
+                    </List.Item>
+                  )}
+                />
+              </TabPane>
+            )
+          })}
+
+        </Tabs>
+      </div>
+    )
+  }
+}
+
+
 class MyTabs extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +128,7 @@ class MyTabs extends React.Component {
 
       <Row>
       <Col span={2}></Col>
-      <Col span={13}>
+      <Col span={15}>
         {/* <Tag color="#2db7f5">{this.props.ban_kuai}</Tag> */}
         <Tabs defaultActiveKey="1" onChange={callback}>
           {this.state.tabs_list_data.map((myitem) => {
@@ -78,26 +149,17 @@ class MyTabs extends React.Component {
         </Tabs>
       </Col>
       <Col span={1}></Col>
-      <Col span={6}>
+      <Col span={4}>
         <Card title={this.props.ban_kuai} style={{ width: '100%', height: 'auto' }}>
 
         {this.state.tabs_list_data.map((myitem) => {
             return (
-
-              <p href={AppGlobal.url.index}>{myitem.table_name}</p>
-              // <TabPane tab={myitem.table_name} key={myitem.table_key}>
-              //   <List
-              //     bordered
-              //     dataSource={myitem.list_data}
-              //     renderItem={item => (
-              //       <List.Item  >
-              //         <a hrefurl={item.} align={'right'}> {item.key} --- {item.key2}</a>
-              //       </List.Item>
-              //     )}
-              //   />
-              // </TabPane>
+              <Button style={{ width: '100%', height: 'auto' }} href={'/mynews?ban_kuai='+this.props.ban_kuai+'&lan_mu='+myitem.table_name+'&tittle=默认'}>{myitem.table_name}</Button>
             )
           })}
+          <img src={AppGlobal.url.首页中间横幅图片3}
+              style={{ width: '100%', height: 'auto' }}
+            />
         </Card>
       </Col>
       <Col span={2}></Col>
@@ -169,7 +231,7 @@ export default class App extends React.Component {
           </Col>
           <Col span={2}></Col>
           <Col span={9}>
-            <MyTabs ban_kuai={this.state.ban_kuai2}></MyTabs>
+            <MyTabsSmall ban_kuai={this.state.ban_kuai2}></MyTabsSmall>
           </Col>
           <Col span={2}></Col>
 
@@ -244,9 +306,7 @@ export default class App extends React.Component {
         <Row>
           <Col span={2}></Col>
           <Col span={20}>
-            <img src={AppGlobal.url.首页中间横幅图片3}
-              style={{ width: '100%', height: 'auto' }}
-            />
+            
           </Col>
           <Col span={2}></Col>
         </Row>

@@ -1,6 +1,7 @@
 class AppGlobal {
     url = {
-        index:'http://qyrd.wuminmin.top',
+        index:'/',
+        tian_qi_xia_zai:'https://wx.wuminmin.top/qyrd/tian_qi_xia_zai',
         uploadimg:'https://wx.wuminmin.top/qyrd/upload_img',
         rd_xia_zai_tabs_by_ban_kuai:'https://wx.wuminmin.top/qyrd/rd_xia_zai_tabs_by_ban_kuai',
         rd_updata:'https://wx.wuminmin.top/qyrd/rd_updata',
@@ -36,7 +37,7 @@ class AppGlobal {
         产品中心滚动图片13:'https://wx.wuminmin.top/qyrd/image?id=产品中心滚动图片13',
         产品中心滚动图片14:'https://wx.wuminmin.top/qyrd/image?id=产品中心滚动图片14',
         产品中心滚动图片15:'https://wx.wuminmin.top/qyrd/image?id=产品中心滚动图片15',
-
+        侧边栏按钮链接:'/mynews?ban_kuai=人大概况&lan_mu=人大概况&tittle=默认"',
        
     };
     
