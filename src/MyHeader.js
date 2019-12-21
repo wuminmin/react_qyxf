@@ -125,23 +125,63 @@ const menu6 = (
 const menu7 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.蓉城镇}>
                 蓉城镇
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.木镇镇}>
+                木镇镇
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.庙前镇}>
                 庙前镇
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
-                杜村乡
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.陵阳镇}>
+                陵阳镇
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.新河镇}>
                 新河镇
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.丁桥镇}>
+                丁桥镇
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.朱备镇}>
+                朱备镇
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.杨田镇}>
+                杨田镇
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.乔木乡}>
+                乔木乡
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.杨田镇}>
+                杨田镇
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.酉华镇}>
+                酉华镇
+        </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.杜村乡}>
+                杜村乡
         </a>
         </Menu.Item>
     </Menu>
@@ -150,27 +190,27 @@ const menu7 = (
 const menu8 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.人民代表大会会议}>
                 人民代表大会会议
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.常委会会议}>
                 常委会会议
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.主任会议}>
                 主任会议
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.代表联系群众}>
                 代表联系群众
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.代表信箱}>
                 代表信箱
         </a>
         </Menu.Item>

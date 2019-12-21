@@ -37,7 +37,25 @@ class AppGlobal {
         产品中心滚动图片13:'https://wx.wuminmin.top/qyrd/image?id=产品中心滚动图片13',
         产品中心滚动图片14:'https://wx.wuminmin.top/qyrd/image?id=产品中心滚动图片14',
         产品中心滚动图片15:'https://wx.wuminmin.top/qyrd/image?id=产品中心滚动图片15',
-        侧边栏按钮链接:'/mynews?ban_kuai=人大概况&lan_mu=人大概况&tittle=默认"',
+
+        人民代表大会会议:'/mynews?ban_kuai=会议之窗&lan_mu=人民代表大会会议&tittle=默认',
+        常委会会议:'/mynews?ban_kuai=会议之窗&lan_mu=常委会会议&tittle=默认',
+        主任会议:'/mynews?ban_kuai=会议之窗&lan_mu=主任会议&tittle=默认',
+        代表联系群众:'/mynews?ban_kuai=会议之窗&lan_mu=代表联系群众&tittle=默认',
+        代表信箱:'/mynews?ban_kuai=会议之窗&lan_mu=代表信箱&tittle=默认',
+
+
+        蓉城镇:'/mynews?ban_kuai=乡镇人大&lan_mu=蓉城镇&tittle=默认',
+        木镇镇:'/mynews?ban_kuai=乡镇人大&lan_mu=木镇镇&tittle=默认',
+        庙前镇:'/mynews?ban_kuai=乡镇人大&lan_mu=庙前镇&tittle=默认',
+        陵阳镇:'/mynews?ban_kuai=乡镇人大&lan_mu=陵阳镇&tittle=默认',
+        新河镇:'/mynews?ban_kuai=乡镇人大&lan_mu=新河镇&tittle=默认',
+        丁桥镇:'/mynews?ban_kuai=乡镇人大&lan_mu=丁桥镇&tittle=默认',
+        朱备镇:'/mynews?ban_kuai=乡镇人大&lan_mu=朱备镇&tittle=默认',
+        杨田镇:'/mynews?ban_kuai=乡镇人大&lan_mu=杨田镇&tittle=默认',
+        乔木乡:'/mynews?ban_kuai=乡镇人大&lan_mu=乔木乡&tittle=默认',
+        酉华镇:'/mynews?ban_kuai=乡镇人大&lan_mu=酉华镇&tittle=默认',
+        杜村乡:'/mynews?ban_kuai=乡镇人大&lan_mu=杜村乡&tittle=默认',
        
     };
     
