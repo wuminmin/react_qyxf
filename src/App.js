@@ -85,6 +85,8 @@ class MyTabs extends React.Component {
     this.state = {
       tabs_list_data: [],
       ban_kuai: this.props.ban_kuai,
+      tabs_list_data2: [],
+      ban_kuai2: this.props.ban_kuai2,
     }
   }
 
@@ -113,6 +115,26 @@ class MyTabs extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+
+      let data2 = {
+        "ban_kuai": this.props.ban_kuai2
+      }
+      axios({
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        method: 'post',
+        url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai,
+        data: Qs.stringify(data2)
+      }).then(function (response) {
+        console.log(response)
+        self.setState({
+          tabs_list_data2: response.data
+        });
+      })
+        .catch(function (error) {
+          console.log(error);
+        });
   }
 
   render() {
@@ -129,7 +151,7 @@ class MyTabs extends React.Component {
       <Row>
         <Col span={2}></Col>
         <Col span={15}>
-          {/* <Tag color="#2db7f5">{this.props.ban_kuai}</Tag> */}
+          <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
           <Tabs defaultActiveKey="1" onChange={callback}>
             {this.state.tabs_list_data.map((myitem) => {
               return (
@@ -150,11 +172,10 @@ class MyTabs extends React.Component {
         </Col>
         <Col span={1}></Col>
         <Col span={4}>
-          <Card title={this.props.ban_kuai} style={{ width: '100%', height: 'auto' }}>
-
-            {this.state.tabs_list_data.map((myitem) => {
+          <Card title={this.props.ban_kuai2} style={{ width: '100%', height: 'auto' }}>
+            {this.state.tabs_list_data2.map((myitem) => {
               return (
-                <Button style={{ width: '100%', height: 'auto' }} href={'/mynews?ban_kuai=' + this.props.ban_kuai + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
+                <Button style={{ width: '100%', height: 'auto' }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
               )
             })}
             <img src={AppGlobal.url.首页中间横幅图片3}
@@ -250,8 +271,8 @@ export default class App extends React.Component {
           <Col span={2}></Col>
         </Row>
         <br></br>
-        <MyTabs ban_kuai={this.state.ban_kuai2}></MyTabs>
-        <MyTabs ban_kuai={this.state.ban_kuai3}></MyTabs>
+        <MyTabs ban_kuai={this.state.ban_kuai4} ban_kuai2={this.state.ban_kuai2}></MyTabs>
+        <MyTabs ban_kuai={this.state.ban_kuai5} ban_kuai2={this.state.ban_kuai3}></MyTabs>
         <br></br>
         <Row>
           <Col span={2}></Col>
@@ -259,20 +280,6 @@ export default class App extends React.Component {
             <img src={AppGlobal.url.首页中间横幅图片2}
               style={{ width: '100%', height: 'auto' }}
             />
-          </Col>
-          <Col span={2}></Col>
-        </Row>
-        <Row>
-          <Col span={2}></Col>
-          <Col span={20}>
-            <MyTabsSmall ban_kuai={this.state.ban_kuai4}></MyTabsSmall>
-          </Col>
-          <Col span={2}></Col>
-        </Row>
-        <Row>
-          <Col span={2}></Col>
-          <Col span={20}>
-            <MyTabsSmall ban_kuai={this.state.ban_kuai5}></MyTabsSmall>
           </Col>
           <Col span={2}></Col>
         </Row>
