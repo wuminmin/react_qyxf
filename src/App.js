@@ -3,7 +3,7 @@ import Qs from 'qs'
 import axios from 'axios'
 import 'react-weui/build/packages/react-weui.css';
 import MyHeader from './MyHeader';
-import { Carousel, Card, Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List } from 'antd';
+import { Carousel, Card, Layout, Menu, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List } from 'antd';
 // import Carousel from 'nuka-carousel';
 import MyFooter from './MyFooter';
 import AppGlobal from './AppGlobal';
@@ -172,15 +172,17 @@ class MyTabs extends React.Component {
         </Col>
         <Col span={1}></Col>
         <Col span={4}>
-          <Card title={this.props.ban_kuai2} style={{ width: '100%', height: 'auto' }}>
+          <Card title={this.props.ban_kuai2} style={{ width: '100%', height: 'auto' }}
+          cover={<img alt="example" src={AppGlobal.url.首页中间横幅图片3} />}>
             {this.state.tabs_list_data2.map((myitem) => {
               return (
-                <Button style={{ width: '100%', height: 'auto' }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
+                <Button type='danger' style={{ width: '100%', height: 'auto',backgroundImage:AppGlobal.url.首页中间横幅图片3 }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
               )
             })}
-            <img src={AppGlobal.url.首页中间横幅图片3}
+            <Icon type="carry-out" style={{ width: '20%', height: 'auto' }} /><Button style={{ width: '80%', height: 'auto' }}>ddd</Button>
+            {/* <img src={AppGlobal.url.首页中间横幅图片3}
               style={{ width: '100%', height: 'auto' }}
-            />
+            /> */}
           </Card>
         </Col>
         <Col span={2}></Col>
@@ -239,12 +241,18 @@ export default class App extends React.Component {
   }
 
   render() {
+
+
+
     return (
       <div>
         <MyHeader></MyHeader>
         <Row>
           <Col span={2}></Col>
           <Col span={9}>
+
+
+
             <Carousel autoplay>
               <img src={AppGlobal.url.首页工程案例1} />
               <img src={AppGlobal.url.首页工程案例2} />

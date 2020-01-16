@@ -7,6 +7,13 @@ import axios from 'axios'
 import 'antd/dist/antd.css';
 import './index.css';
 import AppGlobal from './AppGlobal';
+import index_header_jpg from './index_header.jpg';
+import img_guohui_png from './img_guohui.png';
+// import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+// import faAddressBook from '@fortawesome/fontawesome-free-solid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 const { Search } = Input;
 const menu = (
     <Menu>
@@ -77,6 +84,11 @@ const menu4 = (
                 监督工作
         </a>
         </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=依法履职&lan_mu=法律法规&tittle=默认">
+                法律法规
+        </a>
+        </Menu.Item>
     </Menu>
 );
 const menu5 = (
@@ -102,10 +114,11 @@ const menu5 = (
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=法律法规&tittle=默认">
-                法律法规
+            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=代表工作&lan_mu=代表联系群众&tittle=默认">
+                代表联系群众
         </a>
         </Menu.Item>
+
     </Menu>
 );
 const menu6 = (
@@ -141,17 +154,17 @@ const menu7 = (
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.朱备镇}>
-            朱备镇
+                朱备镇
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.杨田镇}>
-            杨田镇
+                杨田镇
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.陵阳镇}>
-            陵阳镇
+                陵阳镇
         </a>
         </Menu.Item>
         <Menu.Item>
@@ -161,27 +174,27 @@ const menu7 = (
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.木镇镇}>
-            木镇镇
+                木镇镇
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.丁桥镇}>
-            丁桥镇
+                丁桥镇
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.乔木乡}>
-            乔木乡
+                乔木乡
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.酉华镇}>
-            酉华镇
+                酉华镇
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.庙前镇}>
-            庙前镇
+                庙前镇
         </a>
         </Menu.Item>
         <Menu.Item>
@@ -209,11 +222,7 @@ const menu8 = (
                 主任会议
         </a>
         </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href={AppGlobal.url.代表联系群众}>
-                代表联系群众
-        </a>
-        </Menu.Item>
+
     </Menu>
 );
 
@@ -253,32 +262,71 @@ export default class MyHeader extends React.Component {
     };
 
     render() {
-        var background = { backgroundSize: 'cover', width: '100%' };
-        var textStyle = {
-            position: 'absolute',
-            top: '30%',
-            left: '20%',
-            color: 'red',
-            fontSize: '100px',
-        };
+        // var background = { backgroundSize: 'cover', width: '100%' };
+        // var textStyle = {
+        //     position: 'absolute',
+        //     top: '30%',
+        //     left: '20%',
+        //     color: 'red',
+        //     fontSize: '100px',
+        // };
 
-        const divStyle = {
-            backgroundImage: 'url(' + "https://wx.wuminmin.top/wxyl/image?id=17" + ')',
-            backgroundrepeat: 'no-repeat',
-            backgroundattachment: 'fixed',
-            backgroundsize: 'cover',
-        };
+        // const divStyle = {
+        //     backgroundImage: 'url(' + "https://wx.wuminmin.top/wxyl/image?id=17" + ')',
+        //     backgroundrepeat: 'no-repeat',
+        //     backgroundattachment: 'fixed',
+        //     backgroundsize: 'cover',
+        // };
 
         return (
             <div>
                 <Row>
-                    <Carousel autoplay >
+                    {/* <img src={index_header_jpg}
+                        style={{ width: '100%', height: 'auto' }}
+                    /> */}
+                    <div style={{ width: 'auto' }}>
+                        <img
+                            style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }} responsive
+                            src={index_header_jpg}>
+                        </img>
+                        <img style={{
+                            position: 'absolute',
+                            height:'auto%',
+                            width:'10%',
+                            top: '30%',
+                            left: '10%'
+                        }} src={img_guohui_png} />
+                        <h1 style={{
+                            position: 'absolute',
+                            top: '30%',
+                            left: '20%',
+                            color: 'red',
+                            fontSize:'60px',
+                            fontWeight:'900',
+                            fontFamily:'STSong',
+                            textShadow:'0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff',
+                            // borderStyle:'solid',
+                            // borderWidth:'thick',
+
+                            
+                        }}>青阳人大</h1>
+                              <h4 style={{
+                            position: 'absolute',
+                            top: '45%',
+                            left: '22%',
+                            color: 'red',
+                            fontSize:'30px',
+                            fontFamily:'SimHei',
+                            textShadow:'0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff',
+                        }}>rd.qyxgov.cn</h4>
+                    </div>
+                    {/* <Carousel autoplay >
                         <img src={AppGlobal.url.首页滚动图片1} alt="青阳人大" />
                         <img src={AppGlobal.url.首页滚动图片2} alt="青阳人大" />
                         <img src={AppGlobal.url.首页滚动图片3} alt="青阳人大" />
                         <img src={AppGlobal.url.首页滚动图片4} alt="青阳人大" />
                         <img src={AppGlobal.url.首页滚动图片5} alt="青阳人大" />
-                    </Carousel>
+                    </Carousel> */}
                 </Row>
                 <br></br>
                 <Row>

@@ -36,10 +36,11 @@ export default class MyFooter extends React.Component {
                     <Col span={8}>
 
                     </Col>
-                    <Col span={8} aling={'center'}>
+                    <Col span={8} aling={'right'}>
                         青阳县人大常委会
+                        {/* </Col>
+                    <Col span={2}> */}
                         <img align={'center'} src={'http://www.ahrd.gov.cn/ahrdweb/images/jg.png'}></img>
-
                     </Col>
                     <Col span={8}>
 

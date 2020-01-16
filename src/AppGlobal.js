@@ -41,7 +41,6 @@ class AppGlobal {
         人民代表大会会议:'/mynews?ban_kuai=会议之窗&lan_mu=人民代表大会会议&tittle=默认',
         常委会会议:'/mynews?ban_kuai=会议之窗&lan_mu=常委会会议&tittle=默认',
         主任会议:'/mynews?ban_kuai=会议之窗&lan_mu=主任会议&tittle=默认',
-        代表联系群众:'/mynews?ban_kuai=会议之窗&lan_mu=代表联系群众&tittle=默认',
         代表信箱:'/mynews?ban_kuai=会议之窗&lan_mu=代表信箱&tittle=默认',
 
 
