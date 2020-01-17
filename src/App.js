@@ -6,6 +6,7 @@ import MyHeader from './MyHeader';
 import { Carousel, Card, Layout, Menu, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List } from 'antd';
 // import Carousel from 'nuka-carousel';
 import MyFooter from './MyFooter';
+import img_background_cloud from './img_background_cloud.jpg'
 import AppGlobal from './AppGlobal';
 
 class MyTabsSmall extends React.Component {
@@ -55,10 +56,10 @@ class MyTabsSmall extends React.Component {
     return (
       <div>
         <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
-        <Tabs style={{fontWeight:'900'}} defaultActiveKey="1" onChange={callback}>
+        <Tabs style={{ fontWeight: '900' }} defaultActiveKey="1" onChange={callback}>
           {this.state.tabs_list_data.map((myitem) => {
             return (
-              <TabPane style={{fontWeight:'900'}} tab={myitem.table_name} key={myitem.table_key}>
+              <TabPane style={{ fontWeight: '900' }} tab={myitem.table_name} key={myitem.table_key}>
                 <List
                   bordered
                   dataSource={myitem.list_data}
@@ -116,25 +117,25 @@ class MyTabs extends React.Component {
         console.log(error);
       });
 
-      let data2 = {
-        "ban_kuai": this.props.ban_kuai2
-      }
-      axios({
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        method: 'post',
-        url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai,
-        data: Qs.stringify(data2)
-      }).then(function (response) {
-        console.log(response)
-        self.setState({
-          tabs_list_data2: response.data
-        });
-      })
-        .catch(function (error) {
-          console.log(error);
-        });
+    let data2 = {
+      "ban_kuai": this.props.ban_kuai2
+    }
+    axios({
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'post',
+      url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai,
+      data: Qs.stringify(data2)
+    }).then(function (response) {
+      console.log(response)
+      self.setState({
+        tabs_list_data2: response.data
+      });
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   render() {
@@ -152,12 +153,12 @@ class MyTabs extends React.Component {
         <Col span={2}></Col>
         <Col span={15}>
           <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
-          <Tabs style={{fontWeight:'900'}} defaultActiveKey="1" onChange={callback}>
+          <Tabs style={{ fontWeight: '900' }} defaultActiveKey="1" onChange={callback}>
             {this.state.tabs_list_data.map((myitem) => {
               return (
                 <TabPane tab={myitem.table_name} key={myitem.table_key}>
                   <List
-                    style={{fontWeight:'900'}}
+                    style={{ fontWeight: '900' }}
                     bordered
                     dataSource={myitem.list_data}
                     renderItem={item => (
@@ -173,22 +174,38 @@ class MyTabs extends React.Component {
         </Col>
         <Col span={1}></Col>
         <Col span={4}>
-          <Card title={this.props.ban_kuai2} style={{ width: '100%', height: 'auto' }}
+        {/* <img  style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }}  src={img_background_cloud} /> */}
+   {/* <img
+              style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }} responsive
+              src={img_background_cloud}>
+            </img> */}
+          <Card title={this.props.ban_kuai2}
+          headStyle = {{width: '100%', height: 'auto',color:'#ffffff',background:'linear-gradient(red, yellow)'}}
+          bodyStyle={{ width: '100%', height: 'auto',background:'linear-gradient(red, yellow)'}}
+            // style={{ width: '100%', height: 'auto',position: 'absolute', }}
           // cover={<img alt="example" src={AppGlobal.url.首页中间横幅图片3} />}
           >
+            {/* <img
+              style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }} responsive
+              src={img_background_cloud}>
+            </img> */}
             {this.state.tabs_list_data2.map((myitem) => {
               return (
-                <Button type='normal' style={{ 
-                  color:'#ffffff', width: '100%',
-                  borderColor:'#DF783E',
-                   height: 'auto',backgroundColor:'#DF783E',
-                   textShadow:'1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
-                  }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
+                <Button type='normal' style={{
+                  // position: 'absolute',
+                  // height: 'auto',
+                  // width: '15%',
+                  // top: '30%',
+                  // left: '10%',
+                  color: '#ffffff', 
+                  width: '100%',
+                  // borderColor: '#DF783E',
+                  height: 'auto', 
+                  background: 'none',
+                  textShadow: '1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
+                }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
               )
             })}
-
-
-      
           </Card>
         </Col>
         <Col span={2}></Col>

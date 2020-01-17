@@ -314,10 +314,10 @@ export default class MyHeader extends React.Component {
                         </img>
                         <img style={{
                             position: 'absolute',
-                            height: 'auto%',
+                            height: 'auto',
                             width: '15%',
                             top: '30%',
-                            left: '10%'
+                            left: '10%',
                         }} src={img_guohui_png} />
                         <h1 style={{
                             position: 'absolute',
@@ -363,8 +363,7 @@ export default class MyHeader extends React.Component {
                                 backgroundColor: 'blue',
                             }}
                             >
-                                <Dropdown overlay={
-                                    (
+                                <Dropdown overlay={(
                                         <Menu style={{
                                             fontWeight: '900',
                                             color: '#ffffff',
@@ -387,14 +386,14 @@ export default class MyHeader extends React.Component {
                                                 )
                                             })}
                                         </Menu>
-                                    )
-                                } placement="bottomCenter">
+                                    )} placement="bottomCenter">
                                     <Button
                                         style={{
                                             fontWeight: '900',
                                             color: '#ffffff',
                                             backgroundColor: 'blue',
                                             borderColor: 'blue',
+                                            textAlign:'center',
                                         }}
                                     >{myitem.name}</Button>
                                 </Dropdown>
@@ -402,151 +401,6 @@ export default class MyHeader extends React.Component {
                         )
                     })}
                 </Row>
-                {/* <Row>
-                    <Col span={3} style={{
-                        fontWeight: '900',
-                        color: '#ffffff',
-                        backgroundColor: 'blue',
-                    }}
-                    >
-                        <Dropdown overlay={menu} placement="bottomCenter">
-                            <Button
-                                style={{
-                                    fontWeight: '900',
-                                    color: '#ffffff',
-                                    backgroundColor: 'blue',
-                                    borderColor: 'blue',
-                                }}
-                            >首页</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}
-                        style={{
-                            fontWeight: '900',
-                            color: '#ffffff',
-                            backgroundColor: 'blue',
-                        }}
-                    >
-                        <Dropdown style={{ fontWeight: '900' }} overlay={menu3} placement="bottomCenter">
-                            <Button
-                                style={{
-                                    fontWeight: '900',
-                                    color: '#ffffff',
-                                    backgroundColor: 'blue',
-                                    borderColor: 'blue',
-                                }}
-                            >新闻中心</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}
-                        style={{
-                            fontWeight: '900',
-                            color: '#ffffff',
-                            backgroundColor: 'blue',
-                        }}
-                    >
-                        <Dropdown style={{ fontWeight: '900' }} overlay={menu2} placement="bottomCenter">
-                            <Button
-                                style={{
-                                    fontWeight: '900',
-                                    color: '#ffffff',
-                                    backgroundColor: 'blue',
-                                    borderColor: 'blue',
-                                }}
-                            >人大概况</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}
-                        style={{
-                            fontWeight: '900',
-                            color: '#ffffff',
-                            backgroundColor: 'blue',
-                        }}
-                    >
-                        <Dropdown overlay={menu8} placement="bottomCenter">
-                            <Button
-                                style={{
-                                    fontWeight: '900',
-                                    color: '#ffffff',
-                                    backgroundColor: 'blue',
-                                    borderColor: 'blue',
-                                }}
-                            >会议之窗</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}
-                        style={{
-                            fontWeight: '900',
-                            color: '#ffffff',
-                            backgroundColor: 'blue',
-                        }}
-                    >
-                        <Dropdown style={{ fontWeight: '900' }} overlay={menu4} placement="bottomCenter">
-                            <Button
-                                style={{
-                                    fontWeight: '900',
-                                    color: '#ffffff',
-                                    backgroundColor: 'blue',
-                                    borderColor: 'blue',
-                                }}
-                            >依法履职</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}
-                        style={{
-                            fontWeight: '900',
-                            color: '#ffffff',
-                            backgroundColor: 'blue',
-                        }}
-                    >
-                        <Dropdown style={{ fontWeight: '900' }} overlay={menu5} placement="bottomCenter">
-                            <Button
-                                style={{
-                                    fontWeight: '900',
-                                    color: '#ffffff',
-                                    backgroundColor: 'blue',
-                                    borderColor: 'blue',
-                                }}
-                            >代表工作</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}
-                        style={{
-                            fontWeight: '900',
-                            color: '#ffffff',
-                            backgroundColor: 'blue',
-                        }}
-                    >
-                        <Dropdown style={{ fontWeight: '900' }} overlay={menu6} placement="bottomCenter">
-                            <Button
-                                style={{
-                                    fontWeight: '900',
-                                    color: '#ffffff',
-                                    backgroundColor: 'blue',
-                                    borderColor: 'blue',
-                                }}
-                            >一府一委两院</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}
-                        style={{
-                            fontWeight: '900',
-                            color: '#ffffff',
-                            backgroundColor: 'blue',
-                        }}
-                    >
-                        <Dropdown style={{ fontWeight: '900' }} overlay={menu7} placement="bottomCenter">
-                            <Button
-                                style={{
-                                    fontWeight: '900',
-                                    color: '#ffffff',
-                                    backgroundColor: 'blue',
-                                    borderColor: 'blue',
-                                }}
-                            >乡镇人大</Button>
-                        </Dropdown>
-                    </Col>
-                </Row> */}
                 <br></br>
             </div>
         );
