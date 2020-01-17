@@ -9,40 +9,72 @@ import './index.css';
 import AppGlobal from './AppGlobal';
 import index_header_jpg from './index_header.jpg';
 import img_guohui_png from './img_guohui.png';
-// import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-// import faAddressBook from '@fortawesome/fontawesome-free-solid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 const { Search } = Input;
 const menu = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/">
+            <a style={{
+                fontWeight: '900',
+                color: '#ffffff',
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+            }}
+                target="_blank" rel="noopener noreferrer" href="/">
                 首页
         </a>
         </Menu.Item>
     </Menu>
 );
 const menu2 = (
-    <Menu>
+    <Menu style={{
+        fontWeight: '900',
+        color: '#ffffff',
+        backgroundColor: 'blue',
+        borderColor: 'blue',
+    }}
+    >
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=人大简介&tittle=默认">
+            <a style={{
+                fontWeight: '900',
+                color: '#ffffff',
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+            }}
+                target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=人大简介&tittle=默认">
                 人大简介
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=组织机构&tittle=默认">
+            <a style={{
+                fontWeight: '900',
+                color: '#ffffff',
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+            }}
+                target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=组织机构&tittle=默认">
                 组织机构
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=组成人员&tittle=默认">
+            <a style={{
+                fontWeight: '900',
+                color: '#ffffff',
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+            }}
+                target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=组成人员&tittle=默认">
                 组成人员
         </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=委室职责&tittle=默认">
+            <a style={{
+                fontWeight: '900',
+                color: '#ffffff',
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+            }}
+                target="_blank" rel="noopener noreferrer" href="/mynews?ban_kuai=人大概况&lan_mu=委室职责&tittle=默认">
                 委室职责
         </a>
         </Menu.Item>
@@ -234,6 +266,16 @@ export default class MyHeader extends React.Component {
         ban_kuai: '',
         lan_mu: '',
         tian_qi: '',
+        head_menu_data: [
+            { name: '首页', myMenu: [{ subname: '首页', subUrl: '' }] },
+            { name: '新闻中心', myMenu: [{ subname: '人大要闻', subUrl: '' }, { subname: '通知公告', subUrl: '' }, { subname: '工作动态', subUrl: '' }] },
+            { name: '人大概况', myMenu: [{ subname: '首页', subUrl: '' }] },
+            { name: '依法履职', myMenu: [{ subname: '决定决议', subUrl: '' }, { subname: '任职任免', subUrl: '' }, { subname: '监督工作', subUrl: '' }, { subname: '法律法规', subUrl: '' }] },
+            { name: '代表工作', myMenu: [{ subname: '人大简介', subUrl: '' }, { subname: '组织机构', subUrl: '' }, { subname: '组成人员', subUrl: '' }, { subname: '委室内职责', subUrl: '' }] },
+            { name: '会议之窗', myMenu: [{ subname: '人民代表大会会议', subUrl: '' }, { subname: '常委会会议', subUrl: '' }, { subname: '主任会议', subUrl: '' }, { subname: '代表联系群众', subUrl: '' }, { subname: '代表邮箱', subUrl: '' }]},
+            { name: '一府一委两院', myMenu: [{ subname: '人民政府', subUrl: '' }, { subname: '监察委员会', subUrl: '' }, { subname: '人民法院', subUrl: '' }, { subname: '人民检察院', subUrl: '' }] },
+            { name: '乡镇人大', myMenu: [{ subname: '蓉城镇', subUrl: '' }, { subname: '朱备镇', subUrl: '' }, { subname: '杨田镇', subUrl: '' }, { subname: '陵阳镇', subUrl: '' },{subname:'新河镇'},{subname:'木镇镇',subUrl:''}] },
+        ],
     };
 
     componentDidMount() {
@@ -262,28 +304,9 @@ export default class MyHeader extends React.Component {
     };
 
     render() {
-        // var background = { backgroundSize: 'cover', width: '100%' };
-        // var textStyle = {
-        //     position: 'absolute',
-        //     top: '30%',
-        //     left: '20%',
-        //     color: 'red',
-        //     fontSize: '100px',
-        // };
-
-        // const divStyle = {
-        //     backgroundImage: 'url(' + "https://wx.wuminmin.top/wxyl/image?id=17" + ')',
-        //     backgroundrepeat: 'no-repeat',
-        //     backgroundattachment: 'fixed',
-        //     backgroundsize: 'cover',
-        // };
-
         return (
-            <div style={{fontWeight:'900'}}>
+            <div style={{ fontWeight: '900' }}>
                 <Row>
-                    {/* <img src={index_header_jpg}
-                        style={{ width: '100%', height: 'auto' }}
-                    /> */}
                     <div style={{ width: 'auto' }}>
                         <img
                             style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }} responsive
@@ -291,33 +314,31 @@ export default class MyHeader extends React.Component {
                         </img>
                         <img style={{
                             position: 'absolute',
-                            height:'auto%',
-                            width:'10%',
+                            height: 'auto%',
+                            width: '15%',
                             top: '30%',
                             left: '10%'
                         }} src={img_guohui_png} />
                         <h1 style={{
                             position: 'absolute',
                             top: '30%',
-                            left: '20%',
+                            left: '25%',
                             color: 'red',
-                            fontSize:'60px',
-                            fontWeight:'900',
-                            fontFamily:'STSong',
-                            textShadow:'0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff',
-                            // borderStyle:'solid',
-                            // borderWidth:'thick',
-
-                            
+                            fontSize: '70px',
+                            fontWeight: '900',
+                            fontFamily: 'STSong',
+                            // textShadow:'1px 1px #ffffff,-1px -1px #ffffff,1px -1px #ffffff,-1px 1px #ffffff',
+                            textShadow: '0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff',
                         }}>青阳人大</h1>
-                              <h4 style={{
+                        <h4 style={{
                             position: 'absolute',
-                            top: '45%',
-                            left: '22%',
+                            top: '50%',
+                            left: '26%',
                             color: 'red',
-                            fontSize:'30px',
-                            fontFamily:'SimHei',
-                            textShadow:'0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff',
+                            fontSize: '40px',
+                            fontFamily: 'SimHei',
+                            // textShadow:'1px 1px #ffffff,-1px -1px #ffffff,1px -1px #ffffff,-1px 1px #ffffff',
+                            textShadow: '0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff',
                         }}>rd.qyxgov.cn</h4>
                     </div>
                 </Row>
@@ -328,56 +349,204 @@ export default class MyHeader extends React.Component {
                     </Col>
                     <Col span={8}>
                         <p style={{ color: 'blue' }}>{this.state.tian_qi} </p>
-
                     </Col>
                     <Col span={8}>
                         <Search placeholder="热门文章" onSearch={value => console.log(value)} enterButton />
                     </Col>
-
                 </Row>
                 <Row>
-                    <Col span={3}>
-                        <Dropdown style={{fontWeight:'900'}} overlay={menu} placement="bottomCenter">
-                            <Button>首页</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}>
-                        <Dropdown style={{fontWeight:'900'}} overlay={menu3} placement="bottomCenter">
-                            <Button>新闻中心</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}>
-                        <Dropdown style={{fontWeight:'900'}} overlay={menu2} placement="bottomCenter">
-                            <Button>人大概况</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}>
-                        <Dropdown overlay={menu8} placement="bottomCenter">
-                            <Button>会议之窗</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}>
-                        <Dropdown style={{fontWeight:'900'}} overlay={menu4} placement="bottomCenter">
-                            <Button>依法履职</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}>
-                        <Dropdown style={{fontWeight:'900'}} overlay={menu5} placement="bottomCenter">
-                            <Button>代表工作</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}>
-                        <Dropdown style={{fontWeight:'900'}} overlay={menu6} placement="bottomCenter">
-                            <Button>一府一委两院</Button>
-                        </Dropdown>
-                    </Col>
-                    <Col span={3}>
-                        <Dropdown style={{fontWeight:'900'}} overlay={menu7} placement="bottomCenter">
-                            <Button>乡镇人大</Button>
-                        </Dropdown>
-                    </Col>
+                    {this.state.head_menu_data.map((myitem) => {
+                        return (
+                            <Col span={3} style={{
+                                fontWeight: '900',
+                                color: '#ffffff',
+                                backgroundColor: 'blue',
+                            }}
+                            >
+                                <Dropdown overlay={
+                                    (
+                                        <Menu style={{
+                                            fontWeight: '900',
+                                            color: '#ffffff',
+                                            backgroundColor: 'blue',
+                                        }}
+                                        >
+                                            {myitem.myMenu.map((subitem) => {
+                                                return (
+                                                    <Menu.Item>
+                                                        <a style={{
+                                                            fontWeight: '900',
+                                                            color: '#ffffff',
+                                                            backgroundColor: 'blue',
+                                                            borderColor: 'blue',
+                                                        }}
+                                                            target="_blank" rel="noopener noreferrer" href={subitem.subUrl}>
+                                                            {subitem.subname}
+                                                        </a>
+                                                    </Menu.Item>
+                                                )
+                                            })}
+                                        </Menu>
+                                    )
+                                } placement="bottomCenter">
+                                    <Button
+                                        style={{
+                                            fontWeight: '900',
+                                            color: '#ffffff',
+                                            backgroundColor: 'blue',
+                                            borderColor: 'blue',
+                                        }}
+                                    >{myitem.name}</Button>
+                                </Dropdown>
+                            </Col>
+                        )
+                    })}
                 </Row>
-
+                {/* <Row>
+                    <Col span={3} style={{
+                        fontWeight: '900',
+                        color: '#ffffff',
+                        backgroundColor: 'blue',
+                    }}
+                    >
+                        <Dropdown overlay={menu} placement="bottomCenter">
+                            <Button
+                                style={{
+                                    fontWeight: '900',
+                                    color: '#ffffff',
+                                    backgroundColor: 'blue',
+                                    borderColor: 'blue',
+                                }}
+                            >首页</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}
+                        style={{
+                            fontWeight: '900',
+                            color: '#ffffff',
+                            backgroundColor: 'blue',
+                        }}
+                    >
+                        <Dropdown style={{ fontWeight: '900' }} overlay={menu3} placement="bottomCenter">
+                            <Button
+                                style={{
+                                    fontWeight: '900',
+                                    color: '#ffffff',
+                                    backgroundColor: 'blue',
+                                    borderColor: 'blue',
+                                }}
+                            >新闻中心</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}
+                        style={{
+                            fontWeight: '900',
+                            color: '#ffffff',
+                            backgroundColor: 'blue',
+                        }}
+                    >
+                        <Dropdown style={{ fontWeight: '900' }} overlay={menu2} placement="bottomCenter">
+                            <Button
+                                style={{
+                                    fontWeight: '900',
+                                    color: '#ffffff',
+                                    backgroundColor: 'blue',
+                                    borderColor: 'blue',
+                                }}
+                            >人大概况</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}
+                        style={{
+                            fontWeight: '900',
+                            color: '#ffffff',
+                            backgroundColor: 'blue',
+                        }}
+                    >
+                        <Dropdown overlay={menu8} placement="bottomCenter">
+                            <Button
+                                style={{
+                                    fontWeight: '900',
+                                    color: '#ffffff',
+                                    backgroundColor: 'blue',
+                                    borderColor: 'blue',
+                                }}
+                            >会议之窗</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}
+                        style={{
+                            fontWeight: '900',
+                            color: '#ffffff',
+                            backgroundColor: 'blue',
+                        }}
+                    >
+                        <Dropdown style={{ fontWeight: '900' }} overlay={menu4} placement="bottomCenter">
+                            <Button
+                                style={{
+                                    fontWeight: '900',
+                                    color: '#ffffff',
+                                    backgroundColor: 'blue',
+                                    borderColor: 'blue',
+                                }}
+                            >依法履职</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}
+                        style={{
+                            fontWeight: '900',
+                            color: '#ffffff',
+                            backgroundColor: 'blue',
+                        }}
+                    >
+                        <Dropdown style={{ fontWeight: '900' }} overlay={menu5} placement="bottomCenter">
+                            <Button
+                                style={{
+                                    fontWeight: '900',
+                                    color: '#ffffff',
+                                    backgroundColor: 'blue',
+                                    borderColor: 'blue',
+                                }}
+                            >代表工作</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}
+                        style={{
+                            fontWeight: '900',
+                            color: '#ffffff',
+                            backgroundColor: 'blue',
+                        }}
+                    >
+                        <Dropdown style={{ fontWeight: '900' }} overlay={menu6} placement="bottomCenter">
+                            <Button
+                                style={{
+                                    fontWeight: '900',
+                                    color: '#ffffff',
+                                    backgroundColor: 'blue',
+                                    borderColor: 'blue',
+                                }}
+                            >一府一委两院</Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={3}
+                        style={{
+                            fontWeight: '900',
+                            color: '#ffffff',
+                            backgroundColor: 'blue',
+                        }}
+                    >
+                        <Dropdown style={{ fontWeight: '900' }} overlay={menu7} placement="bottomCenter">
+                            <Button
+                                style={{
+                                    fontWeight: '900',
+                                    color: '#ffffff',
+                                    backgroundColor: 'blue',
+                                    borderColor: 'blue',
+                                }}
+                            >乡镇人大</Button>
+                        </Dropdown>
+                    </Col>
+                </Row> */}
                 <br></br>
             </div>
         );

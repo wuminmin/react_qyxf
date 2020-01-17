@@ -178,7 +178,12 @@ class MyTabs extends React.Component {
           >
             {this.state.tabs_list_data2.map((myitem) => {
               return (
-                <Button type='normal' style={{ color:'#ffffff', width: '100%', height: 'auto',backgroundColor:'#80C4F3' }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
+                <Button type='normal' style={{ 
+                  color:'#ffffff', width: '100%',
+                  borderColor:'#DF783E',
+                   height: 'auto',backgroundColor:'#DF783E',
+                   textShadow:'1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
+                  }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
               )
             })}
 
