@@ -167,7 +167,7 @@ export default class BasicDemo extends React.Component {
                 }).then(function (response) {
                   console.log(response)
                   self.setState({
-                    myHTML: response.data
+                    myHTML: response.data.code
                   });
                 })
                   .catch(function (error) {
