@@ -55,10 +55,10 @@ class MyTabsSmall extends React.Component {
     return (
       <div>
         <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
-        <Tabs defaultActiveKey="1" onChange={callback}>
+        <Tabs style={{fontWeight:'900'}} defaultActiveKey="1" onChange={callback}>
           {this.state.tabs_list_data.map((myitem) => {
             return (
-              <TabPane tab={myitem.table_name} key={myitem.table_key}>
+              <TabPane style={{fontWeight:'900'}} tab={myitem.table_name} key={myitem.table_key}>
                 <List
                   bordered
                   dataSource={myitem.list_data}
@@ -152,11 +152,12 @@ class MyTabs extends React.Component {
         <Col span={2}></Col>
         <Col span={15}>
           <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
-          <Tabs defaultActiveKey="1" onChange={callback}>
+          <Tabs style={{fontWeight:'900'}} defaultActiveKey="1" onChange={callback}>
             {this.state.tabs_list_data.map((myitem) => {
               return (
                 <TabPane tab={myitem.table_name} key={myitem.table_key}>
                   <List
+                    style={{fontWeight:'900'}}
                     bordered
                     dataSource={myitem.list_data}
                     renderItem={item => (
@@ -173,16 +174,16 @@ class MyTabs extends React.Component {
         <Col span={1}></Col>
         <Col span={4}>
           <Card title={this.props.ban_kuai2} style={{ width: '100%', height: 'auto' }}
-          cover={<img alt="example" src={AppGlobal.url.首页中间横幅图片3} />}>
+          // cover={<img alt="example" src={AppGlobal.url.首页中间横幅图片3} />}
+          >
             {this.state.tabs_list_data2.map((myitem) => {
               return (
-                <Button type='danger' style={{ width: '100%', height: 'auto',backgroundImage:AppGlobal.url.首页中间横幅图片3 }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
+                <Button type='normal' style={{ color:'#ffffff', width: '100%', height: 'auto',backgroundColor:'#80C4F3' }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
               )
             })}
-            <Icon type="carry-out" style={{ width: '20%', height: 'auto' }} /><Button style={{ width: '80%', height: 'auto' }}>ddd</Button>
-            {/* <img src={AppGlobal.url.首页中间横幅图片3}
-              style={{ width: '100%', height: 'auto' }}
-            /> */}
+
+
+      
           </Card>
         </Col>
         <Col span={2}></Col>

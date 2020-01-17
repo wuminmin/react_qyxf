@@ -279,7 +279,7 @@ export default class MyHeader extends React.Component {
         // };
 
         return (
-            <div>
+            <div style={{fontWeight:'900'}}>
                 <Row>
                     {/* <img src={index_header_jpg}
                         style={{ width: '100%', height: 'auto' }}
@@ -320,13 +320,6 @@ export default class MyHeader extends React.Component {
                             textShadow:'0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff',
                         }}>rd.qyxgov.cn</h4>
                     </div>
-                    {/* <Carousel autoplay >
-                        <img src={AppGlobal.url.首页滚动图片1} alt="青阳人大" />
-                        <img src={AppGlobal.url.首页滚动图片2} alt="青阳人大" />
-                        <img src={AppGlobal.url.首页滚动图片3} alt="青阳人大" />
-                        <img src={AppGlobal.url.首页滚动图片4} alt="青阳人大" />
-                        <img src={AppGlobal.url.首页滚动图片5} alt="青阳人大" />
-                    </Carousel> */}
                 </Row>
                 <br></br>
                 <Row>
@@ -344,17 +337,17 @@ export default class MyHeader extends React.Component {
                 </Row>
                 <Row>
                     <Col span={3}>
-                        <Dropdown overlay={menu} placement="bottomCenter">
+                        <Dropdown style={{fontWeight:'900'}} overlay={menu} placement="bottomCenter">
                             <Button>首页</Button>
                         </Dropdown>
                     </Col>
                     <Col span={3}>
-                        <Dropdown overlay={menu3} placement="bottomCenter">
+                        <Dropdown style={{fontWeight:'900'}} overlay={menu3} placement="bottomCenter">
                             <Button>新闻中心</Button>
                         </Dropdown>
                     </Col>
                     <Col span={3}>
-                        <Dropdown overlay={menu2} placement="bottomCenter">
+                        <Dropdown style={{fontWeight:'900'}} overlay={menu2} placement="bottomCenter">
                             <Button>人大概况</Button>
                         </Dropdown>
                     </Col>
@@ -364,22 +357,22 @@ export default class MyHeader extends React.Component {
                         </Dropdown>
                     </Col>
                     <Col span={3}>
-                        <Dropdown overlay={menu4} placement="bottomCenter">
+                        <Dropdown style={{fontWeight:'900'}} overlay={menu4} placement="bottomCenter">
                             <Button>依法履职</Button>
                         </Dropdown>
                     </Col>
                     <Col span={3}>
-                        <Dropdown overlay={menu5} placement="bottomCenter">
+                        <Dropdown style={{fontWeight:'900'}} overlay={menu5} placement="bottomCenter">
                             <Button>代表工作</Button>
                         </Dropdown>
                     </Col>
                     <Col span={3}>
-                        <Dropdown overlay={menu6} placement="bottomCenter">
+                        <Dropdown style={{fontWeight:'900'}} overlay={menu6} placement="bottomCenter">
                             <Button>一府一委两院</Button>
                         </Dropdown>
                     </Col>
                     <Col span={3}>
-                        <Dropdown overlay={menu7} placement="bottomCenter">
+                        <Dropdown style={{fontWeight:'900'}} overlay={menu7} placement="bottomCenter">
                             <Button>乡镇人大</Button>
                         </Dropdown>
                     </Col>
