@@ -18,6 +18,7 @@ export default class BasicDemo extends React.Component {
     tittle: '',
     head_menu_data: [],
     subname: '',
+    usertoken: new URLSearchParams(this.props.location.search).get('usertoken'),
   }
 
   componentDidMount() {
@@ -105,7 +106,7 @@ export default class BasicDemo extends React.Component {
           <Col span={8}><input style={{width:'100%'}} type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi2} /></Col>
           <Col span={2}></Col>
         </Row>
-        <MyImg/>
+        <MyImg usertoken={new URLSearchParams(this.props.location.search).get('usertoken')}/>
         <Row>
           <Col span={2}></Col>
           <Col span={20}>
@@ -150,6 +151,7 @@ export default class BasicDemo extends React.Component {
               onClick={e => {
                 let self = this;
                 let data = {
+                  "usertoken":self.state.usertoken,
                   "article": self.state.outputHTML,
                   "tittle": self.state.tittle,
                   "type": self.state.subname,

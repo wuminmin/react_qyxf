@@ -24,7 +24,7 @@ export default class MyImg extends React.Component {
         lan_mu: '',
         ban_kuai: '',
         my_tittle: '',
-        // lan_mu: new URLSearchParams(this.props.location.search).get('lan_mu'),
+        usertoken: new URLSearchParams(this.props.location.search).get('usertoken'),
         // ban_kuai: new URLSearchParams(this.props.location.search).get('ban_kuai'),
         // my_tittle: new URLSearchParams(this.props.location.search).get('my_tittle'),
         tittle: '',
@@ -117,7 +117,7 @@ export default class MyImg extends React.Component {
         const props = {
             name: 'file',
             action: AppGlobal.url.uploadimg,
-            data: { usertoken: this.state.usertoken, tittle: this.state.tittle },
+            data: { usertoken: new URLSearchParams(this.props.location.search).get('usertoken'), tittle: this.state.tittle },
             headers: {
                 authorization: 'authorization-text',
             },
