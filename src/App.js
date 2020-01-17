@@ -17,11 +17,9 @@ class MyTabsSmall extends React.Component {
       ban_kuai: this.props.ban_kuai,
     }
   }
-
   handleClick = e => {
     console.log(e)
   }
-
   componentDidMount() {
     let self = this;
     let data = {
@@ -44,15 +42,11 @@ class MyTabsSmall extends React.Component {
         console.log(error);
       });
   }
-
   render() {
-
     const { TabPane } = Tabs;
-
     function callback(key) {
       console.log(key);
     }
-
     return (
       <div>
         <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
@@ -72,14 +66,11 @@ class MyTabsSmall extends React.Component {
               </TabPane>
             )
           })}
-
         </Tabs>
       </div>
     )
   }
 }
-
-
 class MyTabs extends React.Component {
   constructor(props) {
     super(props);
@@ -90,11 +81,9 @@ class MyTabs extends React.Component {
       ban_kuai2: this.props.ban_kuai2,
     }
   }
-
   handleClick = e => {
     console.log(e)
   }
-
   componentDidMount() {
     let self = this;
     let data = {
@@ -137,18 +126,12 @@ class MyTabs extends React.Component {
         console.log(error);
       });
   }
-
   render() {
-
     const { TabPane } = Tabs;
-
     function callback(key) {
       console.log(key);
     }
-
     return (
-
-
       <Row>
         <Col span={2}></Col>
         <Col span={15}>

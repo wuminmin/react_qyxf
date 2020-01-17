@@ -266,16 +266,31 @@ export default class MyHeader extends React.Component {
         ban_kuai: '',
         lan_mu: '',
         tian_qi: '',
-        head_menu_data: [
-            { name: '首页', myMenu: [{ subname: '首页', subUrl: '' }] },
-            { name: '新闻中心', myMenu: [{ subname: '人大要闻', subUrl: '' }, { subname: '通知公告', subUrl: '' }, { subname: '工作动态', subUrl: '' }] },
-            { name: '人大概况', myMenu: [{ subname: '首页', subUrl: '' }] },
-            { name: '依法履职', myMenu: [{ subname: '决定决议', subUrl: '' }, { subname: '任职任免', subUrl: '' }, { subname: '监督工作', subUrl: '' }, { subname: '法律法规', subUrl: '' }] },
-            { name: '代表工作', myMenu: [{ subname: '人大简介', subUrl: '' }, { subname: '组织机构', subUrl: '' }, { subname: '组成人员', subUrl: '' }, { subname: '委室内职责', subUrl: '' }] },
-            { name: '会议之窗', myMenu: [{ subname: '人民代表大会会议', subUrl: '' }, { subname: '常委会会议', subUrl: '' }, { subname: '主任会议', subUrl: '' }, { subname: '代表联系群众', subUrl: '' }, { subname: '代表邮箱', subUrl: '' }]},
-            { name: '一府一委两院', myMenu: [{ subname: '人民政府', subUrl: '' }, { subname: '监察委员会', subUrl: '' }, { subname: '人民法院', subUrl: '' }, { subname: '人民检察院', subUrl: '' }] },
-            { name: '乡镇人大', myMenu: [{ subname: '蓉城镇', subUrl: '' }, { subname: '朱备镇', subUrl: '' }, { subname: '杨田镇', subUrl: '' }, { subname: '陵阳镇', subUrl: '' },{subname:'新河镇'},{subname:'木镇镇',subUrl:''}] },
-        ],
+        // head_menu_data: [
+        //     {
+        //         name: '首页', myMenu: [
+        //             { subname: '首页', subUrl: '/' }
+        //         ]
+        //     },
+        //     {
+        //         name: '新闻中心', myMenu: [
+        //             { subname: '人大要闻', subUrl: '/mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=默认' },
+        //             { subname: '通知公告', subUrl: '/mynews?ban_kuai=新闻中心&lan_mu=通知公告&tittle=默认' },
+        //             { subname: '工作动态', subUrl: '/mynews?ban_kuai=新闻中心&lan_mu=工作动态&tittle=默认' }
+        //         ]
+        //     },
+        //     {
+        //         name: '人大概况', myMenu: [
+        //             { subname: '首页', subUrl: '' }
+        //         ]
+        //     },
+        //     { name: '依法履职', myMenu: [{ subname: '决定决议', subUrl: '' }, { subname: '任职任免', subUrl: '' }, { subname: '监督工作', subUrl: '' }, { subname: '法律法规', subUrl: '' }] },
+        //     { name: '代表工作', myMenu: [{ subname: '人大简介', subUrl: '' }, { subname: '组织机构', subUrl: '' }, { subname: '组成人员', subUrl: '' }, { subname: '委室内职责', subUrl: '' }] },
+        //     { name: '会议之窗', myMenu: [{ subname: '人民代表大会会议', subUrl: '' }, { subname: '常委会会议', subUrl: '' }, { subname: '主任会议', subUrl: '' }, { subname: '代表联系群众', subUrl: '' }, { subname: '代表邮箱', subUrl: '' }] },
+        //     { name: '一府一委两院', myMenu: [{ subname: '人民政府', subUrl: '' }, { subname: '监察委员会', subUrl: '' }, { subname: '人民法院', subUrl: '' }, { subname: '人民检察院', subUrl: '' }] },
+        //     { name: '乡镇人大', myMenu: [{ subname: '蓉城镇', subUrl: '' }, { subname: '朱备镇', subUrl: '' }, { subname: '杨田镇', subUrl: '' }, { subname: '陵阳镇', subUrl: '' }, { subname: '新河镇' }, { subname: '木镇镇', subUrl: '' }] },
+        // ],
+        head_menu_data:[],
     };
 
     componentDidMount() {
@@ -291,6 +306,22 @@ export default class MyHeader extends React.Component {
             console.log(response)
             self.setState({
                 tian_qi: response.data.cityInfo.city + '；湿度：' + response.data.data.shidu + '；空气质量：' + response.data.data.quality + '；平均温度：' + response.data.data.wendu
+            });
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        axios({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'post',
+            url: AppGlobal.url.get_header_menu_list_data,
+        }).then(function (response) {
+            console.log(response)
+            self.setState({
+                head_menu_data: response.data
             });
         })
             .catch(function (error) {
@@ -364,36 +395,36 @@ export default class MyHeader extends React.Component {
                             }}
                             >
                                 <Dropdown overlay={(
-                                        <Menu style={{
-                                            fontWeight: '900',
-                                            color: '#ffffff',
-                                            backgroundColor: 'blue',
-                                        }}
-                                        >
-                                            {myitem.myMenu.map((subitem) => {
-                                                return (
-                                                    <Menu.Item>
-                                                        <a style={{
-                                                            fontWeight: '900',
-                                                            color: '#ffffff',
-                                                            backgroundColor: 'blue',
-                                                            borderColor: 'blue',
-                                                        }}
-                                                            target="_blank" rel="noopener noreferrer" href={subitem.subUrl}>
-                                                            {subitem.subname}
-                                                        </a>
-                                                    </Menu.Item>
-                                                )
-                                            })}
-                                        </Menu>
-                                    )} placement="bottomCenter">
+                                    <Menu style={{
+                                        fontWeight: '900',
+                                        color: '#ffffff',
+                                        backgroundColor: 'blue',
+                                    }}
+                                    >
+                                        {myitem.myMenu.map((subitem) => {
+                                            return (
+                                                <Menu.Item>
+                                                    <a style={{
+                                                        fontWeight: '900',
+                                                        color: '#ffffff',
+                                                        backgroundColor: 'blue',
+                                                        borderColor: 'blue',
+                                                    }}
+                                                        target="_blank" rel="noopener noreferrer" href={subitem.subUrl}>
+                                                        {subitem.subname}
+                                                    </a>
+                                                </Menu.Item>
+                                            )
+                                        })}
+                                    </Menu>
+                                )} placement="bottomCenter">
                                     <Button
                                         style={{
                                             fontWeight: '900',
                                             color: '#ffffff',
                                             backgroundColor: 'blue',
                                             borderColor: 'blue',
-                                            textAlign:'center',
+                                            textAlign: 'center',
                                         }}
                                     >{myitem.name}</Button>
                                 </Dropdown>
