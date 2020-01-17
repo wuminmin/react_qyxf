@@ -7,6 +7,7 @@ import moment from 'moment';
 import AppGlobal from './AppGlobal';
 import { TreeSelect, Menu, Select, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
 import MyHeader from './MyHeader.js';
+import MyImg from './MyImg.js';
 
 const { Option, OptGroup } = Select;
 export default class BasicDemo extends React.Component {
@@ -104,6 +105,7 @@ export default class BasicDemo extends React.Component {
           <Col span={8}><input style={{width:'100%'}} type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi2} /></Col>
           <Col span={2}></Col>
         </Row>
+        <MyImg/>
         <Row>
           <Col span={2}></Col>
           <Col span={20}>
