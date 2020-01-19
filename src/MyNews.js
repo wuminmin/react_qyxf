@@ -134,7 +134,8 @@ class MyMenu extends React.Component {
     render() {
         return (
             <Row>
-                <Col span={4}>
+                <Col span={4}></Col>
+                <Col span={3}>
                     <PageHeader
                         style={{
                             border: '1px solid rgb(235, 237, 240)',
@@ -172,12 +173,13 @@ class MyMenu extends React.Component {
                         }
                     </Menu>
                 </Col>
-                <Col span={2}></Col>
-                <Col span={18}>
+                <Col span={1}></Col>
+                <Col span={12}>
                     <h1 align={'center'}>{this.state.myHTML_tittle}</h1>
                     <h4 align={'center'}>{this.state.myHTML_time}</h4>
                     <div dangerouslySetInnerHTML={{ __html: this.state.myHTML_article }} />
                 </Col>
+                <Col span={4}></Col>
             </Row>
 
         )

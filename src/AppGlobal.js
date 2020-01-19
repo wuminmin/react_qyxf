@@ -1,5 +1,6 @@
 class AppGlobal {
     url = {
+        login:'https://wx.wuminmin.top/qyrd/login',
         index:'/',
         tian_qi_xia_zai:'https://wx.wuminmin.top/qyrd/tian_qi_xia_zai',
         uploadimg:'https://wx.wuminmin.top/qyrd/upload_img',

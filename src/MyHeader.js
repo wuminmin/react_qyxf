@@ -65,47 +65,32 @@ export default class MyHeader extends React.Component {
     render() {
         return (
             <div style={{ fontWeight: '900' }}>
-                {/* <Row>
-                    <Col span={8}>
-                        <p style={{ color: 'blue' }}>{moment().format('YYYY年MM月DD日 hh时mm分钟ss秒')} </p>
-                    </Col>
-                    <Col span={8}>
-                        <p style={{ color: 'blue' }}>{this.state.tian_qi} </p>
-                    </Col>
-                    <Col span={8}>
-                        <Search placeholder="热门文章" onSearch={value => console.log(value)} enterButton />
-                    </Col>
-                </Row> */}
                 <Row>
                     <div style={{ width: 'auto' }}>
                         <img
                             style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }} responsive
                             src={index_header_jpg}>
                         </img>
-                        <p style={{
+                        {/* <p style={{
                             color: '#ffffff',
                             position: 'absolute',
                             height: 'auto',
                             width: '20%',
                             top: '1%',
-                            textShadow:'1px 1px #4DC2F7,-1px -1px #4DC2F7,1px -1px #4DC2F7,-1px 1px #4DC2F7',
+                            textShadow:'1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
                             left: '1%'
                         }}>
                             {moment().format('YYYY年MM月DD日 hh时mm分钟ss秒')}
                         </p>
-
                         <p style={{ 
                             color: '#ffffff' ,
                             position: 'absolute',
                             height: 'auto',
                             width: '30%',
                             top: '1%',
-                            textShadow:'1px 1px #4DC2F7,-1px -1px #4DC2F7,1px -1px #4DC2F7,-1px 1px #4DC2F7',
+                            textShadow:'1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
                             left: '30%'
-
-                            
                         }}>{this.state.tian_qi} </p>
-
                         <Search style={{ 
                             color: '#ffffff' ,
                             position: 'absolute',
@@ -115,18 +100,17 @@ export default class MyHeader extends React.Component {
                             textShadow:'#000000',
                             left: '70%'
                         }}
-                        placeholder="热门文章" onSearch={value => console.log(value)} enterButton />
-
+                        placeholder="热门文章" onSearch={value => console.log(value)} enterButton /> */}
                         <img style={{
                             position: 'absolute',
                             height: 'auto',
-                            width: '15%',
-                            top: '30%',
-                            left: '10%',
+                            width: '12%',
+                            top: '21%',
+                            left: '14%',
                         }} src={img_guohui_png} />
                         <h1 style={{
                             position: 'absolute',
-                            top: '38%',
+                            top: '28%',
                             left: '25%',
                             color: 'red',
                             fontSize: '70px',
@@ -137,7 +121,7 @@ export default class MyHeader extends React.Component {
                         }}>青阳人大</h1>
                         <h4 style={{
                             position: 'absolute',
-                            top: '58%',
+                            top: '43%',
                             left: '26%',
                             color: 'red',
                             fontSize: '40px',
