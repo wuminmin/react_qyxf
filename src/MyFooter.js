@@ -20,29 +20,32 @@ export default class MyFooter extends React.Component {
                 <br></br>
                 <Row>
 
-                    <Col span={2}>
+                    <Col span={4}>
 
                     </Col>
-                    <Col span={20}>
+                    <Col span={16}>
                         友情链接：
                     <Tag color="red" href={'http://www.chzrd.gov.cn/'}>池州市人大</Tag>
                         <Tag color="red" href={'http://www.ahrd.gov.cn/ahrdweb/'} >安徽省人大</Tag>
                     </Col>
-                    <Col span={2}>
+                    <Col span={4}>
 
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={8}>
+                    <Col span={4}>
                     </Col>
-                    <Col span={8} aling={'right'}>
-                        青阳县人大常委会
-                        {/* </Col>
-                    <Col span={2}> */}
+                    <Col span={6} aling={'right'}>
+
+                    </Col>
+                    <Col span={4}>
                         <img align={'center'} src={'http://www.ahrd.gov.cn/ahrdweb/images/jg.png'}></img>
+                        青阳县人大常委会
                     </Col>
-                    <Col span={8}>
+                    <Col span={6}>
                         技术支持：中国电信股份有限公司池州分公司
+                    </Col>
+                    <Col span={4}>
                     </Col>
                 </Row>
 

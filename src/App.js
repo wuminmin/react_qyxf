@@ -49,7 +49,7 @@ class MyTabsSmall extends React.Component {
     }
     return (
       <div>
-        <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
+        {/* <Tag style={{fontSize:'20px'}} color="#2db7f5">{this.props.ban_kuai}</Tag> */}
         <Tabs style={{ fontWeight: '900' }} defaultActiveKey="1" onChange={callback}>
           {this.state.tabs_list_data.map((myitem) => {
             return (
@@ -59,7 +59,7 @@ class MyTabsSmall extends React.Component {
                   dataSource={myitem.list_data}
                   renderItem={item => (
                     <List.Item  >
-                      <a href={item.url} align={'right'}> {item.key} --- {item.key2}</a>
+                      <a style={{ color: '#000000' }} href={item.url} align={'right'}> {item.key}  {item.key2}</a>
                     </List.Item>
                   )}
                 />
@@ -133,10 +133,10 @@ class MyTabs extends React.Component {
     }
     return (
       <Row>
-        <Col span={2}></Col>
-        <Col span={15}>
-          <Tag color="#2db7f5">{this.props.ban_kuai}</Tag>
-          <Tabs style={{ fontWeight: '900' }} defaultActiveKey="1" onChange={callback}>
+        <Col span={4}></Col>
+        <Col span={11}>
+          {/* <Tag color="#2db7f5">{this.props.ban_kuai}</Tag> */}
+          <Tabs style={{ fontWeight: '900', fontSize: '20px' }} defaultActiveKey="1" onChange={callback}>
             {this.state.tabs_list_data.map((myitem) => {
               return (
                 <TabPane tab={myitem.table_name} key={myitem.table_key}>
@@ -146,7 +146,7 @@ class MyTabs extends React.Component {
                     dataSource={myitem.list_data}
                     renderItem={item => (
                       <List.Item  >
-                        <a href={item.url} align={'right'}> {item.key} --- {item.key2}</a>
+                        <a style={{ color: '#000000' }} href={item.url} align={'right'}> {item.key}  {item.key2}</a>
                       </List.Item>
                     )}
                   />
@@ -157,41 +157,59 @@ class MyTabs extends React.Component {
         </Col>
         <Col span={1}></Col>
         <Col span={4}>
-        {/* <img  style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }}  src={img_background_cloud} /> */}
-   {/* <img
-              style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }} responsive
-              src={img_background_cloud}>
-            </img> */}
+
+          {/* {this.state.tabs_list_data2.map((myitem) => {
+            return (
+              <div>
+                <Col span={1}>
+                <Icon type="edit" theme="twoTone" />
+
+                </Col>
+                <Col span={3}>
+                <h3 type='primary ' style={{
+                  // color: '#000000', 
+                  width: '100%',
+                  // height: 'auto', 
+                  // fontWeight: '900',
+                  // fontSize:'20px',
+                  // border:'none',
+                  // background: 'none',
+                  // textShadow: '1px 1px #4DC2F7,-1px -1px #4DC2F7,1px -1px #4DC2F7,-1px 1px #4DC2F7',
+                }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}
+                </h3>
+                </Col>
+                
+              </div>
+
+            )
+          })} */}
+
           <Card title={this.props.ban_kuai2}
-          headStyle = {{width: '100%', height: 'auto',color:'#ffffff',background:'linear-gradient(red, yellow)'}}
-          bodyStyle={{ width: '100%', height: 'auto',background:'linear-gradient(red, yellow)'}}
-            // style={{ width: '100%', height: 'auto',position: 'absolute', }}
-          // cover={<img alt="example" src={AppGlobal.url.首页中间横幅图片3} />}
+            // headStyle={{ width: '100%', height: 'auto', color: '#ffffff', background: 'linear-gradient(#4DC2F7, #FFFFFF)' }}
+            headStyle={{ width: '100%', height: 'auto', color: '#ffffff', background: '#4DC2F7' }}
+        
+            bodyStyle={{ width: '100%', height: 'auto',background:'linear-gradient(#FFFFFF, #4DC2F7)'}}
+
+            // bodyStyle={{ width: '100%', height: 'auto', background: '' }}
+
           >
-            {/* <img
-              style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }} responsive
-              src={img_background_cloud}>
-            </img> */}
             {this.state.tabs_list_data2.map((myitem) => {
               return (
                 <Button type='normal' style={{
-                  // position: 'absolute',
-                  // height: 'auto',
-                  // width: '15%',
-                  // top: '30%',
-                  // left: '10%',
-                  color: '#ffffff', 
+                  color: '#ffffff',
                   width: '100%',
-                  // borderColor: '#DF783E',
-                  height: 'auto', 
+                  height: 'auto',
+                  fontSize: '20px',
+                  border: 'none',
                   background: 'none',
-                  textShadow: '1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
-                }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}</Button>
+                  textShadow: '1px 1px #4DC2F7,-1px -1px #4DC2F7,1px -1px #4DC2F7,-1px 1px #4DC2F7',
+                }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}
+                </Button>
               )
             })}
           </Card>
         </Col>
-        <Col span={2}></Col>
+        <Col span={4}></Col>
       </Row>
     )
   }
@@ -214,7 +232,6 @@ export default class App extends React.Component {
       ban_kuai5: '代表工作',
       ban_kuai6: '一府一委两院',
       ban_kuai7: '乡镇人大',
-
     }
   }
 
@@ -247,18 +264,12 @@ export default class App extends React.Component {
   }
 
   render() {
-
-
-
     return (
       <div>
         <MyHeader></MyHeader>
         <Row>
-          <Col span={2}></Col>
-          <Col span={9}>
-
-
-
+          <Col span={4}></Col>
+          <Col span={7}>
             <Carousel autoplay>
               <img src={AppGlobal.url.首页工程案例1} />
               <img src={AppGlobal.url.首页工程案例2} />
@@ -268,59 +279,55 @@ export default class App extends React.Component {
             </Carousel>
           </Col>
           <Col span={2}></Col>
-          <Col span={9}>
+          <Col span={7}>
             <MyTabsSmall ban_kuai={this.state.ban_kuai1}></MyTabsSmall>
           </Col>
-          <Col span={2}></Col>
-
+          <Col span={4}></Col>
         </Row>
-        <br></br>
         <Row>
-          <Col span={2}></Col>
-          <Col span={20}>
+          <Col span={4}></Col>
+          <Col span={16}>
             <img src={AppGlobal.url.首页中间横幅图片1}
               style={{ width: '100%', height: 'auto' }}
             />
           </Col>
-          <Col span={2}></Col>
+          <Col span={4}></Col>
         </Row>
-        <br></br>
         <MyTabs ban_kuai={this.state.ban_kuai4} ban_kuai2={this.state.ban_kuai2}></MyTabs>
+       <br></br>
         <MyTabs ban_kuai={this.state.ban_kuai5} ban_kuai2={this.state.ban_kuai3}></MyTabs>
-        <br></br>
         <Row>
-          <Col span={2}></Col>
-          <Col span={20}>
+          <Col span={4}></Col>
+          <Col span={16}>
             <img src={AppGlobal.url.首页中间横幅图片2}
               style={{ width: '100%', height: 'auto' }}
             />
           </Col>
-          <Col span={2}></Col>
+          <Col span={4}></Col>
         </Row>
         <Row>
-          <Col span={2}></Col>
-          <Col span={20}>
+          <Col span={4}></Col>
+          <Col span={16}>
             <MyTabsSmall ban_kuai={this.state.ban_kuai6}></MyTabsSmall>
           </Col>
-          <Col span={2}></Col>
+          <Col span={4}></Col>
         </Row>
         <Row>
-          <Col span={2}></Col>
-          <Col span={20}>
+          <Col span={4}></Col>
+          <Col span={16}>
             <MyTabsSmall ban_kuai={this.state.ban_kuai7}></MyTabsSmall>
           </Col>
-          <Col span={2}></Col>
+          <Col span={4}></Col>
         </Row>
-        <br></br>
-        <Row>
-          <Col span={2}></Col>
-          <Col span={20}>
+        {/* <Row>
+          <Col span={4}></Col>
+          <Col span={16}>
             <Tag color="#2db7f5">{'图片新闻'}</Tag>
           </Col>
-          <Col span={2}></Col>
-        </Row>
+          <Col span={4}></Col>
+        </Row> */}
         <Row>
-          <Col span={2}></Col>
+          <Col span={4}></Col>
           <Col span={4}>
             <Carousel autoplay>
               <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
@@ -345,13 +352,13 @@ export default class App extends React.Component {
               <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
             </Carousel>
           </Col>
-          <Col span={4}>
+          {/* <Col span={4}>
             <Carousel autoplay>
               <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
               <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
             </Carousel>
-          </Col>
-          <Col span={2}></Col>
+          </Col> */}
+          <Col span={4}></Col>
         </Row>
         <br></br>
         <MyFooter></MyFooter>
