@@ -13,7 +13,7 @@ const { Option, OptGroup } = Select;
 export default class BasicDemo extends React.Component {
   state = {
     editorState: BraftEditor.createEditorState('<p>Hello <b>World!</b></p>'), // 设置编辑器初始内容
-    outputHTML: '<p></p>',
+    outputHTML: '<p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>',
     myHTML: '',
     tittle: '',
     head_menu_data: [],
@@ -49,6 +49,7 @@ export default class BasicDemo extends React.Component {
   }
 
   handleChange = (editorState) => {
+    console.log(editorState.toHTML());
     this.setState({
       editorState: editorState,
       outputHTML: editorState.toHTML()

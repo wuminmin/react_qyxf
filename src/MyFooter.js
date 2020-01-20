@@ -38,12 +38,9 @@ export default class MyFooter extends React.Component {
                     <Col span={6} aling={'right'}>
 
                     </Col>
-                    <Col span={4}>
+                    <Col span={10}>
                         <img align={'center'} src={'http://www.ahrd.gov.cn/ahrdweb/images/jg.png'}></img>
-                        青阳县人大常委会
-                    </Col>
-                    <Col span={6}>
-                        技术支持：中国电信股份有限公司池州分公司
+                        青阳县人大常委会&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;技术支持：中国电信股份有限公司池州分公司
                     </Col>
                     <Col span={4}>
                     </Col>

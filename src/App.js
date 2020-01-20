@@ -3,7 +3,7 @@ import Qs from 'qs'
 import axios from 'axios'
 import 'react-weui/build/packages/react-weui.css';
 import MyHeader from './MyHeader';
-import { Carousel, Card, Layout, Menu, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List } from 'antd';
+import { Carousel, Card, Affix, Menu, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List } from 'antd';
 // import Carousel from 'nuka-carousel';
 import MyFooter from './MyFooter';
 import img_background_cloud from './img_background_cloud.jpg'
@@ -298,6 +298,14 @@ export default class App extends React.Component {
     return (
       <div >
         <MyHeader></MyHeader>
+        <Affix offsetTop={this.state.top}>
+          <Button
+            type="danger"
+            href={''}
+          >
+            扫黑除恶
+          </Button>
+        </Affix>
         <Row>
           <Col span={4}>
           </Col>

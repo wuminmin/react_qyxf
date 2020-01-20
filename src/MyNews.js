@@ -1,4 +1,4 @@
-import { Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
+import { Divider, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
 // import Carousel from 'nuka-carousel';
 import React from 'react'
 import Qs from 'qs'
@@ -177,6 +177,7 @@ class MyMenu extends React.Component {
                 <Col span={12}>
                     <h1 align={'center'}>{this.state.myHTML_tittle}</h1>
                     <h4 align={'center'}>{this.state.myHTML_time}</h4>
+                    <Divider />
                     <div dangerouslySetInnerHTML={{ __html: this.state.myHTML_article }} />
                 </Col>
                 <Col span={4}></Col>
@@ -227,7 +228,7 @@ export default class MyNews extends React.Component {
                     <Col span={2}></Col>
                 </Row> */}
                 <MyMenu ban_kuai={params.get('ban_kuai')} lan_mu={params.get('lan_mu')} my_tittle={params.get('tittle')}></MyMenu>
-
+                <Divider />
                 <MyFooter></MyFooter>
 
 
