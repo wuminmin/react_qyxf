@@ -133,6 +133,13 @@ class MyMenu extends React.Component {
 
     render() {
         return (
+            <div>
+            <Row>
+                <Col span={24}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Col>
+            </Row>
+            <Row>
+                <Col span={24}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Col>
+            </Row>
             <Row>
                 <Col span={4}></Col>
                 <Col span={3}>
@@ -146,7 +153,7 @@ class MyMenu extends React.Component {
                     />,
                     <Menu
                         onClick={this.handleClick}
-                        style={{ width: 256 }}
+                        style={{ width: '100%' }}
                         defaultSelectedKeys={['1']}
                         defaultOpenKeys={['sub1']}
                         mode="inline"
@@ -178,11 +185,11 @@ class MyMenu extends React.Component {
                     <h1 align={'center'}>{this.state.myHTML_tittle}</h1>
                     <h4 align={'center'}>{this.state.myHTML_time}</h4>
                     <Divider />
-                    <div dangerouslySetInnerHTML={{ __html: this.state.myHTML_article }} />
+                    <div style={{width:'100%'}} dangerouslySetInnerHTML={{ __html: this.state.myHTML_article }} />
                 </Col>
                 <Col span={4}></Col>
             </Row>
-
+            </div>
         )
     }
 }
