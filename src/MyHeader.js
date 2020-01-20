@@ -71,7 +71,7 @@ export default class MyHeader extends React.Component {
                             style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }} responsive
                             src={index_header_jpg}>
                         </img>
-                        {/* <p style={{
+                        <p style={{
                             color: '#ffffff',
                             position: 'absolute',
                             height: 'auto',
@@ -100,7 +100,7 @@ export default class MyHeader extends React.Component {
                             textShadow:'#000000',
                             left: '70%'
                         }}
-                        placeholder="热门文章" onSearch={value => console.log(value)} enterButton /> */}
+                        placeholder="热门文章" onSearch={value => console.log(value)} enterButton />
                         <img style={{
                             position: 'absolute',
                             height: 'auto',
@@ -108,7 +108,7 @@ export default class MyHeader extends React.Component {
                             top: '21%',
                             left: '14%',
                         }} src={img_guohui_png} />
-                        <h1 style={{
+                        {/* <h1 style={{
                             position: 'absolute',
                             top: '28%',
                             left: '25%',
@@ -128,7 +128,7 @@ export default class MyHeader extends React.Component {
                             fontFamily: 'SimHei',
                             // textShadow:'1px 1px #ffffff,-1px -1px #ffffff,1px -1px #ffffff,-1px 1px #ffffff',
                             textShadow: '0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff',
-                        }}>rd.qyxgov.cn</h4>
+                        }}>rd.qyxgov.cn</h4> */}
                     </div>
                 </Row>
                 {/* <div>

@@ -48,18 +48,23 @@ class MyTabsSmall extends React.Component {
       console.log(key);
     }
     return (
-      <div>
+      <div >
         {/* <Tag style={{fontSize:'20px'}} color="#2db7f5">{this.props.ban_kuai}</Tag> */}
-        <Tabs tabBarStyle={{fontSize:'20px', color:'#000000'}} defaultActiveKey="1" onChange={callback}>
+        <Tabs size={'large'} tabBarStyle={{ fontWeight: '900' }} defaultActiveKey="1" onChange={callback}>
           {this.state.tabs_list_data.map((myitem) => {
             return (
-              <TabPane style={{ fontWeight: '900',fontSize:'20px' }} tab={myitem.table_name} key={myitem.table_key}>
+              <TabPane style={{ fontWeight: '900', fontSize: '20px' }} tab={myitem.table_name} key={myitem.table_key}>
                 <List
                   bordered
                   dataSource={myitem.list_data}
                   renderItem={item => (
-                    <List.Item  >
-                      <a style={{ color: '#000000',fontSize:'14px',fontFamily:'Microsoft Yahei' }} href={item.url} align={'left'}> {item.key}  {item.key2}</a>
+                    <List.Item>
+                      <a style={{ color: '#000000', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '80%' }} href={item.url}>
+                        {item.key}
+                      </a>
+                      <a style={{ color: '#000000', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '20%', textAlign: 'right' }} href={item.url}>
+                        {item.key2}
+                      </a>
                     </List.Item>
                   )}
                 />
@@ -136,17 +141,22 @@ class MyTabs extends React.Component {
         <Col span={4}></Col>
         <Col span={11}>
           {/* <Tag color="#2db7f5">{this.props.ban_kuai}</Tag> */}
-          <Tabs size={'20px'} defaultActiveKey="1" onChange={callback}>
+          <Tabs size={'large'} tabBarStyle={{ fontWeight: '900', fontSize: '60px' }} defaultActiveKey="1" onChange={callback}>
             {this.state.tabs_list_data.map((myitem) => {
               return (
                 <TabPane tab={myitem.table_name} key={myitem.table_key}>
                   <List
-                    style={{ fontWeight: '900', fontSize: '20px'  }}
+                    style={{ fontWeight: '900', fontSize: '20px' }}
                     bordered
                     dataSource={myitem.list_data}
                     renderItem={item => (
-                      <List.Item  >
-                        <a style={{ color: '#000000',fontSize:'14px',fontFamily:'Microsoft Yahei' }} href={item.url} align={'left'}> {item.key}  {item.key2}</a>
+                      <List.Item>
+                        <a style={{ color: '#000000', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '80%' }} href={item.url}>
+                          {item.key}
+                        </a>
+                        <a style={{ color: '#000000', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '20%', textAlign: 'right' }} href={item.url}>
+                          {item.key2}
+                        </a>
                       </List.Item>
                     )}
                   />
@@ -190,7 +200,7 @@ class MyTabs extends React.Component {
 
             // bodyStyle={{ width: '100%', height: 'auto', background: 'linear-gradient(#FFFFFF, #4DC2F7)' }}
 
-          bodyStyle={{ width: '100%', height: 'auto', background: '#4DC2F7' }}
+            bodyStyle={{ width: '100%', height: 'auto', background: '#4DC2F7' }}
 
           >
             {this.state.tabs_list_data2.map((myitem) => {
@@ -205,7 +215,6 @@ class MyTabs extends React.Component {
                   textShadow: '1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
                 }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}
                 </Button>
-
               )
             })}
           </Card>
@@ -287,37 +296,22 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
         <MyHeader></MyHeader>
         <Row>
-          <Col span={4}></Col>
-
-          {/* <Col span={7}>
+          <Col span={4}>
+          </Col>
+          <Col span={7} >
             <Carousel autoplay>
-              {this.state.tabs_list_data.map((myitem) => {
-                myitem.list_data.map((subitem) => {
-                  console.log('Carousel--------------------',subitem.img_src);
-                  return (
-                    <img src={subitem.img_src} href={subitem.url} alt={subitem.key} key={subitem.key} />
-                  )
-                }
-                )
-              })
-              }
-            </Carousel>
-          </Col> */}
-
-          <Col span={7}>
-            <Carousel autoplay>
-              <img src={AppGlobal.url.首页工程案例1} href=""/>
+              <img src={AppGlobal.url.首页工程案例1} href="" />
               <img src={AppGlobal.url.首页工程案例2} />
               <img src={AppGlobal.url.首页工程案例3} />
               <img src={AppGlobal.url.首页工程案例4} />
               <img src={AppGlobal.url.首页工程案例5} />
             </Carousel>
           </Col>
-          <Col span={1}></Col>
-          <Col span={8}>
+          <Col span={1} ></Col>
+          <Col span={8} >
             <MyTabsSmall ban_kuai={this.state.ban_kuai1}></MyTabsSmall>
           </Col>
           <Col span={4}></Col>
@@ -368,34 +362,28 @@ export default class App extends React.Component {
           <Col span={4}></Col>
           <Col span={4}>
             <Carousel autoplay>
-              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
-              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+              <img src={AppGlobal.url.产品中心滚动图片1} />
+              <img src={AppGlobal.url.产品中心滚动图片2} />
             </Carousel>
           </Col>
           <Col span={4}>
             <Carousel autoplay>
-              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
-              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+              <img src={AppGlobal.url.产品中心滚动图片3} />
+              <img src={AppGlobal.url.产品中心滚动图片4} />
             </Carousel>
           </Col>
           <Col span={4}>
             <Carousel autoplay>
-              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
-              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+              <img src={AppGlobal.url.产品中心滚动图片5} />
+              <img src={AppGlobal.url.产品中心滚动图片6} />
             </Carousel>
           </Col>
           <Col span={4}>
             <Carousel autoplay>
-              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
-              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
+              <img src={AppGlobal.url.产品中心滚动图片7} />
+              <img src={AppGlobal.url.产品中心滚动图片8} />
             </Carousel>
           </Col>
-          {/* <Col span={4}>
-            <Carousel autoplay>
-              <img src="https://wx.wuminmin.top/wxyl/image?id=12" />
-              <img src="https://wx.wuminmin.top/wxyl/image?id=13" />
-            </Carousel>
-          </Col> */}
           <Col span={4}></Col>
         </Row>
         <br></br>
