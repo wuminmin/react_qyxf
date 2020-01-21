@@ -20,6 +20,7 @@ class MyMenu extends React.Component {
             myHTML_tittle: '',
             myHTML_article: '',
             myHTML_time: '',
+            myHTML_count:0,
         }
     }
 
@@ -79,7 +80,8 @@ class MyMenu extends React.Component {
             console.log(response)
             self.setState({
                 myHTML_tittle: response.data['tittle'],
-                myHTML_time: response.data['my_time']
+                myHTML_time: response.data['my_time'],
+                myHTML_count:response.data['count'],
             });
         })
             .catch(function (error) {
@@ -183,7 +185,7 @@ class MyMenu extends React.Component {
                 <Col span={1}></Col>
                 <Col span={12}>
                     <h1 align={'center'}>{this.state.myHTML_tittle}</h1>
-                    <h4 align={'center'}>{this.state.myHTML_time}</h4>
+                    <h4 align={'center'}>{this.state.myHTML_time}&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：{this.state.myHTML_count} </h4>
                     <Divider />
                     <div style={{width:'100%'}} dangerouslySetInnerHTML={{ __html: this.state.myHTML_article }} />
                 </Col>

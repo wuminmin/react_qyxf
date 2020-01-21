@@ -55,7 +55,7 @@ class MyTabsSmall extends React.Component {
             return (
               <TabPane style={{ fontWeight: '900', fontSize: '20px' }} tab={myitem.table_name} key={myitem.table_key}>
                 <List
-                  bordered
+                  bordered={false}
                   dataSource={myitem.list_data}
                   renderItem={item => (
                     <List.Item>
@@ -147,7 +147,7 @@ class MyTabs extends React.Component {
                 <TabPane tab={myitem.table_name} key={myitem.table_key}>
                   <List
                     style={{ fontWeight: '900', fontSize: '20px' }}
-                    bordered
+                    bordered={false}
                     dataSource={myitem.list_data}
                     renderItem={item => (
                       <List.Item>
@@ -295,28 +295,36 @@ export default class App extends React.Component {
   }
 
   render() {
+    const { TabPane } = Tabs;
+    function callback(key) {
+      console.log(key);
+    }
     return (
       <div >
         <MyHeader></MyHeader>
-        <Affix offsetTop={this.state.top}>
+        {/* <Affix offsetTop={this.state.top}>
           <Button
             type="danger"
             href={''}
           >
             扫黑除恶
           </Button>
-        </Affix>
+        </Affix> */}
         <Row>
           <Col span={4}>
           </Col>
           <Col span={7} >
-            <Carousel autoplay>
-              <img src={AppGlobal.url.首页工程案例1} href="" />
-              <img src={AppGlobal.url.首页工程案例2} />
-              <img src={AppGlobal.url.首页工程案例3} />
-              <img src={AppGlobal.url.首页工程案例4} />
-              <img src={AppGlobal.url.首页工程案例5} />
-            </Carousel>
+            <Tabs size={'large'} tabBarStyle={{ fontWeight: '900', fontSize: '60px' }} defaultActiveKey="1" onChange={callback}>
+              <TabPane tab={'图片新闻'} key={'1'}>
+                <Carousel autoplay>
+                  <img src={AppGlobal.url.首页工程案例1} href="" />
+                  <img src={AppGlobal.url.首页工程案例2} />
+                  <img src={AppGlobal.url.首页工程案例3} />
+                  <img src={AppGlobal.url.首页工程案例4} />
+                  <img src={AppGlobal.url.首页工程案例5} />
+                </Carousel>
+              </TabPane>
+            </Tabs>
           </Col>
           <Col span={1} ></Col>
           <Col span={8} >
