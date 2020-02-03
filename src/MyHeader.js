@@ -208,7 +208,7 @@ export default class MyHeader extends React.Component {
                                 <Dropdown overlay={(
                                     <Menu style={{
                                         height:'60px',
-                                            fontSize:'20px',
+                                        fontSize:'20px',
                                         fontWeight: '900',
                                         color: '#ffffff',
                                         backgroundColor: 'blue',
