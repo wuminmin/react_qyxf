@@ -20,3 +20,27 @@
 .App-link {
   color: #09d3ac;
 }
+
+.ant-tabs-ink-bar{
+  background-color: transparent !important;
+}
+
+.ant-tabs-top .ant-tabs-ink-bar-animated:before{
+  content: " ";
+  background-color: red;
+  width: 80px;
+  height: 2px;
+  position: absolute;
+  margin: auto;
+  margin-left: 10%;
+
+
+}
+
+
+.ant-tabs-nav .ant-tabs-tab-active {
+  color: red;
+  font-weight: 900;
+  font-size: large;
+
+}

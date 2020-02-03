@@ -5,6 +5,7 @@ import 'react-weui/build/packages/react-weui.css';
 import MyHeader from './MyHeader';
 import { Carousel, Card, Affix, Menu, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List, Divider } from 'antd';
 // import Carousel from 'nuka-carousel';
+import './App.css';
 import MyFooter from './MyFooter';
 import img_background_cloud from './img_background_cloud.jpg'
 import AppGlobal from './AppGlobal';
@@ -143,14 +144,16 @@ class MyTabs extends React.Component {
         <Col span={4}></Col>
         <Col span={11}>
           <Tabs 
+          type = {'line'}
           size={'large'} 
           tabBarStyle={{  color:'blue',fontWeight: '900', fontSize: '300%'  }} 
-          defaultActiveKey="1" onChange={callback}>
+          defaultActiveKey="1" onChange={callback}
+        >
             {this.state.tabs_list_data.map((myitem) => {
               return (
-                <TabPane tabBarStyle={{  color:'blue',fontWeight: '900', fontSize: '300%'  }} tab={myitem.table_name} key={myitem.table_key}>
+                <TabPane tabBarStyle={{  color:'red',fontWeight: '900', fontSize: '300%'  }} tab={myitem.table_name} key={myitem.table_key}>
                   <List
-                    style={{  fontSize: '20px' }}
+                    style={{  fontSize: '20px' ,color:'red'}}
                     bordered={false}
                     dataSource={myitem.list_data}
                     renderItem={item => (
