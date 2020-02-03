@@ -31,21 +31,24 @@ export default class MyFooter extends React.Component {
                     </Col>
                     <Col span={10} >
                         <div style={{ height: '150px', width: '100%', backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }}>
-                            <div style={{ padding: '70px 5px 15px 20px', textAlign: 'left' }} >
-                                友情链接：
-                                <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }} href={'http://www.chzrd.gov.cn/'}>池州市人大</a>
-                                &nbsp;&nbsp;&nbsp;
-                                <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }} href={'http://www.ahrd.gov.cn/ahrdweb/'} >安徽省人大</a>
-                                &nbsp;&nbsp;&nbsp;
-                                <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }} href={'http://www.npc.gov.cn/'} >全国人大</a>
-                                &nbsp;&nbsp;&nbsp;
-                                主办单位：青阳县人大常委会
-                                &nbsp;&nbsp;&nbsp;
-                                地址：青阳县九华西路248号
-                                &nbsp;&nbsp;&nbsp;
-                                邮编：242800
-                                &nbsp;&nbsp;&nbsp;
-                                联系电话：0566-5021225
+                            <div style={{ padding: '50px 5px 15px 20px', textAlign: 'left' }} >
+                                <p style={{fontSize: '16px'}}>
+                                    友情链接：
+                                    <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.chzrd.gov.cn/'}>池州市人大</a>
+                                        &nbsp;&nbsp;&nbsp;
+                                    <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.ahrd.gov.cn/ahrdweb/'} >安徽省人大</a>
+                                        &nbsp;&nbsp;&nbsp;
+                                    <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.npc.gov.cn/'} >全国人大</a>
+                                        &nbsp;&nbsp;&nbsp;</p>
+                                <p>
+                                    主办单位：青阳县人大常委会
+                                    &nbsp;&nbsp;&nbsp;
+                                    地址：青阳县九华西路248号
+                                    &nbsp;&nbsp;&nbsp;
+                                    邮编：242800
+                                    &nbsp;&nbsp;&nbsp;
+                                    联系电话：0566-5021225
+                                </p>
                             </div>
                         </div>
                     </Col>
