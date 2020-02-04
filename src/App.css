@@ -28,7 +28,7 @@
 .ant-tabs-top .ant-tabs-ink-bar-animated:before{
   content: " ";
   background-color: red;
-  width: 80px;
+  width: 75px;
   height: 2px;
   position: absolute;
   margin: auto;
@@ -48,3 +48,6 @@
   color: blue;
 }
 
+.ant-tabs .ant-tabs-large-bar .ant-tabs-tab {
+  padding: 15px;
+}

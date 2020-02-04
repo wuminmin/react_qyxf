@@ -51,7 +51,9 @@ class MyTabsSmall extends React.Component {
     return (
       <div >
         {/* <Tag style={{fontSize:'20px'}} color="#2db7f5">{this.props.ban_kuai}</Tag> */}
-        <Tabs size={'large'} tabBarStyle={{ color:'blue',fontWeight: '900',fontSize:'90px' }} defaultActiveKey="1" onChange={callback}>
+        <Tabs 
+        tabBarGutter={0}
+        size={'large'} tabBarStyle={{ color:'blue',fontWeight: '900',fontSize:'90px' }} defaultActiveKey="1" onChange={callback}>
           {this.state.tabs_list_data.map((myitem) => {
             return (
               <TabPane tabBarStyle={{ color:'blue',fontWeight: '900', fontSize: '90px' }} tab={myitem.table_name} key={myitem.table_key}>

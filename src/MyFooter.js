@@ -39,7 +39,13 @@ export default class MyFooter extends React.Component {
                                     <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.ahrd.gov.cn/ahrdweb/'} >安徽省人大</a>
                                         &nbsp;&nbsp;&nbsp;
                                     <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.npc.gov.cn/'} >全国人大</a>
-                                        &nbsp;&nbsp;&nbsp;</p>
+                                        &nbsp;&nbsp;&nbsp;
+                                    <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.ahqy.gov.cn/'} >青阳县人民政府</a>
+                                        &nbsp;&nbsp;&nbsp;
+                                    <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.ahqyrd.gov.cn/'} >原青阳人大网</a>
+                                        &nbsp;&nbsp;&nbsp;
+                                </p>
+                                    
                                 <p>
                                     主办单位：青阳县人大常委会
                                     &nbsp;&nbsp;&nbsp;
@@ -48,6 +54,8 @@ export default class MyFooter extends React.Component {
                                     邮编：242800
                                     &nbsp;&nbsp;&nbsp;
                                     联系电话：0566-5021225
+                                    &nbsp;&nbsp;&nbsp;
+                                    备案号：皖ICP备19014068号-1
                                 </p>
                             </div>
                         </div>
