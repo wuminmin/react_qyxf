@@ -7,6 +7,7 @@ import App from './App'
 import BasicDemo from './BraftEditor'
 import MyNews from './MyNews'
 import MyLogin from './MyLogin'
+import MyLanMu from './MyLanMu'
 const routing = (
   <Router>
     <div>
@@ -14,6 +15,7 @@ const routing = (
       <Route exact path="/houtai" component={BasicDemo} />
       <Route exact path="/login" component={MyLogin} />
       <Route exact path="/mynews" component={MyNews} />
+      <Route exact path="/my_lan_mu" component={MyLanMu} />
     </div>
   </Router>
 )

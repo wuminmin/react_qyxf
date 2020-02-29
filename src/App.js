@@ -16,6 +16,7 @@ class MyTabsSmall extends React.Component {
     this.state = {
       tabs_list_data: [],
       ban_kuai: this.props.ban_kuai,
+      lan_mu_key:0,
     }
   }
   handleClick = e => {
@@ -45,27 +46,64 @@ class MyTabsSmall extends React.Component {
   }
   render() {
     const { TabPane } = Tabs;
-    function callback(key) {
-      console.log(key);
-    }
+    // function callback(key) {
+    //   console.log(key);
+    // }
     return (
       <div >
         {/* <Tag style={{fontSize:'20px'}} color="#2db7f5">{this.props.ban_kuai}</Tag> */}
-        <Tabs 
-        tabBarGutter={0}
-        size={'large'} tabBarStyle={{ color:'blue',fontWeight: '900',fontSize:'90px' }} defaultActiveKey="1" onChange={callback}>
+        <Tabs
+          // onTabClick={(e) => {
+          //   console.log(e);
+          // }}
+          tabBarExtraContent={
+            // <Tag style={{fontSize:'12px'}} color="#2db7f5">更多</Tag>
+            // <a
+            //   target={'_blank'} style={{ padding: '5px 5px 5px 5px', color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }} href={'/'}>
+            //   {'更多>>'}
+            // </a>
+
+            <div style={{ height: '100%', width: '100%', backgroundColor: '#ffffff', color: 'white', fontSize: '10px' }}>
+              <div style={{ padding: '10px 3px 3px 3px' }}>
+                <a
+                  target={'_blank'} style={{ color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }} 
+                  href={'/my_lan_mu?ban_kuai='+this.state.ban_kuai+'&lan_mu_key='+this.state.lan_mu_key}>
+                  {'更多>>'}
+                </a>
+              </div>
+            </div>
+          }
+          tabBarGutter={0}
+          size={'large'}
+          // tabBarStyle={{ color:'blue',fontWeight: '900',fontSize:'90px' }} 
+          defaultActiveKey={'1'}
+          onChange={(key) => {
+            console.log(key);
+            this.setState({
+              lan_mu_key:key
+            })
+          }}
+        >
           {this.state.tabs_list_data.map((myitem) => {
             return (
-              <TabPane tabBarStyle={{ color:'blue',fontWeight: '900', fontSize: '90px' }} tab={myitem.table_name} key={myitem.table_key}>
+              <TabPane
+                // onMouseOver = {(e) => {
+                //   console.log(e);
+                // }}
+                // tabBarStyle={{ color:'blue',fontWeight: '900', fontSize: '90px' }} 
+                tab={myitem.table_name}
+                key={myitem.table_key}
+              >
                 <List
                   bordered={false}
                   dataSource={myitem.list_data}
                   renderItem={item => (
                     <List.Item>
-                      <a style={{ color: '#000000', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '80%' }} href={item.url}>
+                      <a
+                        target={'_blank'} style={{ color: '#000000', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '80%' }} href={item.url}>
                         {item.key}
                       </a>
-                      <a style={{ color: 'grey', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '20%', textAlign: 'right' }} href={item.url}>
+                      <a target={'_blank'} style={{ color: 'grey', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '20%', textAlign: 'right' }} href={item.url}>
                         {item.key2}
                       </a>
                     </List.Item>
@@ -75,7 +113,7 @@ class MyTabsSmall extends React.Component {
             )
           })}
         </Tabs>
-        <Divider/>
+        <Divider />
 
       </div>
     )
@@ -145,25 +183,25 @@ class MyTabs extends React.Component {
       <Row>
         <Col span={4}></Col>
         <Col span={11}>
-          <Tabs 
-          type = {'line'}
-          size={'large'} 
-          tabBarStyle={{  color:'blue',fontWeight: '900', fontSize: '300%'  }} 
-          defaultActiveKey="1" onChange={callback}
-        >
+          <Tabs
+            type={'line'}
+            size={'large'}
+            tabBarStyle={{ color: 'blue', fontWeight: '900', fontSize: '300%' }}
+            defaultActiveKey="1" onChange={callback}
+          >
             {this.state.tabs_list_data.map((myitem) => {
               return (
-                <TabPane tabBarStyle={{  color:'red',fontWeight: '900', fontSize: '300%'  }} tab={myitem.table_name} key={myitem.table_key}>
+                <TabPane tabBarStyle={{ color: 'red', fontWeight: '900', fontSize: '300%' }} tab={myitem.table_name} key={myitem.table_key}>
                   <List
-                    style={{  fontSize: '20px' ,color:'red'}}
+                    style={{ fontSize: '20px', color: 'red' }}
                     bordered={false}
                     dataSource={myitem.list_data}
                     renderItem={item => (
                       <List.Item>
-                        <a style={{ color: '#000000', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '80%' }} href={item.url}>
+                        <a target={'_blank'} style={{ color: '#000000', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '80%' }} href={item.url}>
                           {item.key}
                         </a>
-                        <a style={{ color: 'grey', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '20%', textAlign: 'right' }} href={item.url}>
+                        <a target={'_blank'} style={{ color: 'grey', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '20%', textAlign: 'right' }} href={item.url}>
                           {item.key2}
                         </a>
                       </List.Item>
@@ -173,8 +211,7 @@ class MyTabs extends React.Component {
               )
             })}
           </Tabs>
-
-          <Divider/>
+          <Divider />
         </Col>
         <Col span={1}></Col>
         <Col span={4}>
@@ -191,7 +228,9 @@ class MyTabs extends React.Component {
                   fontSize: '20px',
                   background: 'none',
                   textShadow: '1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
-                }} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}>{myitem.table_name}
+                  }} target={'_blank'} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}
+                >
+                  {myitem.table_name}
                 </Button>
               )
             })}
@@ -293,7 +332,7 @@ export default class App extends React.Component {
           </Col>
           <Col span={7} >
             <Tabs size={'large'} tabBarStyle={{ fontWeight: '900', fontSize: '60px' }} defaultActiveKey="1" onChange={callback}>
-              <TabPane tabBarStyle={{ color:'blue',fontWeight: '900', fontSize: '60px' }} tab={'图片新闻'} key={'1'}>
+              <TabPane tabBarStyle={{ color: 'blue', fontWeight: '900', fontSize: '60px' }} tab={'图片新闻'} key={'1'}>
                 <Carousel autoplay>
                   <img src={AppGlobal.url.首页工程案例1} href="" />
                   <img src={AppGlobal.url.首页工程案例2} />

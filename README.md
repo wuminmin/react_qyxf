@@ -75,3 +75,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
+
+
+关于开展“服务不打烊”价值经营服务提升专项活动的通知(发展人激励1.移动完成 20户以上的，奖励发展人10元/户运营支撑补贴，每波次 300 元封顶；  2.每波次升5G完成 20户以上的，奖励发展人10元/户运营支撑补贴，每波次300元封顶；  3. 每波次优品包完成20户以上的，奖励发展人10元/户运营支撑补贴，每波次300元封顶；  4.每波次升五星完成5户以上的，奖励发展人20元/户运营支撑补贴，每波次300元封顶（注：两节期间截止3月31日，升五星50元/户，可重复享受）；  5.各单元重点推进一线人员的微信好友规模扩展，疫情期间业务咨询办理微信加好友，通过一人一码在线自助办理。活动期间门店老板好友数达到2500人或微信好友数提升超过500人，公司奖励200元并通报表彰。)

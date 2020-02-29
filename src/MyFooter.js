@@ -34,15 +34,15 @@ export default class MyFooter extends React.Component {
                             <div style={{ padding: '50px 5px 15px 20px', textAlign: 'left' }} >
                                 <p style={{fontSize: '16px'}}>
                                     友情链接：
-                                    <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.chzrd.gov.cn/'}>池州市人大</a>
+                                    <a target={'_blank'} style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.npc.gov.cn/'} >全国人大</a>
                                         &nbsp;&nbsp;&nbsp;
-                                    <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.ahrd.gov.cn/ahrdweb/'} >安徽省人大</a>
+                                    <a target={'_blank'} style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.ahrd.gov.cn/ahrdweb/'} >安徽省人大</a>
                                         &nbsp;&nbsp;&nbsp;
-                                    <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.npc.gov.cn/'} >全国人大</a>
+                                    <a target={'_blank'} style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.chzrd.gov.cn/'}>池州市人大</a>
                                         &nbsp;&nbsp;&nbsp;
-                                    <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.ahqy.gov.cn/'} >青阳县人民政府</a>
+                                    <a target={'_blank'} style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.ahqy.gov.cn/'} >青阳县人民政府</a>
                                         &nbsp;&nbsp;&nbsp;
-                                    <a style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.ahqyrd.gov.cn/'} >原青阳人大网</a>
+                                    <a target={'_blank'} style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '16px' }} href={'http://www.ahqyrd.gov.cn/'} >原青阳人大网</a>
                                         &nbsp;&nbsp;&nbsp;
                                 </p>
                                     
