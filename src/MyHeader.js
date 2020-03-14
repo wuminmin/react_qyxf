@@ -1,8 +1,6 @@
-import { Carousel, Input, Layout, Menu, Breadcrumb, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
-// import Carousel from 'nuka-carousel';
+import {  Input,  Menu,  Row, Col, Dropdown, Button } from 'antd';
 import React from 'react'
 import moment from 'moment';
-import Qs from 'qs'
 import axios from 'axios'
 import 'antd/dist/antd.css';
 import './index.css';
@@ -108,85 +106,8 @@ export default class MyHeader extends React.Component {
                             top: '21%',
                             left: '14%',
                         }} src={img_guohui_png} />
-                        {/* <h1 style={{
-                            position: 'absolute',
-                            top: '28%',
-                            left: '25%',
-                            color: 'red',
-                            fontSize: '70px',
-                            fontWeight: '900',
-                            fontFamily: 'STSong',
-                            // textShadow:'1px 1px #ffffff,-1px -1px #ffffff,1px -1px #ffffff,-1px 1px #ffffff',
-                            textShadow: '0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff',
-                        }}>青阳人大</h1>
-                        <h4 style={{
-                            position: 'absolute',
-                            top: '43%',
-                            left: '26%',
-                            color: 'red',
-                            fontSize: '40px',
-                            fontFamily: 'SimHei',
-                            // textShadow:'1px 1px #ffffff,-1px -1px #ffffff,1px -1px #ffffff,-1px 1px #ffffff',
-                            textShadow: '0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff',
-                        }}>rd.qyxgov.cn</h4> */}
                     </div>
                 </Row>
-                {/* <div>
-                {this.state.head_menu_data.map((myitem) => {
-                        return (
-                            <div style={{
-                                float:'left',
-                                width:'120px',
-                                height:'60px',
-                                fontWeight: '900',
-                                color: '#ffffff',
-                                backgroundColor: 'blue',
-                            }}
-                            >
-                                <Dropdown overlay={(
-                                    <Menu style={{
-                                        height:'60px',
-                                            fontSize:'20px',
-                                        fontWeight: '900',
-                                        color: '#ffffff',
-                                        backgroundColor: 'blue',
-                                    }}
-                                    >
-                                        {myitem.myMenu.map((subitem) => {
-                                            return (
-                                                <Menu.Item>
-                                                    <a style={{
-                                                          height:'60px',
-                                                          fontSize:'20px',
-                                                        fontWeight: '900',
-                                                        color: '#ffffff',
-                                                        backgroundColor: 'blue',
-                                                        borderColor: 'blue',
-                                                    }}
-                                                        target="_blank" rel="noopener noreferrer" href={subitem.subUrl}>
-                                                        {subitem.subname}
-                                                    </a>
-                                                </Menu.Item>
-                                            )
-                                        })}
-                                    </Menu>
-                                )} placement="bottomCenter">
-                                    <Button
-                                        style={{
-                                            height:'60px',
-                                            fontSize:'20px',
-                                            fontWeight: '900',
-                                            color: '#ffffff',
-                                            backgroundColor: 'blue',
-                                            borderColor: 'blue',
-                                            textAlign: 'center',
-                                        }}
-                                    >{myitem.name}</Button>
-                                </Dropdown>
-                            </div>
-                        )
-                    })}
-                </div> */}
                 <Row>
                     <Col span={4} 
                     style={{
