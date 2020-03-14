@@ -4,10 +4,8 @@ import BraftEditor from 'braft-editor';
 import axios from 'axios';
 import Qs from 'qs';
 import moment from 'moment';
-import AppGlobal from './AppGlobal';
-import { message, Upload, Select, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
+import { message, Upload, Select, Icon, Row, Col, Table, Button, Tag, PageHeader } from 'antd';
 import MyHeader from './MyHeader.js';
-import MyImg from './MyImg.js';
 
 const { Option, OptGroup } = Select;
 export default class BasicDemo extends React.Component {
@@ -20,6 +18,81 @@ export default class BasicDemo extends React.Component {
     subname: '',
     usertoken: new URLSearchParams(this.props.location.search).get('usertoken'),
     当前图片名称: '',
+    table_columns: [
+      {
+        title: '新闻标题',
+        dataIndex: 'name',
+        key: 'name',
+        render: text => <span >{text.标题}</span>,
+      },
+      {
+        title: '发布时间',
+        dataIndex: 'age',
+        key: 'age',
+      },
+      {
+        title: '浏览次数',
+        dataIndex: 'address',
+        key: 'address',
+      },
+      {
+        title: 'Action',
+        key: 'action',
+        render: (text, record) => (
+          <span>
+            <Button
+              type={'danger'}
+              onClick={e => {
+                console.log(record.name.标题);
+                let self = this;
+                let data = {
+                  "usertoken": self.state.usertoken,
+                  "lan_mu": self.state.subname,
+                  "tittle": record.name.标题
+                }
+                axios({
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                  },
+                  method: 'post',
+                  url: 'https://wx.wuminmin.top/qyrd/delete_wz',
+                  data: Qs.stringify(data)
+                }).then(function (response) {
+                  console.log(response);
+                  message.success(response.data);
+                })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
+              }}
+            >删除 </Button>
+          </span>
+        ),
+      },
+    ],
+    tablei_data: [
+      {
+        key: '1',
+        name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
+        age: '2020-03-12 10:59:52',
+        address: '22',
+        tags: ['nice', 'developer'],
+      },
+      {
+        key: '2',
+        name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
+        age: '2020-03-12 10:59:52',
+        address: '22',
+        tags: ['nice', 'developer'],
+      },
+      {
+        key: '3',
+        name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
+        age: '2020-03-12 10:59:52',
+        address: '22',
+        tags: ['nice', 'developer'],
+      },
+    ],
   }
 
   componentDidMount() {
@@ -106,6 +179,27 @@ export default class BasicDemo extends React.Component {
             onChange={(value) => {
               console.log(`selected ${value}`);
               this.setState({ subname: value });
+              let self = this;
+              let data2 = {
+                "ban_kuai": '',
+                "lan_mu": value,
+              };
+              axios({
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                method: 'post',
+                url: 'https://wx.wuminmin.top/qyrd/get_tablei_data_by_lanmu',
+                data: Qs.stringify(data2)
+              }).then(function (response) {
+                console.log('get_tablei_data_by_lanmu---------------', response);
+                self.setState({
+                  tablei_data: response.data.res_list
+                });
+              })
+                .catch(function (error) {
+                  console.log(error);
+                });
             }}
           >
             {this.state.head_menu_data.map((myitem) => {
@@ -140,6 +234,16 @@ export default class BasicDemo extends React.Component {
           </Col>
           <Col span={2}></Col>
         </Row>
+
+        <Row>
+          <Col span={2}></Col>
+          <Col span={20}>
+
+            <Table columns={this.state.table_columns} dataSource={this.state.tablei_data} />
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+
         {/* <MyImg usertoken={new URLSearchParams(this.props.location.search).get('usertoken')}/> */}
         <Row>
           <Col span={2}></Col>

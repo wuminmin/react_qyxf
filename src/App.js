@@ -16,7 +16,7 @@ class MyTabsSmall extends React.Component {
     this.state = {
       tabs_list_data: [],
       ban_kuai: this.props.ban_kuai,
-      lan_mu_key: 0,
+      lan_mu: '',
     }
   }
   handleClick = e => {
@@ -57,7 +57,7 @@ class MyTabsSmall extends React.Component {
               <div style={{ padding: '10px 3px 3px 3px' }}>
                 <a
                   target={'_blank'} style={{ color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }}
-                  href={'/my_lan_mu?ban_kuai=' + this.state.ban_kuai + '&lan_mu_key=' + this.state.lan_mu_key}>
+                  href={'/my_lan_mu?ban_kuai=' + this.state.ban_kuai + '&lan_mu=' + this.state.lan_mu}>
                   {'更多>>'}
                 </a>
               </div>
@@ -68,10 +68,16 @@ class MyTabsSmall extends React.Component {
           // tabBarStyle={{ color:'blue',fontWeight: '900',fontSize:'90px' }} 
           defaultActiveKey={'1'}
           onChange={(key) => {
-            console.log(key);
-            this.setState({
-              lan_mu_key: key
-            })
+            this.state.tabs_list_data.map((item) => {
+              console.log(item.table_key);
+              console.log(key);
+              if (item.table_key === Number(key)) {
+                console.log(item.table_name);
+                this.setState({
+                  lan_mu: item.table_name
+                })
+              }
+            });
           }}
         >
           {this.state.tabs_list_data.map((myitem) => {
@@ -117,7 +123,7 @@ class MyTabs extends React.Component {
       ban_kuai: this.props.ban_kuai,
       tabs_list_data2: [],
       ban_kuai2: this.props.ban_kuai2,
-      lan_mu_key: 0,
+      lan_mu: '',
     }
   }
   handleClick = e => {
@@ -180,22 +186,28 @@ class MyTabs extends React.Component {
                 <div style={{ padding: '10px 3px 3px 3px' }}>
                   <a
                     target={'_blank'} style={{ color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }}
-                    href={'/my_lan_mu?ban_kuai=' + this.state.ban_kuai + '&lan_mu_key=' + this.state.lan_mu_key}>
+                    href={'/my_lan_mu?ban_kuai=' + this.state.ban_kuai + '&lan_mu=' + this.state.lan_mu}>
                     {'更多>>'}
                   </a>
                 </div>
               </div>
             }
             onChange={(key) => {
-              console.log(key);
-              this.setState({
-                lan_mu_key: key
-              })
+              this.state.tabs_list_data.map((item) => {
+                console.log(item.table_key);
+                console.log(key);
+                if (item.table_key === Number(key)) {
+                  console.log(item.table_name);
+                  this.setState({
+                    lan_mu: item.table_name
+                  })
+                }
+              });
             }}
             type={'line'}
             size={'large'}
             tabBarStyle={{ color: 'blue', fontWeight: '900', fontSize: '300%' }}
-            defaultActiveKey="1" 
+            defaultActiveKey="1"
           >
             {this.state.tabs_list_data.map((myitem) => {
               return (
@@ -256,7 +268,7 @@ class MyImgTabs extends React.Component {
     this.state = {
       tabs_list_data: [],
       ban_kuai: this.props.ban_kuai,
-      lan_mu_key: 0,
+      lan_mu: '',
     }
   }
 
@@ -297,7 +309,6 @@ class MyImgTabs extends React.Component {
     return (
       <div>
         <Tabs
-
           type={'line'}
           size={'large'}
           tabBarStyle={{
@@ -310,7 +321,7 @@ class MyImgTabs extends React.Component {
               <div style={{ padding: '10px 3px 3px 3px' }}>
                 <a
                   target={'_blank'} style={{ color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }}
-                  href={'/my_lan_mu?ban_kuai=' + this.state.ban_kuai + '&lan_mu_key=' + this.state.lan_mu_key}>
+                  href={'/my_lan_mu?ban_kuai=' + this.state.ban_kuai + '&lan_mu=' + this.state.lan_mu}>
                   {'更多>>'}
                 </a>
               </div>
@@ -318,10 +329,16 @@ class MyImgTabs extends React.Component {
           }
           defaultActiveKey="1"
           onChange={(key) => {
-            console.log(key);
-            this.setState({
-              lan_mu_key: key
-            })
+            this.state.tabs_list_data.map((item) => {
+              console.log(item.table_key);
+              console.log(key);
+              if (item.table_key === Number(key)) {
+                console.log(item.table_name);
+                this.setState({
+                  lan_mu: item.table_name
+                })
+              }
+            });
           }}
         >
           {this.state.tabs_list_data.map((myitem) => {

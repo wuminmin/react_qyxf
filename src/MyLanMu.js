@@ -15,7 +15,7 @@ class MyMenu extends React.Component {
         super(props);
         this.state = {
             菜单列表: [],
-            lan_mu_key: this.props.lan_mu_key,
+            lan_mu: this.props.lan_mu,
             ban_kuai: this.props.ban_kuai,
             my_tittle: this.props.my_tittle,
             myHTML_tittle: '',
@@ -120,7 +120,7 @@ class MyMenu extends React.Component {
                 },
             ],
         }
-        console.log('lan_mu_key'.lan_mu_key)
+        console.log('lan_mu'.lan_mu)
     }
 
     componentDidMount() {
@@ -140,29 +140,29 @@ class MyMenu extends React.Component {
             self.setState({
                 菜单列表: response.data
             });
-            response.data.map((item) => {
-                console.log(item.table_key)
-                console.log(self.state.lan_mu_key)
-                if (item.table_key === Number(self.state.lan_mu_key)) {
-                    self.setState({
-                        lan_mu: item.table_name
-                    })
-                }
-            })
+            // response.data.map((item) => {
+            //     console.log(item.table_key)
+            //     console.log(self.state.lan_mu_key)
+            //     if (item.table_key === Number(self.state.lan_mu_key)) {
+            //         self.setState({
+            //             lan_mu: item.table_name
+            //         })
+            //     }
+            // })
 
         }).catch(function (error) {
         });
 
         let data2 = {
             "ban_kuai": this.props.ban_kuai,
-            "lan_mu_key": this.props.lan_mu_key,
+            "lan_mu": this.props.lan_mu,
         }
         axios({
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'post',
-            url: 'https://wx.wuminmin.top/qyrd/get_tablei_data_by_lan_mu_key',
+            url: 'https://wx.wuminmin.top/qyrd/get_tablei_data_by_lanmu',
             data: Qs.stringify(data2)
         }).then(function (response) {
             console.log('get_tablei_data_by_lanmu---------------',response);
@@ -174,47 +174,6 @@ class MyMenu extends React.Component {
                 console.log(error);
             });
     }
-
-    handleClick = e => {
-        let self = this;
-        let data = {
-            "ban_kuai": this.props.ban_kuai,
-            "lan_mu": this.props.lan_mu,
-            "tittle": e.key
-        }
-        axios({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'post',
-            url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_by_tittle',
-            data: Qs.stringify(data)
-        }).then(function (response) {
-            self.setState({
-                myHTML_article: response.data
-            });
-
-        })
-            .catch(function (error) {
-                console.log(error);
-            });
-        axios({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'post',
-            url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_time_by_tittle',
-            data: Qs.stringify(data)
-        }).then(function (response) {
-            self.setState({
-                myHTML_tittle: response.data['tittle'],
-                myHTML_time: response.data['my_time']
-            });
-        })
-            .catch(function (error) {
-                console.log(error);
-            });
-    };
 
     render() {
         return (
@@ -234,7 +193,7 @@ class MyMenu extends React.Component {
                             }}
                             onBack={() => { window.location = '/' }}
                             title={this.state.ban_kuai}
-                            subTitle={this.state.lan_mu}
+                            subTitle={this.props.lan_mu}
                         />,
                     <Menu
                             onClick={ e => {
@@ -262,8 +221,8 @@ class MyMenu extends React.Component {
                                     });
                             }}
                             style={{ width: '100%' }}
-                            defaultSelectedKeys={[this.state.lan_mu_key]}
-                            defaultOpenKeys={['sub1']}
+                            // defaultSelectedKeys={[this.state.lan_mu]}
+                            // defaultOpenKeys={['sub1']}
                             mode="inline"
                         >
                             {
@@ -330,7 +289,7 @@ export default class MyLanMu extends React.Component {
                     </Col>
                     <Col span={2}></Col>
                 </Row> */}
-                <MyMenu ban_kuai={params.get('ban_kuai')} lan_mu_key={params.get('lan_mu_key')} my_tittle={params.get('tittle')}></MyMenu>
+                <MyMenu ban_kuai={params.get('ban_kuai')} lan_mu={params.get('lan_mu')} my_tittle={params.get('tittle')}></MyMenu>
                 <Divider />
                 <MyFooter></MyFooter>
 
