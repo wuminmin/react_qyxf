@@ -5,6 +5,7 @@ class AppGlobal {
         tian_qi_xia_zai:'https://wx.wuminmin.top/qyrd/tian_qi_xia_zai',
         uploadimg:'https://wx.wuminmin.top/qyrd/upload_img',
         rd_xia_zai_tabs_by_ban_kuai:'https://wx.wuminmin.top/qyrd/rd_xia_zai_tabs_by_ban_kuai',
+        rd_xia_zai_tabs_by_ban_kuai2:'https://wx.wuminmin.top/qyrd/rd_xia_zai_tabs_by_ban_kuai2',
         rd_updata:'https://wx.wuminmin.top/qyrd/rd_updata',
         rd_xia_zai:'https://wx.wuminmin.top/qyrd/rd_xia_zai',
         rd_xia_zai_by_lan_mu:'https://wx.wuminmin.top/qyrd/rd_xia_zai_by_lan_mu',

@@ -369,6 +369,131 @@ class MyImgTabs extends React.Component {
 
 }
 
+class MyImgMoreTabs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tabs_list_data: [],
+      ban_kuai: this.props.ban_kuai,
+      lan_mu: '',
+    }
+  }
+
+  handleClick = e => {
+    console.log(e)
+  }
+
+  componentDidMount() {
+    let self = this;
+    let data = {
+      "ban_kuai": this.props.ban_kuai
+    }
+    axios({
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'post',
+      url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai2,
+      data: Qs.stringify(data)
+    }).then(function (response) {
+      console.log('MyImgTabs------------------------------', response)
+      self.setState({
+        tabs_list_data: response.data
+      });
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  render() {
+    const { TabPane } = Tabs;
+    return (
+      <div>
+        <Row>
+          <Col span={4}></Col>
+          <Col span={16}>
+
+
+            <Tabs
+              type={'line'}
+              size={'large'}
+              tabBarStyle={{
+                color: 'blue',
+                fontWeight: '900',
+                fontSize: '300%'
+              }}
+              tabBarExtraContent={
+                <div style={{ height: '100%', width: '100%', backgroundColor: '#ffffff', color: 'white', fontSize: '10px' }}>
+                  <div style={{ padding: '10px 3px 3px 3px' }}>
+                    <a
+                      target={'_blank'} style={{ color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }}
+                      href={'/my_lan_mu?ban_kuai=' + this.state.ban_kuai + '&lan_mu=' + this.state.lan_mu}>
+                      {'更多>>'}
+                    </a>
+                  </div>
+                </div>
+              }
+              defaultActiveKey="1"
+              onChange={(key) => {
+                this.state.tabs_list_data.map((item) => {
+                  console.log(item.table_key);
+                  console.log(key);
+                  if (item.table_key === Number(key)) {
+                    console.log(item.table_name);
+                    this.setState({
+                      lan_mu: item.table_name
+                    })
+                  }
+                });
+              }}
+            >
+              {this.state.tabs_list_data.map((myitem) => {
+                return (
+                  <TabPane
+                    tab={myitem.table_name} key={myitem.table_key}
+                  >
+
+                    {
+
+                      myitem.list_data.map((subItem) => {
+
+                        return (
+                          <div>
+                            <Col span={6}>
+                              <Carousel autoplay>
+                                {
+                                  subItem.sub_list_data.map(thidItem => {
+                                    return (
+                                      <a target={'_blank'} href={thidItem.url} key={thidItem.key}>
+                                        <img
+                                          src={thidItem.图片地址}
+                                          style={{ width: '100%', height: 'auto' }}
+                                        />
+                                      </a>
+                                    )
+                                  })
+                                }
+                              </Carousel>
+                            </Col>
+                          </div>
+                        )
+                      })}
+                  </TabPane>
+                )
+              })}
+            </Tabs>
+          </Col>
+          <Col span={4}></Col>
+        </Row>
+
+
+      </div>
+    )
+  }
+
+}
+
 export default class App extends React.Component {
 
   constructor(props) {
@@ -458,21 +583,7 @@ export default class App extends React.Component {
           <Col span={4}>
           </Col>
           <Col span={7} >
-
             <MyImgTabs ban_kuai={'首页图片'}></MyImgTabs>
-            {/* <Tabs size={'large'} tabBarStyle={{ fontWeight: '900', fontSize: '60px' }} defaultActiveKey="1" onChange={callback}>
-              <TabPane tabBarStyle={{ color: 'blue', fontWeight: '900', fontSize: '60px' }} tab={'图片新闻'} key={'1'}>
-                <Carousel autoplay>
-                  <a href={'/'} key={1}>
-                    <img src={AppGlobal.url.首页工程案例1} href={'/'} />
-                  </a>
-                  <img src={AppGlobal.url.首页工程案例2} />
-                  <img src={AppGlobal.url.首页工程案例3} />
-                  <img src={AppGlobal.url.首页工程案例4} />
-                  <img src={AppGlobal.url.首页工程案例5} />
-                </Carousel>
-              </TabPane>
-            </Tabs> */}
           </Col>
           <Col span={1} ></Col>
           <Col span={8} >
@@ -515,41 +626,9 @@ export default class App extends React.Component {
           </Col>
           <Col span={4}></Col>
         </Row>
-        {/* <Row>
-          <Col span={4}></Col>
-          <Col span={16}>
-            <Tag color="#2db7f5">{'图片新闻'}</Tag>
-          </Col>
-          <Col span={4}></Col>
-        </Row> */}
-        <Row>
-          <Col span={4}></Col>
-          <Col span={4}>
-            <Carousel autoplay>
-              <img src={AppGlobal.url.产品中心滚动图片1} />
-              <img src={AppGlobal.url.产品中心滚动图片2} />
-            </Carousel>
-          </Col>
-          <Col span={4}>
-            <Carousel autoplay>
-              <img src={AppGlobal.url.产品中心滚动图片3} />
-              <img src={AppGlobal.url.产品中心滚动图片4} />
-            </Carousel>
-          </Col>
-          <Col span={4}>
-            <Carousel autoplay>
-              <img src={AppGlobal.url.产品中心滚动图片5} />
-              <img src={AppGlobal.url.产品中心滚动图片6} />
-            </Carousel>
-          </Col>
-          <Col span={4}>
-            <Carousel autoplay>
-              <img src={AppGlobal.url.产品中心滚动图片7} />
-              <img src={AppGlobal.url.产品中心滚动图片8} />
-            </Carousel>
-          </Col>
-          <Col span={4}></Col>
-        </Row>
+        <MyImgMoreTabs ban_kuai={'首页滚动'}></MyImgMoreTabs>
+
+
         <br></br>
         <MyFooter></MyFooter>
       </div>
