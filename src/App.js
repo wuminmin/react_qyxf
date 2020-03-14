@@ -16,7 +16,7 @@ class MyTabsSmall extends React.Component {
     this.state = {
       tabs_list_data: [],
       ban_kuai: this.props.ban_kuai,
-      lan_mu_key:0,
+      lan_mu_key: 0,
     }
   }
   handleClick = e => {
@@ -51,23 +51,13 @@ class MyTabsSmall extends React.Component {
     // }
     return (
       <div >
-        {/* <Tag style={{fontSize:'20px'}} color="#2db7f5">{this.props.ban_kuai}</Tag> */}
         <Tabs
-          // onTabClick={(e) => {
-          //   console.log(e);
-          // }}
           tabBarExtraContent={
-            // <Tag style={{fontSize:'12px'}} color="#2db7f5">更多</Tag>
-            // <a
-            //   target={'_blank'} style={{ padding: '5px 5px 5px 5px', color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }} href={'/'}>
-            //   {'更多>>'}
-            // </a>
-
             <div style={{ height: '100%', width: '100%', backgroundColor: '#ffffff', color: 'white', fontSize: '10px' }}>
               <div style={{ padding: '10px 3px 3px 3px' }}>
                 <a
-                  target={'_blank'} style={{ color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }} 
-                  href={'/my_lan_mu?ban_kuai='+this.state.ban_kuai+'&lan_mu_key='+this.state.lan_mu_key}>
+                  target={'_blank'} style={{ color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }}
+                  href={'/my_lan_mu?ban_kuai=' + this.state.ban_kuai + '&lan_mu_key=' + this.state.lan_mu_key}>
                   {'更多>>'}
                 </a>
               </div>
@@ -80,7 +70,7 @@ class MyTabsSmall extends React.Component {
           onChange={(key) => {
             console.log(key);
             this.setState({
-              lan_mu_key:key
+              lan_mu_key: key
             })
           }}
         >
@@ -127,6 +117,7 @@ class MyTabs extends React.Component {
       ban_kuai: this.props.ban_kuai,
       tabs_list_data2: [],
       ban_kuai2: this.props.ban_kuai2,
+      lan_mu_key: 0,
     }
   }
   handleClick = e => {
@@ -184,10 +175,27 @@ class MyTabs extends React.Component {
         <Col span={4}></Col>
         <Col span={11}>
           <Tabs
+            tabBarExtraContent={
+              <div style={{ height: '100%', width: '100%', backgroundColor: '#ffffff', color: 'white', fontSize: '10px' }}>
+                <div style={{ padding: '10px 3px 3px 3px' }}>
+                  <a
+                    target={'_blank'} style={{ color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }}
+                    href={'/my_lan_mu?ban_kuai=' + this.state.ban_kuai + '&lan_mu_key=' + this.state.lan_mu_key}>
+                    {'更多>>'}
+                  </a>
+                </div>
+              </div>
+            }
+            onChange={(key) => {
+              console.log(key);
+              this.setState({
+                lan_mu_key: key
+              })
+            }}
             type={'line'}
             size={'large'}
             tabBarStyle={{ color: 'blue', fontWeight: '900', fontSize: '300%' }}
-            defaultActiveKey="1" onChange={callback}
+            defaultActiveKey="1" 
           >
             {this.state.tabs_list_data.map((myitem) => {
               return (
@@ -228,7 +236,7 @@ class MyTabs extends React.Component {
                   fontSize: '20px',
                   background: 'none',
                   textShadow: '1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
-                  }} target={'_blank'} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}
+                }} target={'_blank'} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}
                 >
                   {myitem.table_name}
                 </Button>
@@ -240,6 +248,108 @@ class MyTabs extends React.Component {
       </Row>
     )
   }
+}
+
+class MyImgTabs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tabs_list_data: [],
+      ban_kuai: this.props.ban_kuai,
+      lan_mu_key: 0,
+    }
+  }
+
+  handleClick = e => {
+    console.log(e)
+  }
+
+  componentDidMount() {
+    let self = this;
+    let data = {
+      "ban_kuai": this.props.ban_kuai
+    }
+    axios({
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'post',
+      url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai,
+      data: Qs.stringify(data)
+    }).then(function (response) {
+      console.log('MyImgTabs------------------------------', response)
+      self.setState({
+        tabs_list_data: response.data
+      });
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  render() {
+    const { TabPane } = Tabs;
+
+    function callback(key) {
+      console.log(key);
+    }
+
+    return (
+      <div>
+        <Tabs
+
+          type={'line'}
+          size={'large'}
+          tabBarStyle={{
+            color: 'blue',
+            fontWeight: '900',
+            fontSize: '300%'
+          }}
+          tabBarExtraContent={
+            <div style={{ height: '100%', width: '100%', backgroundColor: '#ffffff', color: 'white', fontSize: '10px' }}>
+              <div style={{ padding: '10px 3px 3px 3px' }}>
+                <a
+                  target={'_blank'} style={{ color: '#2db7f5', fontSize: '14px', fontFamily: 'Microsoft Yahei', width: '100%' }}
+                  href={'/my_lan_mu?ban_kuai=' + this.state.ban_kuai + '&lan_mu_key=' + this.state.lan_mu_key}>
+                  {'更多>>'}
+                </a>
+              </div>
+            </div>
+          }
+          defaultActiveKey="1"
+          onChange={(key) => {
+            console.log(key);
+            this.setState({
+              lan_mu_key: key
+            })
+          }}
+        >
+          {this.state.tabs_list_data.map((myitem) => {
+            return (
+              <TabPane
+                tab={myitem.table_name} key={myitem.table_key}
+              >
+                <Carousel autoplay>
+                  {myitem.list_data.map((subItem) => {
+                    return (
+                      <a target={'_blank'} href={subItem.url} key={subItem.key}>
+                        <img
+                          src={subItem.图片地址}
+                          style={{ width: '100%', height: 'auto' }}
+                        />
+                      </a>
+                    )
+                  })}
+                </Carousel>
+              </TabPane>
+            )
+          })}
+
+        </Tabs>
+      </div>
+    )
+  }
+
 }
 
 export default class App extends React.Component {
@@ -331,17 +441,21 @@ export default class App extends React.Component {
           <Col span={4}>
           </Col>
           <Col span={7} >
-            <Tabs size={'large'} tabBarStyle={{ fontWeight: '900', fontSize: '60px' }} defaultActiveKey="1" onChange={callback}>
+
+            <MyImgTabs ban_kuai={'首页图片'}></MyImgTabs>
+            {/* <Tabs size={'large'} tabBarStyle={{ fontWeight: '900', fontSize: '60px' }} defaultActiveKey="1" onChange={callback}>
               <TabPane tabBarStyle={{ color: 'blue', fontWeight: '900', fontSize: '60px' }} tab={'图片新闻'} key={'1'}>
                 <Carousel autoplay>
-                  <img src={AppGlobal.url.首页工程案例1} href="" />
+                  <a href={'/'} key={1}>
+                    <img src={AppGlobal.url.首页工程案例1} href={'/'} />
+                  </a>
                   <img src={AppGlobal.url.首页工程案例2} />
                   <img src={AppGlobal.url.首页工程案例3} />
                   <img src={AppGlobal.url.首页工程案例4} />
                   <img src={AppGlobal.url.首页工程案例5} />
                 </Carousel>
               </TabPane>
-            </Tabs>
+            </Tabs> */}
           </Col>
           <Col span={1} ></Col>
           <Col span={8} >

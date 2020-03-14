@@ -5,7 +5,7 @@ import axios from 'axios';
 import Qs from 'qs';
 import moment from 'moment';
 import AppGlobal from './AppGlobal';
-import { TreeSelect, Menu, Select, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
+import { message, Upload, Select, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
 import MyHeader from './MyHeader.js';
 import MyImg from './MyImg.js';
 
@@ -19,6 +19,7 @@ export default class BasicDemo extends React.Component {
     head_menu_data: [],
     subname: '',
     usertoken: new URLSearchParams(this.props.location.search).get('usertoken'),
+    当前图片名称: '',
   }
 
   componentDidMount() {
@@ -32,7 +33,7 @@ export default class BasicDemo extends React.Component {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'post',
-      url: AppGlobal.url.get_header_menu_list_data,
+      url: 'https://wx.wuminmin.top/qyrd/get_header_menu_list_data2',
     }).then(function (response) {
       console.log(response)
       self.setState({
@@ -72,7 +73,26 @@ export default class BasicDemo extends React.Component {
 
   render() {
 
-    const { editorState, myHTML } = this.state
+    const { editorState, myHTML } = this.state;
+
+    const props2 = {
+      name: 'file',
+      action: 'https://wx.wuminmin.top/qyrd/upload_img2',
+      data: { usertoken: this.state.usertoken, subname: this.state.subname, tittle: this.state.tittle },
+      headers: {
+        authorization: 'authorization-text',
+      },
+      onChange(info) {
+        if (info.file.status !== 'uploading') {
+          console.log(info.file, info.fileList);
+        }
+        if (info.file.status === 'done') {
+          message.success(`${info.file.name} ${info.file.response.code}`);
+        } else if (info.file.status === 'error') {
+          message.error(`${info.file.name} ${info.file.response.code} `);
+        }
+      },
+    };
 
     return (
       <div>
@@ -80,7 +100,7 @@ export default class BasicDemo extends React.Component {
         <Row>
           <Col span={2}></Col>
           <Col span={2}> <label>模块名称:</label></Col>
-          <Col span={5}><Select
+          <Col span={4}><Select
             defaultValue=""
             style={{ width: '100%' }}
             onChange={(value) => {
@@ -102,12 +122,25 @@ export default class BasicDemo extends React.Component {
             )}
           </Select>
           </Col>
-          <Col span={3}></Col>
           <Col span={2}><label>新闻标题:</label></Col>
-          <Col span={8}><input style={{width:'100%'}} type="txt" defaultValue="" onChange={this.handleChangeBanShiRiQi2} /></Col>
+          <Col span={4}>
+            <input
+              style={{ width: '100%' }}
+              type="txt" defaultValue=""
+              onChange={this.handleChangeBanShiRiQi2}
+            />
+          </Col>
+          <Col span={2}><label>上传图片：</label></Col>
+          <Col span={4}>
+            <Upload {...props2}>
+              <Button>
+                <Icon type="upload" /> 点击上传文件
+              </Button>
+            </Upload>
+          </Col>
           <Col span={2}></Col>
         </Row>
-        <MyImg usertoken={new URLSearchParams(this.props.location.search).get('usertoken')}/>
+        {/* <MyImg usertoken={new URLSearchParams(this.props.location.search).get('usertoken')}/> */}
         <Row>
           <Col span={2}></Col>
           <Col span={20}>
@@ -123,7 +156,7 @@ export default class BasicDemo extends React.Component {
         <Row>
           <Col span={2}></Col>
           <Col span={20}>
-          <Button
+            <Button
               type="primary"
               onClick={e => {
                 this.setState({
@@ -152,7 +185,7 @@ export default class BasicDemo extends React.Component {
               onClick={e => {
                 let self = this;
                 let data = {
-                  "usertoken":self.state.usertoken,
+                  "usertoken": self.state.usertoken,
                   "article": self.state.outputHTML,
                   "tittle": self.state.tittle,
                   "type": self.state.subname,
