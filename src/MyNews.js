@@ -26,25 +26,25 @@ class MyMenu extends React.Component {
 
     componentDidMount() {
         let self = this;
-        let data = {
-            "type": this.props.lan_mu
-        }
-        axios({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'post',
-            url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_by_lan_mu',
-            data: Qs.stringify(data)
-        }).then(function (response) {
-            console.log(response)
-            self.setState({
-                菜单列表: response.data
-            });
-        })
-            .catch(function (error) {
-                console.log(error);
-            });
+        // let data = {
+        //     "type": this.props.lan_mu
+        // }
+        // axios({
+        //     headers: {
+        //         'Content-Type': 'application/x-www-form-urlencoded'
+        //     },
+        //     method: 'post',
+        //     url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_by_lan_mu',
+        //     data: Qs.stringify(data)
+        // }).then(function (response) {
+        //     console.log(response)
+        //     self.setState({
+        //         菜单列表: response.data
+        //     });
+        // })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
 
         let data2 = {
             "ban_kuai": this.props.ban_kuai,
@@ -144,7 +144,7 @@ class MyMenu extends React.Component {
             </Row>
             <Row>
                 <Col span={4}></Col>
-                <Col span={3}>
+                {/* <Col span={3}>
                     <PageHeader
                         style={{
                             border: '1px solid rgb(235, 237, 240)',
@@ -182,8 +182,8 @@ class MyMenu extends React.Component {
                         }
                     </Menu>
                 </Col>
-                <Col span={1}></Col>
-                <Col span={12}>
+                <Col span={1}></Col> */}
+                <Col span={16}>
                     <h1 align={'center'}>{this.state.myHTML_tittle}</h1>
                     <h4 align={'center'}>{this.state.myHTML_time}&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：{this.state.myHTML_count} </h4>
                     <Divider />

@@ -1,4 +1,4 @@
-import {  Input,  Menu,  Row, Col, Dropdown, Button } from 'antd';
+import { Input, Menu, Row, Col, Dropdown, Button } from 'antd';
 import React from 'react'
 import moment from 'moment';
 import axios from 'axios'
@@ -75,30 +75,30 @@ export default class MyHeader extends React.Component {
                             height: 'auto',
                             width: '20%',
                             top: '1%',
-                            textShadow:'1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
+                            textShadow: '1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
                             left: '1%'
                         }}>
                             {moment().format('YYYY年MM月DD日 hh时mm分钟ss秒')}
                         </p>
-                        <p style={{ 
-                            color: '#ffffff' ,
+                        <p style={{
+                            color: '#ffffff',
                             position: 'absolute',
                             height: 'auto',
                             width: '30%',
                             top: '1%',
-                            textShadow:'1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
+                            textShadow: '1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
                             left: '30%'
                         }}>{this.state.tian_qi} </p>
-                        <Search style={{ 
-                            color: '#ffffff' ,
+                        <Search style={{
+                            color: '#ffffff',
                             position: 'absolute',
                             height: 'auto',
                             width: '29%',
                             top: '1%',
-                            textShadow:'#000000',
+                            textShadow: '#000000',
                             left: '70%'
                         }}
-                        placeholder="热门文章" onSearch={value => console.log(value)} enterButton />
+                            placeholder="热门文章" onSearch={value => console.log(value)} enterButton />
                         <img style={{
                             position: 'absolute',
                             height: 'auto',
@@ -109,18 +109,20 @@ export default class MyHeader extends React.Component {
                     </div>
                 </Row>
                 <Row>
-                    <Col span={4} 
-                    style={{
-                        height:'60px',
-                        fontWeight: '900',
-                        color: '#ffffff',
-                        backgroundColor: 'blue',
-                    }}
+                    <Col span={4}
+                        style={{
+                            height: '60px',
+                            fontWeight: '900',
+                            color: '#ffffff',
+                            backgroundColor: 'blue',
+                        }}
                     ></Col>
                     {this.state.head_menu_data.map((myitem) => {
                         return (
-                            <Col span={2} style={{
-                                height:'60px',
+                            <Col 
+                            key={myitem.name}
+                            span={2} style={{
+                                height: '60px',
                                 fontWeight: '900',
                                 color: '#ffffff',
                                 backgroundColor: 'blue',
@@ -128,8 +130,8 @@ export default class MyHeader extends React.Component {
                             >
                                 <Dropdown overlay={(
                                     <Menu style={{
-                                        height:'60px',
-                                        fontSize:'20px',
+                                        height: '60px',
+                                        fontSize: '20px',
                                         fontWeight: '900',
                                         color: '#ffffff',
                                         backgroundColor: 'blue',
@@ -137,15 +139,17 @@ export default class MyHeader extends React.Component {
                                     >
                                         {myitem.myMenu.map((subitem) => {
                                             return (
-                                                <Menu.Item>
-                                                    <a style={{
-                                                          height:'60px',
-                                                          fontSize:'20px',
-                                                        fontWeight: '900',
-                                                        color: '#ffffff',
-                                                        backgroundColor: 'blue',
-                                                        borderColor: 'blue',
-                                                    }}
+                                                <Menu.Item
+                                                    key={subitem.subname}>
+                                                    <a
+                                                        style={{
+                                                            height: '60px',
+                                                            fontSize: '20px',
+                                                            fontWeight: '900',
+                                                            color: '#ffffff',
+                                                            backgroundColor: 'blue',
+                                                            borderColor: 'blue',
+                                                        }}
                                                         target="_blank" rel="noopener noreferrer" href={subitem.subUrl}>
                                                         {subitem.subname}
                                                     </a>
@@ -156,8 +160,8 @@ export default class MyHeader extends React.Component {
                                 )} placement="bottomCenter">
                                     <Button
                                         style={{
-                                            height:'60px',
-                                            fontSize:'20px',
+                                            height: '60px',
+                                            fontSize: '20px',
                                             fontWeight: '900',
                                             color: '#ffffff',
                                             backgroundColor: 'blue',
@@ -169,13 +173,13 @@ export default class MyHeader extends React.Component {
                             </Col>
                         )
                     })}
-                    <Col span={4} 
-                    style={{
-                        height:'60px',
-                        fontWeight: '900',
-                        color: '#ffffff',
-                        backgroundColor: 'blue',
-                    }}
+                    <Col span={4}
+                        style={{
+                            height: '60px',
+                            fontWeight: '900',
+                            color: '#ffffff',
+                            backgroundColor: 'blue',
+                        }}
                     ></Col>
                 </Row>
                 <br></br>

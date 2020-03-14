@@ -1,4 +1,4 @@
-import { Divider, Menu,Table, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
+import { Divider, Menu, Table, Icon, Row, Col, Dropdown, Button, Tag, PageHeader } from 'antd';
 // import Carousel from 'nuka-carousel';
 import React from 'react'
 import Qs from 'qs'
@@ -27,7 +27,7 @@ class MyMenu extends React.Component {
                     title: '新闻标题',
                     dataIndex: 'name',
                     key: 'name',
-                    render: text => <a target={'_blank'}  href={text.地址}>{text.标题}</a>,
+                    render: text => <a target={'_blank'} href={text.地址}>{text.标题}</a>,
                 },
                 {
                     title: '发布时间',
@@ -39,111 +39,81 @@ class MyMenu extends React.Component {
                     dataIndex: 'address',
                     key: 'address',
                 },
-                // {
-                //     title: 'Tags',
-                //     key: 'tags',
-                //     dataIndex: 'tags',
-                //     render: tags => (
-                //         <span>
-                //             {tags.map(tag => {
-                //                 let color = tag.length > 5 ? 'geekblue' : 'green';
-                //                 if (tag === 'loser') {
-                //                     color = 'volcano';
-                //                 }
-                //                 return (
-                //                     <Tag color={color} key={tag}>
-                //                         {tag.toUpperCase()}
-                //                     </Tag>
-                //                 );
-                //             })}
-                //         </span>
-                //     ),
-                // },
-                // {
-                //     title: 'Action',
-                //     key: 'action',
-                //     render: (text, record) => (
-                //         <span>
-                //             <a style={{ marginRight: 16 }}>Invite {record.name}</a>
-                //             <a>Delete</a>
-                //         </span>
-                //     ),
-                // },
             ],
             tablei_data: [
                 {
                     key: '1',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
                 },
                 {
                     key: '2',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
                 },
                 {
                     key: '3',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
                 },
                 {
                     key: '4',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
                 },
                 {
                     key: '5',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
                 },
                 {
                     key: '1',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
                 },
                 {
                     key: '6',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
                 },
                 {
                     key: '1',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
                 },
                 {
                     key: '7',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
                 },
                 {
                     key: '8',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
                 },
                 {
                     key: '9',
-                    name: {标题:'杨晓兵到新河镇杨梅桥村调研扶贫工作',地址:'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作'},
+                    name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
                     age: '2020-03-12 10:59:52',
                     address: '22',
                     tags: ['nice', 'developer'],
@@ -179,44 +149,25 @@ class MyMenu extends React.Component {
                     })
                 }
             })
-        })
-            .catch(function (error) {
-            });
+
+        }).catch(function (error) {
+        });
 
         let data2 = {
             "ban_kuai": this.props.ban_kuai,
-            "lan_mu": this.props.lan_mu,
-            "tittle": this.props.my_tittle
+            "lan_mu_key": this.props.lan_mu_key,
         }
         axios({
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'post',
-            url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_by_tittle',
+            url: 'https://wx.wuminmin.top/qyrd/get_tablei_data_by_lan_mu_key',
             data: Qs.stringify(data2)
         }).then(function (response) {
+            console.log('get_tablei_data_by_lanmu---------------',response);
             self.setState({
-                myHTML_article: response.data
-            });
-
-        })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-        axios({
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            method: 'post',
-            url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_time_by_tittle',
-            data: Qs.stringify(data2)
-        }).then(function (response) {
-            self.setState({
-                myHTML_tittle: response.data['tittle'],
-                myHTML_time: response.data['my_time'],
-                myHTML_count: response.data['count'],
+                tablei_data: response.data.res_list
             });
         })
             .catch(function (error) {
@@ -286,49 +237,51 @@ class MyMenu extends React.Component {
                             subTitle={this.state.lan_mu}
                         />,
                     <Menu
-                            onClick={this.handleClick}
+                            onClick={ e => {
+                                console.log(e.item.props.children);
+                                let self = this;
+                                let data2 = {
+                                    "ban_kuai": self.props.ban_kuai,
+                                    "lan_mu": e.item.props.children,
+                                };
+                                axios({
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded'
+                                    },
+                                    method: 'post',
+                                    url: 'https://wx.wuminmin.top/qyrd/get_tablei_data_by_lanmu',
+                                    data: Qs.stringify(data2)
+                                }).then(function (response) {
+                                    console.log('get_tablei_data_by_lanmu---------------',response);
+                                    self.setState({
+                                        tablei_data: response.data.res_list
+                                    });
+                                })
+                                    .catch(function (error) {
+                                        console.log(error);
+                                    });
+                            }}
                             style={{ width: '100%' }}
-                            defaultSelectedKeys={['1']}
+                            defaultSelectedKeys={[this.state.lan_mu_key]}
                             defaultOpenKeys={['sub1']}
                             mode="inline"
                         >
                             {
-                                // this.state.菜单列表.map((item) => {
-                                //     return (
-                                //         <SubMenu item={item} key={item.table_name} title={
-                                //             <span>
-                                //                 <Icon type="setting" />
-                                //                 <span
-                                //                     onClick = { (e) => {
-                                //                         console.log(e.target);
-
-                                //                     }}
-                                //                     value = {item.table_name}
-                                //                 >{item.table_name}</span>
-                                //             </span>
-                                //         } >
-                                //             {/* {
-                                //                 item.list_data.map((item2) => {
-                                //                     return (
-                                //                         <Menu.Item key={item2.key}>{item2.key}</Menu.Item>
-                                //                     )
-                                //                 })
-                                //             } */}
-                                //         </SubMenu>
-                                //     )
-                                // })
+                                this.state.菜单列表.map((item) => {
+                                    return (
+                                        <Menu.Item
+                                            key={item.table_key}
+                                        >
+                                            {item.table_name}
+                                        </Menu.Item>
+                                    )
+                                })
                             }
                         </Menu>
                     </Col>
                     <Col span={1}></Col>
                     <Col span={12}>
-                    <Table columns={this.state.table_columns} dataSource={this.state.tablei_data} />
-
-                        {/* <h1 align={'center'}>{this.state.myHTML_tittle}</h1>
-                        <h4 align={'center'}>{this.state.myHTML_time}&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：{this.state.myHTML_count} </h4>
-                        <Divider />
-                        <div style={{ width: '100%' }} dangerouslySetInnerHTML={{ __html: this.state.myHTML_article }} />
-                     */}
+                        <Table columns={this.state.table_columns} dataSource={this.state.tablei_data} />
                     </Col>
                     <Col span={4}></Col>
                 </Row>
