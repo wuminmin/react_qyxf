@@ -36,7 +36,7 @@ export default class BasicDemo extends React.Component {
         key: 'address',
       },
       {
-        title: 'Action',
+        title: '操作',
         key: 'action',
         render: (text, record) => (
           <span>

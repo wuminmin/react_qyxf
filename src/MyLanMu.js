@@ -63,16 +63,6 @@ class MyMenu extends React.Component {
             self.setState({
                 菜单列表: response.data
             });
-            // response.data.map((item) => {
-            //     console.log(item.table_key)
-            //     console.log(self.state.lan_mu_key)
-            //     if (item.table_key === Number(self.state.lan_mu_key)) {
-            //         self.setState({
-            //             lan_mu: item.table_name
-            //         })
-            //     }
-            // })
-
         }).catch(function (error) {
         });
 
