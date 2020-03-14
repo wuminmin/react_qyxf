@@ -71,27 +71,6 @@ export default class BasicDemo extends React.Component {
       },
     ],
     tablei_data: [
-      {
-        key: '1',
-        name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
-        age: '2020-03-12 10:59:52',
-        address: '22',
-        tags: ['nice', 'developer'],
-      },
-      {
-        key: '2',
-        name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
-        age: '2020-03-12 10:59:52',
-        address: '22',
-        tags: ['nice', 'developer'],
-      },
-      {
-        key: '3',
-        name: { 标题: '杨晓兵到新河镇杨梅桥村调研扶贫工作', 地址: 'mynews?ban_kuai=新闻中心&lan_mu=人大要闻&tittle=杨晓兵到新河镇杨梅桥村调研扶贫工作' },
-        age: '2020-03-12 10:59:52',
-        address: '22',
-        tags: ['nice', 'developer'],
-      },
     ],
   }
 
