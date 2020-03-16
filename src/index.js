@@ -8,6 +8,7 @@ import BasicDemo from './BraftEditor'
 import MyNews from './MyNews'
 import MyLogin from './MyLogin'
 import MyLanMu from './MyLanMu'
+import MySearch from "./MySearch";
 const routing = (
   <Router>
     <div>
@@ -16,6 +17,7 @@ const routing = (
       <Route exact path="/login" component={MyLogin} />
       <Route exact path="/mynews" component={MyNews} />
       <Route exact path="/my_lan_mu" component={MyLanMu} />
+      <Route exact path="/my_search" component={MySearch} />
     </div>
   </Router>
 )

@@ -11,7 +11,7 @@ const { Option, OptGroup } = Select;
 export default class BasicDemo extends React.Component {
   state = {
     editorState: BraftEditor.createEditorState('<p>Hello <b>World!</b></p>'), // 设置编辑器初始内容
-    outputHTML: '<p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>',
+    outputHTML: '<p></p>',
     myHTML: '',
     tittle: '',
     head_menu_data: [],
@@ -40,6 +40,36 @@ export default class BasicDemo extends React.Component {
         key: 'action',
         render: (text, record) => (
           <span>
+            <Button
+              type={'normal'}
+              onClick={e => {
+                console.log(record.name.标题);
+                let self = this;
+                let data = {
+                  "ban_kuai": '',
+                  "lan_mu": this.state.subname,
+                  "tittle": record.name.标题
+                }
+                axios({
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                  },
+                  method: 'post',
+                  url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_by_tittle',
+                  data: Qs.stringify(data)
+                }).then(function (response) {
+                  console.log(response)
+                  self.setState({
+                    editorState: BraftEditor.createEditorState(response.data),
+                    tittle: record.name.标题
+                  });
+
+                })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
+              }}
+            >修改 </Button>
             <Button
               type={'danger'}
               onClick={e => {
@@ -200,6 +230,7 @@ export default class BasicDemo extends React.Component {
             <input
               style={{ width: '100%' }}
               type="txt" defaultValue=""
+              value={this.state.tittle}
               onChange={this.handleChangeBanShiRiQi2}
             />
           </Col>

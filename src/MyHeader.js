@@ -89,16 +89,23 @@ export default class MyHeader extends React.Component {
                             textShadow: '1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
                             left: '30%'
                         }}>{this.state.tian_qi} </p>
-                        <Search style={{
-                            color: '#ffffff',
-                            position: 'absolute',
-                            height: 'auto',
-                            width: '29%',
-                            top: '1%',
-                            textShadow: '#000000',
-                            left: '70%'
-                        }}
-                            placeholder="热门文章" onSearch={value => console.log(value)} enterButton />
+                        <Search
+                            style={{
+                                color: '#ffffff',
+                                position: 'absolute',
+                                height: 'auto',
+                                width: '29%',
+                                top: '1%',
+                                textShadow: '#000000',
+                                left: '70%'
+                            }}
+                            placeholder="热门文章"
+                            onSearch={value => {
+                                console.log(value);
+                                window.location.assign('/my_search?tittle='+value);
+                            }}
+                            enterButton
+                        />
                         <img style={{
                             position: 'absolute',
                             height: 'auto',
@@ -119,14 +126,14 @@ export default class MyHeader extends React.Component {
                     ></Col>
                     {this.state.head_menu_data.map((myitem) => {
                         return (
-                            <Col 
-                            key={myitem.name}
-                            span={2} style={{
-                                height: '60px',
-                                fontWeight: '900',
-                                color: '#ffffff',
-                                backgroundColor: 'blue',
-                            }}
+                            <Col
+                                key={myitem.name}
+                                span={2} style={{
+                                    height: '60px',
+                                    fontWeight: '900',
+                                    color: '#ffffff',
+                                    backgroundColor: 'blue',
+                                }}
                             >
                                 <Dropdown overlay={(
                                     <Menu style={{
