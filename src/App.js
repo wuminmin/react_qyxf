@@ -3,11 +3,9 @@ import Qs from 'qs'
 import axios from 'axios'
 import 'react-weui/build/packages/react-weui.css';
 import MyHeader from './MyHeader';
-import { Carousel, Card, Affix, Menu, Icon, Row, Col, Dropdown, Button, Tag, PageHeader, Tabs, List, Divider } from 'antd';
-// import Carousel from 'nuka-carousel';
+import { Carousel, Card, Row, Col,  Button, Tag, PageHeader, Tabs, List, Divider } from 'antd';
 import './App.css';
 import MyFooter from './MyFooter';
-import img_background_cloud from './img_background_cloud.jpg'
 import AppGlobal from './AppGlobal';
 
 class MyTabsSmall extends React.Component {
@@ -361,7 +359,6 @@ class MyImgTabs extends React.Component {
               </TabPane>
             )
           })}
-
         </Tabs>
       </div>
     )
@@ -413,8 +410,6 @@ class MyImgMoreTabs extends React.Component {
         <Row>
           <Col span={4}></Col>
           <Col span={16}>
-
-
             <Tabs
               type={'line'}
               size={'large'}
@@ -453,11 +448,8 @@ class MyImgMoreTabs extends React.Component {
                   <TabPane
                     tab={myitem.table_name} key={myitem.table_key}
                   >
-
                     {
-
                       myitem.list_data.map((subItem) => {
-
                         return (
                           <div>
                             <Col span={6}>
@@ -486,8 +478,6 @@ class MyImgMoreTabs extends React.Component {
           </Col>
           <Col span={4}></Col>
         </Row>
-
-
       </div>
     )
   }
@@ -571,14 +561,6 @@ export default class App extends React.Component {
     return (
       <div >
         <MyHeader></MyHeader>
-        {/* <Affix offsetTop={this.state.top}>
-          <Button
-            type="danger"
-            href={''}
-          >
-            扫黑除恶
-          </Button>
-        </Affix> */}
         <Row>
           <Col span={4}>
           </Col>
@@ -627,9 +609,6 @@ export default class App extends React.Component {
           <Col span={4}></Col>
         </Row>
         <MyImgMoreTabs ban_kuai={'首页滚动'}></MyImgMoreTabs>
-
-
-        <br></br>
         <MyFooter></MyFooter>
       </div>
     )
