@@ -82,3 +82,26 @@
   height: 1px;
   margin: 4px 0;
 }
+
+.ant-card-body {
+  padding: 24px;
+  zoom: 1;
+  background-image :url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584700807526&di=a777cdb43a564d64940ede886f1de2ec&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F05%2F41%2F49%2F455a61fb8c0ad89.jpg%2521r650%2Ffw%2F800');
+  
+}
+
+.ant-card-head {
+  min-height: 48px;
+  margin-bottom: -1px;
+  padding: 0 24px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  font-size: 16px;
+  background: transparent;
+  border-bottom: 1px solid #e8e8e8;
+  border-radius: 2px 2px 0 0;
+  zoom: 1;
+  background-image :url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584700759516&di=2bc102d299bd3b68db2382042a8bfee5&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F05%2F18%2F65%2F8259c26f5df24a2.jpg%2521r850%2Ffw%2F800');
+  
+  
+}

@@ -3,7 +3,7 @@ import Qs from 'qs'
 import axios from 'axios'
 import 'react-weui/build/packages/react-weui.css';
 import MyHeader from './MyHeader';
-import { Carousel, Card, Row, Col,  Button, Tag, PageHeader, Tabs, List, Divider } from 'antd';
+import { Carousel, Card, Row, Col, Button, Tag, PageHeader, Tabs, List, Divider } from 'antd';
 import './App.css';
 import MyFooter from './MyFooter';
 import AppGlobal from './AppGlobal';
@@ -108,7 +108,6 @@ class MyTabsSmall extends React.Component {
           })}
         </Tabs>
         <Divider />
-
       </div>
     )
   }
@@ -234,8 +233,18 @@ class MyTabs extends React.Component {
         <Col span={1}></Col>
         <Col span={4}>
           <Card title={this.props.ban_kuai2}
-            headStyle={{ width: '100%', height: 'auto', color: '#ffffff', background: 'blue' }}
-            bodyStyle={{ width: '100%', height: '300px', background: '#4DC2F7' }}
+            headStyle={{
+              width: '100%',
+              height: 'auto',
+              color: '#ffffff',
+              //  background: 'blue' 
+            }}
+            bodyStyle={{
+              width: '100%',
+              height: '300px',
+              // background: '#4DC2F7' ,
+              backgroundImage: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584700123669&di=ac6e0529ef63b9e51dad0bd22365a203&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F04%2F60%2F33%2F98586c9d54b5df4.jpg',
+            }}
           >
             {this.state.tabs_list_data2.map((myitem) => {
               return (
@@ -583,7 +592,6 @@ export default class App extends React.Component {
           <Col span={4}></Col>
         </Row>
         <MyTabs ban_kuai={this.state.ban_kuai4} ban_kuai2={this.state.ban_kuai2}></MyTabs>
-        <br></br>
         <MyTabs ban_kuai={this.state.ban_kuai5} ban_kuai2={this.state.ban_kuai3}></MyTabs>
         <Row>
           <Col span={4}></Col>
