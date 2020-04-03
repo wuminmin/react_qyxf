@@ -194,7 +194,7 @@ export default class MyLanMu extends React.Component {
         const params = new URLSearchParams(search);
 
         return (
-            <div>
+            <div  style={{filter:'grayscale(100%)'}} >
                 <MyHeader></MyHeader>
                 {/* <Row>
                     <Col span={2}></Col>

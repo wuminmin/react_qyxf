@@ -113,7 +113,7 @@ export default class MySearch extends React.Component {
         const params = new URLSearchParams(search);
 
         return (
-            <div>
+            <div  style={{filter:'grayscale(100%)'}} >
                 <MyHeader></MyHeader>
                 <MyMenu tittle={params.get('tittle')}></MyMenu>
                 <Divider />
