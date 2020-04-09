@@ -175,8 +175,8 @@ class MyTabs extends React.Component {
     }
     return (
       <Row>
-        <Col span={4}></Col>
-        <Col span={11}>
+        <Col lg={4}  xs={0}></Col>
+        <Col lg={11} xs={24}>
           <Tabs
             tabBarExtraContent={
               <div style={{ height: '100%', width: '100%', backgroundColor: '#ffffff', color: 'white', fontSize: '10px' }}>
@@ -230,8 +230,8 @@ class MyTabs extends React.Component {
           </Tabs>
           <Divider />
         </Col>
-        <Col span={1}></Col>
-        <Col span={4}>
+        <Col lg={1} xs={0}></Col>
+        <Col lg={4} xs={24}>
           <Card title={this.props.ban_kuai2}
             headStyle={{
               width: '100%',
@@ -263,7 +263,7 @@ class MyTabs extends React.Component {
             })}
           </Card>
         </Col>
-        <Col span={4}></Col>
+        <Col lg={4} xs={0}></Col>
       </Row>
     )
   }
@@ -417,8 +417,8 @@ class MyImgMoreTabs extends React.Component {
     return (
       <div>
         <Row>
-          <Col span={4}></Col>
-          <Col span={16}>
+          <Col lg={4}></Col>
+          <Col lg={16}>
             <Tabs
               type={'line'}
               size={'large'}
@@ -461,7 +461,7 @@ class MyImgMoreTabs extends React.Component {
                       myitem.list_data.map((subItem) => {
                         return (
                           <div>
-                            <Col span={6}>
+                            <Col lg={6}>
                               <Carousel autoplay>
                                 {
                                   subItem.sub_list_data.map(thidItem => {
@@ -485,7 +485,7 @@ class MyImgMoreTabs extends React.Component {
               })}
             </Tabs>
           </Col>
-          <Col span={4}></Col>
+          <Col lg={4}></Col>
         </Row>
       </div>
     )
@@ -570,51 +570,63 @@ export default class App extends React.Component {
     return (
       <div >
         <MyHeader></MyHeader>
-        <Row>
-          <Col span={4}>
+        {/* <Row>
+          <Col flex="135px">
           </Col>
-          <Col span={7} >
+          <Col flex="236px" >
             <MyImgTabs ban_kuai={'首页图片'}></MyImgTabs>
           </Col>
-          <Col span={1} ></Col>
-          <Col span={8} >
+          <Col flex="34px" ></Col>
+          <Col flex="236" >
             <MyTabsSmall ban_kuai={this.state.ban_kuai1}></MyTabsSmall>
           </Col>
-          <Col span={4}></Col>
+          <Col flex="34px" ></Col>
+        </Row> */}
+         <Row>
+          <Col xs={0} lg={4}>
+          </Col>
+          <Col xs={24} lg={7} >
+            <MyImgTabs ban_kuai={'首页图片'}></MyImgTabs>
+          </Col>
+          <Col xs={0} lg={1}></Col>
+          <Col xs={24} lg={8}>
+            <MyTabsSmall ban_kuai={this.state.ban_kuai1}></MyTabsSmall>
+          </Col>
+          <Col xs={0} lg={4}></Col>
         </Row>
         <Row>
-          <Col span={4}></Col>
-          <Col span={16}>
+          <Col lg={4} xs={0}></Col>
+          <Col lg={16} xs={24}>
             <img src={AppGlobal.url.首页中间横幅图片1}
               style={{ width: '100%', height: 'auto' }}
             />
           </Col>
-          <Col span={4}></Col>
+          <Col lg={4} xs={0}></Col>
         </Row>
         <MyTabs ban_kuai={this.state.ban_kuai4} ban_kuai2={this.state.ban_kuai2}></MyTabs>
         <MyTabs ban_kuai={this.state.ban_kuai5} ban_kuai2={this.state.ban_kuai3}></MyTabs>
         <Row>
-          <Col span={4}></Col>
-          <Col span={16}>
+          <Col lg={4}></Col>
+          <Col lg={16}>
             <img src={AppGlobal.url.首页中间横幅图片2}
               style={{ width: '100%', height: 'auto' }}
             />
           </Col>
-          <Col span={4}></Col>
+          <Col lg={4}></Col>
         </Row>
         <Row>
-          <Col span={4}></Col>
-          <Col span={16}>
+          <Col lg={4}></Col>
+          <Col lg={16}>
             <MyTabsSmall ban_kuai={this.state.ban_kuai6}></MyTabsSmall>
           </Col>
-          <Col span={4}></Col>
+          <Col lg={4}></Col>
         </Row>
         <Row>
-          <Col span={4}></Col>
-          <Col span={16}>
+          <Col lg={4}></Col>
+          <Col lg={16}>
             <MyTabsSmall ban_kuai={this.state.ban_kuai7}></MyTabsSmall>
           </Col>
-          <Col span={4}></Col>
+          <Col lg={4}></Col>
         </Row>
         <MyImgMoreTabs ban_kuai={'首页滚动'}></MyImgMoreTabs>
         <MyFooter></MyFooter>

@@ -18,18 +18,18 @@ export default class MyFooter extends React.Component {
         return (
             <div>
                 <Row>
-                    <Col span={4} >
+                    <Col lg={4} xs={0} >
                         <div style={{ height: '150px', backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }}>
                         </div>
                     </Col>
-                    <Col span={2} >
+                    <Col lg={2} xs={4} >
                         <div style={{ height: '150px', width: '100%', backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }}>
                             <div style={{ padding: '50px 5px 15px 20px' }}>
                                 <img align={'center'} src={'http://www.ahrd.gov.cn/ahrdweb/images/jg.png'}></img>
                             </div>
                         </div>
                     </Col>
-                    <Col span={10} >
+                    <Col lg={10} xs={20} >
                         <div style={{ height: '150px', width: '100%', backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }}>
                             <div style={{ padding: '50px 5px 15px 20px', textAlign: 'left' }} >
                                 <p style={{fontSize: '16px'}}>
@@ -60,23 +60,24 @@ export default class MyFooter extends React.Component {
                             </div>
                         </div>
                     </Col>
-                    <Col span={4} >
+                    <Col lg={4} xs={24} >
                         <div style={{ height: '150px', width: '100%', backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }}>
                             <div style={{ padding: '70px 5px 15px 20px' }}>
                                 技术支持：中国电信股份有限公司池州分公司
                             </div>
                         </div>
                     </Col>
-                    <Col span={4} style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }}>
+                    <Col lg={4} xs={0}
+                     style={{ backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }}>
                         <div style={{ height: '150px', backgroundColor: '#43A2FC', color: 'white', fontSize: '10px' }}>
                         </div>
                     </Col>
                 </Row>
                 {/* <Divider style={{color:'black',height:'1px',backgroundColor:'black'}} />
                 <Row>
-                    <Col span={4}>
+                    <Col lg={4}>
                     </Col>
-                    <Col span={16}>
+                    <Col lg={16}>
                         友情链接：
                         <a color="red" href={'http://www.chzrd.gov.cn/'}>池州市人大</a>
                         &nbsp;&nbsp;&nbsp;
@@ -84,19 +85,19 @@ export default class MyFooter extends React.Component {
                         &nbsp;&nbsp;&nbsp;
                         <a color="red" href={'http://www.npc.gov.cn/'} >全国人大</a>
                     </Col>
-                    <Col span={4}>
+                    <Col lg={4}>
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={4}>
+                    <Col lg={4}>
                     </Col>
-                    <Col span={10} aling={'right'}>
+                    <Col lg={10} aling={'right'}>
 
                     </Col>
-                    <Col span={6}>
+                    <Col lg={6}>
                         技术支持：中国电信股份有限公司池州分公司
                     </Col>
-                    <Col span={4}>
+                    <Col lg={4}>
 
                     </Col>
                 </Row> */}

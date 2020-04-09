@@ -62,14 +62,23 @@ export default class MyHeader extends React.Component {
 
     render() {
         return (
-            <div style={{ fontWeight: '900' }}>
+            <div>
                 <Row>
-                    <div style={{ width: 'auto' }}>
+                    <Col xs={24} lg={0}>
+                    <img
+                            style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }} responsive
+                            src={index_header_jpg}>
+                        </img>
+                    </Col>
+                    <Col xs={0} lg={24}>
+                    <div style={{ width: '100%' }}>
                         <img
                             style={{ backgroundSize: 'cover', width: '100%', height: 'auto' }} responsive
                             src={index_header_jpg}>
                         </img>
-                        <p style={{
+                        <p 
+                        xs='24'
+                        style={{
                             color: '#ffffff',
                             position: 'absolute',
                             height: 'auto',
@@ -80,7 +89,9 @@ export default class MyHeader extends React.Component {
                         }}>
                             {moment().format('YYYY年MM月DD日 hh时mm分钟ss秒')}
                         </p>
-                        <p style={{
+                        <p 
+                        xs={24}
+                        style={{
                             color: '#ffffff',
                             position: 'absolute',
                             height: 'auto',
@@ -106,17 +117,18 @@ export default class MyHeader extends React.Component {
                             }}
                             enterButton
                         />
-                        <img style={{
+                        {/* <img style={{
                             position: 'absolute',
                             height: 'auto',
                             width: '12%',
                             top: '21%',
                             left: '14%',
-                        }} src={img_guohui_png} />
+                        }} src={img_guohui_png} /> */}
                     </div>
+                    </Col>
                 </Row>
                 <Row>
-                    <Col span={4}
+                    <Col lg={4} xs={0}
                         style={{
                             height: '60px',
                             fontWeight: '900',
@@ -128,7 +140,9 @@ export default class MyHeader extends React.Component {
                         return (
                             <Col
                                 key={myitem.name}
-                                span={2} style={{
+                                lg={2} 
+                                xs={6}
+                                style={{
                                     height: '60px',
                                     fontWeight: '900',
                                     color: '#ffffff',
@@ -180,7 +194,8 @@ export default class MyHeader extends React.Component {
                             </Col>
                         )
                     })}
-                    <Col span={4}
+                    <Col lg={4}
+                    xs={0}
                         style={{
                             height: '60px',
                             fontWeight: '900',
