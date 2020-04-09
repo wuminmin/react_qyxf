@@ -137,59 +137,20 @@ class MyMenu extends React.Component {
         return (
             <div>
             <Row>
-                <Col span={24}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Col>
+                <Col lg={24} xs={24}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Col>
             </Row>
             <Row>
-                <Col span={24}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Col>
+                <Col lg={24} xs={24}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Col>
             </Row>
             <Row>
-                <Col span={4}></Col>
-                {/* <Col span={3}>
-                    <PageHeader
-                        style={{
-                            border: '1px solid rgb(235, 237, 240)',
-                        }}
-                        onBack={() => { window.location = '/' }}
-                        title={this.state.ban_kuai}
-                        subTitle={this.state.lan_mu}
-                    />,
-                    <Menu
-                        onClick={this.handleClick}
-                        style={{ width: '100%' }}
-                        defaultSelectedKeys={['1']}
-                        defaultOpenKeys={['sub1']}
-                        mode="inline"
-                    >
-                        {
-                            this.state.菜单列表.map((item) => {
-                                return (
-                                    <SubMenu item={item} key={item.月份} title={
-                                        <span>
-                                            <Icon type="setting" />
-                                            <span>{item.月份}</span>
-                                        </span>
-                                    } >
-                                        {
-                                            item.新闻标题列表.map((item2) => {
-                                                return (
-                                                    <Menu.Item key={item2.标题}>{item2.标题}</Menu.Item>
-                                                )
-                                            })
-                                        }
-                                    </SubMenu>
-                                )
-                            })
-                        }
-                    </Menu>
-                </Col>
-                <Col span={1}></Col> */}
-                <Col span={16}>
+                <Col lg={4} xs={1}></Col>
+                <Col lg={16} xs={22}>
                     <h1 align={'center'}>{this.state.myHTML_tittle}</h1>
                     <h4 align={'center'}>{this.state.myHTML_time}&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：{this.state.myHTML_count} </h4>
                     <Divider />
                     <div style={{width:'100%'}} dangerouslySetInnerHTML={{ __html: this.state.myHTML_article }} />
                 </Col>
-                <Col span={4}></Col>
+                <Col lg={4} xs={1}></Col>
             </Row>
             </div>
         )
@@ -231,10 +192,10 @@ export default class MyNews extends React.Component {
             <div   >
                 <MyHeader></MyHeader>
                 {/* <Row>
-                    <Col span={2}></Col>
-                    <Col span={20}>
+                    <Col lg={2}></Col>
+                    <Col lg={20}>
                     </Col>
-                    <Col span={2}></Col>
+                    <Col lg={2}></Col>
                 </Row> */}
                 <MyMenu ban_kuai={params.get('ban_kuai')} lan_mu={params.get('lan_mu')} my_tittle={params.get('tittle')}></MyMenu>
                 <Divider />

@@ -92,14 +92,14 @@ class MyMenu extends React.Component {
         return (
             <div>
                 <Row>
-                    <Col span={24}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Col>
+                    <Col lg={24} xs={24}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Col>
                 </Row>
                 <Row>
-                    <Col span={24}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Col>
+                    <Col lg={24} xs={24}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Col>
                 </Row>
                 <Row>
-                    <Col span={4}></Col>
-                    <Col span={3}>
+                    <Col lg={4} xs={0} ></Col>
+                    <Col lg={3} xs={24} >
                         <PageHeader
                             style={{
                                 border: '1px solid rgb(235, 237, 240)',
@@ -151,11 +151,11 @@ class MyMenu extends React.Component {
                             }
                         </Menu>
                     </Col>
-                    <Col span={1}></Col>
-                    <Col span={12}>
+                    <Col lg={1} xs={0}></Col>
+                    <Col lg={12} xs={24}>
                         <Table columns={this.state.table_columns} dataSource={this.state.tablei_data} />
                     </Col>
-                    <Col span={4}></Col>
+                    <Col lg={4} xs={0}></Col>
                 </Row>
             </div>
         )
@@ -197,10 +197,10 @@ export default class MyLanMu extends React.Component {
             <div   >
                 <MyHeader></MyHeader>
                 {/* <Row>
-                    <Col span={2}></Col>
-                    <Col span={20}>
+                    <Col lg={2}></Col>
+                    <Col lg={20}>
                     </Col>
-                    <Col span={2}></Col>
+                    <Col lg={2}></Col>
                 </Row> */}
                 <MyMenu ban_kuai={params.get('ban_kuai')} lan_mu={params.get('lan_mu')} my_tittle={params.get('tittle')}></MyMenu>
                 <Divider />
