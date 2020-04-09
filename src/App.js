@@ -236,6 +236,7 @@ class MyTabs extends React.Component {
             headStyle={{
               width: '100%',
               height: 'auto',
+              fontWeight:'900',
               color: '#ffffff',
               //  background: 'blue' 
             }}
@@ -248,14 +249,20 @@ class MyTabs extends React.Component {
           >
             {this.state.tabs_list_data2.map((myitem) => {
               return (
-                <Button type='normal' style={{
-                  color: '#ffffff',
+                <Button  
+                type ='default'
+                style={{
+                  color: '#43A2FC',
+                  // borderBlockColor:'#43A2FC',
                   width: '100%',
                   height: 'auto',
                   fontSize: '20px',
+                  fontWeight:'900',
                   background: 'none',
-                  textShadow: '1px 1px #000000,-1px -1px #000000,1px -1px #000000,-1px 1px #000000',
-                }} target={'_blank'} href={'/mynews?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}
+                  // textShadow: '2px 2px blue,-2px -2px blue,2px -2px blue,-2px 2px blue',
+                }} 
+                target={'_blank'} 
+                href={'/my_lan_mu?ban_kuai=' + this.props.ban_kuai2 + '&lan_mu=' + myitem.table_name + '&tittle=默认'}
                 >
                   {myitem.table_name}
                 </Button>
@@ -296,7 +303,6 @@ class MyImgTabs extends React.Component {
       url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai,
       data: Qs.stringify(data)
     }).then(function (response) {
-      console.log('MyImgTabs------------------------------', response)
       self.setState({
         tabs_list_data: response.data
       });
@@ -402,7 +408,6 @@ class MyImgMoreTabs extends React.Component {
       url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai2,
       data: Qs.stringify(data)
     }).then(function (response) {
-      console.log('MyImgTabs------------------------------', response)
       self.setState({
         tabs_list_data: response.data
       });
@@ -568,7 +573,7 @@ export default class App extends React.Component {
       console.log(key);
     }
     return (
-      <div >
+      <div style={{filter:'grayscale(100%)'}} >
         <MyHeader></MyHeader>
         {/* <Row>
           <Col flex="135px">
