@@ -573,7 +573,7 @@ export default class App extends React.Component {
       console.log(key);
     }
     return (
-      <div style={{filter:'grayscale(100%)'}} >
+      <div  >
         <MyHeader></MyHeader>
         {/* <Row>
           <Col flex="135px">
