@@ -92,7 +92,7 @@ export default class MyLogin extends React.Component {
                         <img style={{ width: '100%', height: 'auto' }} src={img_guohui_png}></img>
                     </Col>
                     <Col span={6}>
-                        <h1>青阳人大</h1>
+                        <h1>石台先锋网</h1>
                     </Col>
                     <Col span={8}></Col>
                 </Row>

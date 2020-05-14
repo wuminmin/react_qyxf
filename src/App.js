@@ -503,68 +503,68 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: props.width || -1,
-      height: props.height || -1,
-      首页模块: '人大新闻',
-      首页新闻标题: '',
-      首页新闻内容: '',
-      ban_kuai1: '新闻中心',
-      ban_kuai2: '人大概况',
-      ban_kuai3: '会议之窗',
-      ban_kuai4: '依法履职',
-      ban_kuai5: '代表工作',
-      ban_kuai6: '一府一委两院',
-      ban_kuai7: '乡镇人大',
-      tabs_list_data: [],
+      // width: props.width || -1,
+      // height: props.height || -1,
+      // 首页模块: '人大新闻',
+      // 首页新闻标题: '',
+      // 首页新闻内容: '',
+      // ban_kuai1: '新闻中心',
+      // ban_kuai2: '人大概况',
+      // ban_kuai3: '会议之窗',
+      // ban_kuai4: '依法履职',
+      // ban_kuai5: '代表工作',
+      // ban_kuai6: '一府一委两院',
+      // ban_kuai7: '乡镇人大',
+      // tabs_list_data: [],
     }
   }
 
   componentDidMount() {
-    console.log(this.props)
-    const search = this.props.location.search;
-    const params = new URLSearchParams(search);
-    console.log(params)
-    let self = this;
-    let data = {
-      "type": this.state.首页模块
-    }
-    axios({
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      method: 'post',
-      url: AppGlobal.url.rd_xia_zai,
-      data: Qs.stringify(data)
-    }).then(function (response) {
-      console.log(response)
-      self.setState({
-        首页新闻标题: response.data.tittle,
-        首页新闻内容: response.data.article
-      });
-    })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // console.log(this.props)
+    // const search = this.props.location.search;
+    // const params = new URLSearchParams(search);
+    // console.log(params)
+    // let self = this;
+    // let data = {
+    //   "type": this.state.首页模块
+    // }
+    // axios({
+    //   headers: {
+    //     'Content-Type': 'application/x-www-form-urlencoded'
+    //   },
+    //   method: 'post',
+    //   url: AppGlobal.url.rd_xia_zai,
+    //   data: Qs.stringify(data)
+    // }).then(function (response) {
+    //   console.log(response)
+    //   self.setState({
+    //     首页新闻标题: response.data.tittle,
+    //     首页新闻内容: response.data.article
+    //   });
+    // })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
 
-    let data2 = {
-      "ban_kuai": this.state.ban_kuai1
-    }
-    axios({
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      method: 'post',
-      url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai,
-      data: Qs.stringify(data2)
-    }).then(function (response) {
-      console.log(response)
-      self.setState({
-        tabs_list_data: response.data
-      });
-    })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // let data2 = {
+    //   "ban_kuai": this.state.ban_kuai1
+    // }
+    // axios({
+    //   headers: {
+    //     'Content-Type': 'application/x-www-form-urlencoded'
+    //   },
+    //   method: 'post',
+    //   url: AppGlobal.url.rd_xia_zai_tabs_by_ban_kuai,
+    //   data: Qs.stringify(data2)
+    // }).then(function (response) {
+    //   console.log(response)
+    //   self.setState({
+    //     tabs_list_data: response.data
+    //   });
+    // })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
   }
 
   render() {
@@ -595,7 +595,7 @@ export default class App extends React.Component {
           </Col>
           <Col xs={0} lg={1}></Col>
           <Col xs={24} lg={8}>
-            <MyTabsSmall ban_kuai={this.state.ban_kuai1}></MyTabsSmall>
+            <MyTabsSmall ban_kuai={'走进部门'}></MyTabsSmall>
           </Col>
           <Col xs={0} lg={4}></Col>
         </Row>
@@ -608,8 +608,8 @@ export default class App extends React.Component {
           </Col>
           <Col lg={4} xs={0}></Col>
         </Row>
-        <MyTabs ban_kuai={this.state.ban_kuai4} ban_kuai2={this.state.ban_kuai2}></MyTabs>
-        <MyTabs ban_kuai={this.state.ban_kuai5} ban_kuai2={this.state.ban_kuai3}></MyTabs>
+        <MyTabs ban_kuai={'今日石台'} ban_kuai2={'本部动态'}></MyTabs>
+        <MyTabs ban_kuai={'党建工作'} ban_kuai2={'干部人才'}></MyTabs>
         <Row>
           <Col lg={4}></Col>
           <Col lg={16}>
@@ -622,14 +622,28 @@ export default class App extends React.Component {
         <Row>
           <Col lg={4}></Col>
           <Col lg={16}>
-            <MyTabsSmall ban_kuai={this.state.ban_kuai6}></MyTabsSmall>
+            <MyTabsSmall ban_kuai={'基层动态'}></MyTabsSmall>
           </Col>
           <Col lg={4}></Col>
         </Row>
         <Row>
           <Col lg={4}></Col>
           <Col lg={16}>
-            <MyTabsSmall ban_kuai={this.state.ban_kuai7}></MyTabsSmall>
+            <MyTabsSmall ban_kuai={'选派选聘'}></MyTabsSmall>
+          </Col>
+          <Col lg={4}></Col>
+        </Row>
+        <Row>
+          <Col lg={4}></Col>
+          <Col lg={16}>
+            <MyTabsSmall ban_kuai={'远教电教'}></MyTabsSmall>
+          </Col>
+          <Col lg={4}></Col>
+        </Row>
+        <Row>
+          <Col lg={4}></Col>
+          <Col lg={16}>
+            <MyTabsSmall ban_kuai={'网上党校'}></MyTabsSmall>
           </Col>
           <Col lg={4}></Col>
         </Row>

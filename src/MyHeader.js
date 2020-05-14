@@ -133,7 +133,7 @@ export default class MyHeader extends React.Component {
                             height: '60px',
                             fontWeight: '900',
                             color: '#ffffff',
-                            backgroundColor: 'blue',
+                            backgroundColor: 'red',
                         }}
                     ></Col>
                     {this.state.head_menu_data.map((myitem) => {
@@ -146,7 +146,7 @@ export default class MyHeader extends React.Component {
                                     height: '60px',
                                     fontWeight: '900',
                                     color: '#ffffff',
-                                    backgroundColor: 'blue',
+                                    backgroundColor: 'red',
                                 }}
                             >
                                 <Dropdown overlay={(
@@ -155,7 +155,7 @@ export default class MyHeader extends React.Component {
                                         fontSize: '20px',
                                         fontWeight: '900',
                                         color: '#ffffff',
-                                        backgroundColor: 'blue',
+                                        backgroundColor: 'red',
                                     }}
                                     >
                                         {myitem.myMenu.map((subitem) => {
@@ -168,7 +168,7 @@ export default class MyHeader extends React.Component {
                                                             fontSize: '20px',
                                                             fontWeight: '900',
                                                             color: '#ffffff',
-                                                            backgroundColor: 'blue',
+                                                            backgroundColor: 'red',
                                                             borderColor: 'blue',
                                                         }}
                                                         target="_blank" rel="noopener noreferrer" href={subitem.subUrl}>
@@ -185,7 +185,7 @@ export default class MyHeader extends React.Component {
                                             fontSize: '20px',
                                             fontWeight: '900',
                                             color: '#ffffff',
-                                            backgroundColor: 'blue',
+                                            backgroundColor: 'red',
                                             borderColor: 'blue',
                                             textAlign: 'center',
                                         }}
@@ -200,7 +200,7 @@ export default class MyHeader extends React.Component {
                             height: '60px',
                             fontWeight: '900',
                             color: '#ffffff',
-                            backgroundColor: 'blue',
+                            backgroundColor: 'red',
                         }}
                     ></Col>
                 </Row>
