@@ -55,7 +55,7 @@ export default class BasicDemo extends React.Component {
                     'Content-Type': 'application/x-www-form-urlencoded'
                   },
                   method: 'post',
-                  url: 'https://wx.wuminmin.top/qyrd/rd_xia_zai_by_tittle',
+                  url: 'http://223.247.185.47:20001/qyrd/rd_xia_zai_by_tittle',
                   data: Qs.stringify(data)
                 }).then(function (response) {
                   console.log(response)
@@ -85,7 +85,7 @@ export default class BasicDemo extends React.Component {
                     'Content-Type': 'application/x-www-form-urlencoded'
                   },
                   method: 'post',
-                  url: 'https://wx.wuminmin.top/qyrd/delete_wz',
+                  url: 'http://223.247.185.47:20001/qyrd/delete_wz',
                   data: Qs.stringify(data)
                 }).then(function (response) {
                   console.log(response);
@@ -115,7 +115,7 @@ export default class BasicDemo extends React.Component {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'post',
-      url: 'https://wx.wuminmin.top/qyrd/get_header_menu_list_data2',
+      url: 'http://223.247.185.47:20001/qyrd/get_header_menu_list_data2',
     }).then(function (response) {
       console.log(response)
       self.setState({
@@ -159,7 +159,7 @@ export default class BasicDemo extends React.Component {
 
     const props2 = {
       name: 'file',
-      action: 'https://wx.wuminmin.top/qyrd/upload_img2',
+      action: 'http://223.247.185.47:20001/qyrd/upload_img2',
       data: { usertoken: this.state.usertoken, subname: this.state.subname, tittle: this.state.tittle },
       headers: {
         authorization: 'authorization-text',
@@ -198,7 +198,7 @@ export default class BasicDemo extends React.Component {
                   'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 method: 'post',
-                url: 'https://wx.wuminmin.top/qyrd/get_tablei_data_by_lanmu',
+                url: 'http://223.247.185.47:20001/qyrd/get_tablei_data_by_lanmu',
                 data: Qs.stringify(data2)
               }).then(function (response) {
                 console.log('get_tablei_data_by_lanmu---------------', response);
@@ -310,7 +310,7 @@ export default class BasicDemo extends React.Component {
                     'Content-Type': 'application/x-www-form-urlencoded'
                   },
                   method: 'post',
-                  url: 'https://wx.wuminmin.top/qyrd/rd_updata',
+                  url: 'http://223.247.185.47:20001/qyrd/rd_updata',
                   data: Qs.stringify(data)
                 }).then(function (response) {
                   console.log(response)

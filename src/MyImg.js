@@ -164,7 +164,7 @@ export default class MyImg extends React.Component {
                                         'Content-Type': 'application/x-www-form-urlencoded'
                                     },
                                     method: 'post',
-                                    url:'https://wx.wuminmin.top/wxyl/delete_img',
+                                    url:'http://223.247.185.47:20001/wxyl/delete_img',
                                     data: Qs.stringify(data)
                                 }).then(function (response) {
                                     console.log(response);

@@ -75,7 +75,7 @@ class MyMenu extends React.Component {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'post',
-            url: 'https://wx.wuminmin.top/qyrd/get_tablei_data_by_lanmu',
+            url: 'http://223.247.185.47:20001/qyrd/get_tablei_data_by_lanmu',
             data: Qs.stringify(data2)
         }).then(function (response) {
             console.log('get_tablei_data_by_lanmu---------------',response);
@@ -121,7 +121,7 @@ class MyMenu extends React.Component {
                                         'Content-Type': 'application/x-www-form-urlencoded'
                                     },
                                     method: 'post',
-                                    url: 'https://wx.wuminmin.top/qyrd/get_tablei_data_by_lanmu',
+                                    url: 'http://223.247.185.47:20001/qyrd/get_tablei_data_by_lanmu',
                                     data: Qs.stringify(data2)
                                 }).then(function (response) {
                                     console.log('get_tablei_data_by_lanmu---------------',response);
