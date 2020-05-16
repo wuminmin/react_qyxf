@@ -53,7 +53,7 @@ class MyMenu extends React.Component {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'post',
-            url: 'https://wx.wuminmin.top/qyrd/get_tablei_data_by_search',
+            url: 'http://223.247.193.223:18005/qyrd/get_tablei_data_by_search',
             data: Qs.stringify(data2)
         }).then(function (response) {
             console.log('get_tablei_data_by_lanmu---------------',response);
